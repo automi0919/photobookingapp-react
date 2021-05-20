@@ -64,5 +64,5 @@ export function ConfirmPackage({ appointmentData, setAppointmentData }) {
         )
     }
 
-  
+
 }

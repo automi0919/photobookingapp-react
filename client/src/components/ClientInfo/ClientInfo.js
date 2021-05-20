@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import API from '../../utils/API';
 
 export function ClientInfo({ appointmentData, setAppointmentData }) {
 
@@ -12,8 +13,6 @@ export function ClientInfo({ appointmentData, setAppointmentData }) {
                 [field]: value
             }
         })
-
-        console.log(appointmentData);
     }
 
     function handleRealtorChange(field, state) {
@@ -27,7 +26,9 @@ export function ClientInfo({ appointmentData, setAppointmentData }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        history.push('/book/confirm')
+        API.saveAppointment(appointmentData)
+            .then(res => history.push('/book/confirm'))
+            .catch((err) => console.log(err));
     }
     return (
         <div>
