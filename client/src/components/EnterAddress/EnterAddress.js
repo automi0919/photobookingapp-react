@@ -18,34 +18,44 @@ export function EnterAddress({ appointmentData, setAppointmentData }) {
     function handleSubmit(e) {
         e.preventDefault();
 
-        let options = {
-            method: 'GET',
-            url: 'https://mashvisor-api.p.rapidapi.com/property',
-            params: {
-                state: appointmentData.state,
-                zip_code: appointmentData.zip,
-                address: appointmentData.street,
-                city: appointmentData.city
-            },
-            headers: {
-                'x-rapidapi-key': 'a28485e035mshea53364c530bf58p1f6a19jsn9a5ad2a4ac17',
-                'x-rapidapi-host': 'mashvisor-api.p.rapidapi.com'
+        setAppointmentData(prevState => {
+            return {
+                ...prevState,
+                sq_ft: 1700
             }
-        };
-        // history.push('/book/select-date');
-        API.getAddress(options)
-            .then(res => {
-                setAppointmentData(prevState => {
-                    return {
-                        ...prevState,
-                        sq_ft: res.data.content.sqft
-                    }
-                })
-            })
-            .then(
-                history.push('/book/confirm-package')
-            )
-            .catch(err => console.log(err))
+        })
+
+        history.push('/book/confirm-package')
+
+
+        // let options = {
+        //     method: 'GET',
+        //     url: 'https://mashvisor-api.p.rapidapi.com/property',
+        //     params: {
+        //         state: appointmentData.state,
+        //         zip_code: appointmentData.zip,
+        //         address: appointmentData.street,
+        //         city: appointmentData.city
+        //     },
+        //     headers: {
+        //         'x-rapidapi-key': 'a28485e035mshea53364c530bf58p1f6a19jsn9a5ad2a4ac17',
+        //         'x-rapidapi-host': 'mashvisor-api.p.rapidapi.com'
+        //     }
+        // };
+        // // history.push('/book/select-date');
+        // API.getAddress(options)
+        //     .then(res => {
+        //         setAppointmentData(prevState => {
+        //             return {
+        //                 ...prevState,
+        //                 sq_ft: res.data.content.sqft
+        //             }
+        //         })
+        //     })
+        //     .then(
+        //         history.push('/book/confirm-package')
+        //     )
+        //     .catch(err => console.log(err))
     }
 
     return (
