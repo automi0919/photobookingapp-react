@@ -1,8 +1,9 @@
 const router = require("express").Router();
-const appointmentsController = require("../../controllers/appointmentsController");
+const appController = require("../../controllers/appointmentsController");
 
 // Matches with "/api/posts"
 router
-    .post(appointmentsController.create);
+.route('/')
+.post(appController.create);
 
 module.exports = router;
