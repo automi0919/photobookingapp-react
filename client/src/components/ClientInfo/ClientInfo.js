@@ -27,8 +27,8 @@ export function ClientInfo({ appointmentData, setAppointmentData }) {
     function handleSubmit(e) {
         e.preventDefault();
         API.saveAppointment(appointmentData)
-        // .then(res => history.push('/book/confirm'))
-        // .catch((err) => console.log(err));
+            .then(res => history.push('/book/confirm'))
+            .catch((err) => console.log(err));
     }
     return (
         <div>
