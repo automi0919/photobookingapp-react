@@ -1,0 +1,7 @@
+.booking-container {
+    background-color: gray;
+    height: fit-content;
+    width: 80vh;
+    border-radius: 20px;
+    padding: 20px;
+}
