@@ -35,9 +35,6 @@ function App() {
     price: ''
   })
 
-  console.log(appointmentData);
-
-
   return (
     <Router>
       <Switch>

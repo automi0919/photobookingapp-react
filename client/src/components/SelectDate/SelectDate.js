@@ -1,12 +1,12 @@
 import React from 'react'
 import './styles.css'
 import { useHistory } from 'react-router-dom';
+import API from '../../utils/API';
 
 export function SelectDate({ appointmentData, setAppointmentData }) {
 
     let history = useHistory();
 
-    console.log(appointmentData);
 
     function handleChange(field, value) {
         setAppointmentData(prevState => {
@@ -15,13 +15,20 @@ export function SelectDate({ appointmentData, setAppointmentData }) {
                 [field]: value
             }
         })
-        console.log(appointmentData);
     }
 
-    function handleSubmit(e){
+    function handleSubmit(e) {
         e.preventDefault();
         history.push('/book/select-time')
     }
+
+    // function handleSubmit(e) {
+    //     e.preventDefault();
+    //     API.getAppointments(appointmentData)
+    //         .then(res => console.log(res))
+    //         // .then(res => history.push('/book/select-time'))
+    //         .catch((err) => console.log(err));
+    // }
 
     return (
         <div>
