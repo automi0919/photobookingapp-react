@@ -2,15 +2,21 @@ import React, { useEffect } from 'react'
 import { useHistory } from 'react-router-dom';
 import API from '../../utils/API';
 
-const availability = ['9:00 - 10:30', '11:00 - 12:30', '1:00 - 2:30', '3:00 - 4:30', '5:00 - 6:30'];
-const appointments = ['11:00 - 12:30'];
+// const availability = ['9:00 - 10:30', '11:00 - 12:30', '1:00 - 2:30', '3:00 - 4:30', '5:00 - 6:30'];
+let appointments = [];
+let availabilityList = [];
 
-let availabilityList = availability.filter((slot) => !appointments.includes(slot));
+// let availabilityList = availability.filter((slot) => !appointments.includes(slot));
 
 export function SelectTime({ appointmentData, setAppointmentData }) {
 
     let history = useHistory();
 
+    function showAvailableSlots() {
+        const availability = ['9:00 - 10:30', '11:00 - 12:30', '1:00 - 2:30', '3:00 - 4:30', '5:00 - 6:30'];
+
+        return availabilityList = availability.filter((slot) => !appointments.includes(slot));
+    }
 
     function handleChange(field, value) {
         setAppointmentData(prevState => {
@@ -27,7 +33,9 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
 
     function getAppointments() {
         API.getAppointments(appointmentData)
-            .then(res => console.log(res.data));
+            .then((res) => appointments = res.data)
+            .then(console.log(appointments))
+            .then(showAvailableSlots);
     };
 
     useEffect(() => {
