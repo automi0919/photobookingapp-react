@@ -38,7 +38,7 @@ const appointmentSchema = new Schema(
       // required: "City is required"
     },
     date: {
-      type: Date
+      type: String
     },
     timeSlot: {
       type: String
