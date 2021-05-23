@@ -31,6 +31,7 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
 
     function getAppointments() {
         API.getAppointments(appointmentData)
+            // .then(res => console.log(res))
             .then((res) => setAppointments(res.data))
     };
 
@@ -41,28 +42,11 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
     }, []);
 
     // showAvailableSlots();
-
+    console.log(appointments);
     return (
         <div>
             <h1>Select a Time Slot</h1>
             <div className="choose-time-button-container">
-                {/* {!appointments ? <div>Loading...</div> :
-                    availabilityList.map((slot) =>
-                    (
-                        <>
-                            <input
-                                type="radio"
-                                id={slot}
-                                value={slot}
-                                name="appointmentSelection"
-                                onChange={(e) => handleChange("timeSlot", e.target.value)}
-                            />
-                            <span>{slot}</span>
-                        </>
-                    )
-                    )
-                } */}
-
                 {appointments ? availability.map((slot) => (
                     <>
                         <input
@@ -71,27 +55,11 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
                             value={slot}
                             name="appointmentSelection"
                             onChange={(e) => handleChange("timeSlot", e.target.value)}
+                            disabled={appointments.some(appt => appt === slot)}
                         />
                         <span>{slot}</span>
                     </>
                 )) : <div className="table-loading">Loading Appointment Data</div>}
-
-
-                {/* {availabilityList.map((slot) =>
-                (
-                    <>
-                        <input
-                            type="radio"
-                            id={slot}
-                            value={slot}
-                            name="appointmentSelection"
-                            onChange={(e) => handleChange("timeSlot", e.target.value)}
-                        />
-                        <span>{slot}</span>
-                    </>
-                )
-                )} */}
-
             </div>
             <button onClick={handleSubmit}>Book Appointment</button>
         </div>

@@ -7,8 +7,12 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   getAppointmentsByDate: function (req, res) {
-    db.Appointment.find( req.query )
-      .then(dbModel => res.json(dbModel))
+    db.Appointment.find(req.query, "-_id timeSlot")
+      .then(dbModel => {
+        let formattedDbModel = dbModel.map((slot) => slot.timeSlot)
+        res.json(formattedDbModel)
+      })
+      // .then(dbModel => res.json(formattedDbModel))
       .catch(err => res.status(422).json(err));
   }
 };
