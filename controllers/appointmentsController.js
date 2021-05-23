@@ -12,7 +12,6 @@ module.exports = {
         let formattedDbModel = dbModel.map((slot) => slot.timeSlot)
         res.json(formattedDbModel)
       })
-      // .then(dbModel => res.json(formattedDbModel))
       .catch(err => res.status(422).json(err));
   }
 };

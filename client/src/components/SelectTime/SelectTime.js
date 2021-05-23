@@ -8,13 +8,7 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
 
     const [appointments, setAppointments] = useState()
     const availability = ['9:00 - 10:30', '11:00 - 12:30', '1:00 - 2:30', '3:00 - 4:30', '5:00 - 6:30'];
-    let availabilityList = [];
     let history = useHistory();
-
-    // function showAvailableSlots() {
-    //     // console.log(appointments);
-    //     const availabilityList = availability.filter(slot => appointments.date !== slot);
-    // }
 
     function handleChange(field, value) {
         setAppointmentData(prevState => {
@@ -31,7 +25,6 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
 
     function getAppointments() {
         API.getAppointments(appointmentData)
-            // .then(res => console.log(res))
             .then((res) => setAppointments(res.data))
     };
 
@@ -41,8 +34,6 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
         getAppointments();
     }, []);
 
-    // showAvailableSlots();
-    console.log(appointments);
     return (
         <div>
             <h1>Select a Time Slot</h1>
