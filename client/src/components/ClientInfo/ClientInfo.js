@@ -75,7 +75,7 @@ export function ClientInfo({ appointmentData, setAppointmentData }) {
                         /> */}
                     </form>
                     <div className="button-wrapper">
-                        <button id="back-button">Back</button>
+                        <button id="back-button" onClick={() => history.goBack()}>BACK</button>
                         <button onClick={handleSubmit}>NEXT STEP</button>
                     </div>
                 </div>

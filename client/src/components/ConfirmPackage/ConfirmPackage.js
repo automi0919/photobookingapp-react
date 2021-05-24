@@ -42,6 +42,10 @@ export function ConfirmPackage({ appointmentData, setAppointmentData }) {
         history.push('/book/select-date')
     }
 
+    // function handleBackButton() {
+    //     history.push
+    // }
+
     // console.log(appointmentData.package)
 
     if (!appointmentData.sq_ft) {
@@ -66,8 +70,8 @@ export function ConfirmPackage({ appointmentData, setAppointmentData }) {
 
                         </div>
                         <div className="button-wrapper">
-                            <button id="back-button">Back</button>
-                            <button onClick={handleConfirmation}>Confirm</button>
+                            <button id="back-button" onClick={() => history.goBack()}>BACK</button>
+                            <button onClick={handleConfirmation}>NEXT STEP</button>
                         </div>
                     </div>
                 </div>

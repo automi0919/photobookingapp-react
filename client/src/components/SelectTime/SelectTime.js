@@ -58,8 +58,8 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
                         )) : <div className="table-loading">Loading Appointment Data</div>}
                     </div>
                     <div className="button-wrapper">
-                        <button id="back-button">Back</button>
-                        <button onClick={handleSubmit}>Book Appointment</button>
+                        <button id="back-button" onClick={() => history.goBack()}>BACK</button>
+                        <button onClick={handleSubmit}>NEXT STEP</button>
                     </div>
                 </div>
             </div>
