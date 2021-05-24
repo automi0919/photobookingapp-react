@@ -35,13 +35,20 @@ export function ClientInfo({ appointmentData, setAppointmentData }) {
         <div className="page-wrapper">
             <div className="book-wrapper">
                 <div className="left-third">
-                    <CurrentStep />
+                    <div className="current-step-wrapper">
+                        <div className="step active">1</div>
+                        <div className="step active">2</div>
+                        <div className="step active">3</div>
+                        <div className="step active">4</div>
+                        <div className="step active">5</div>
+                        <div className="step">6</div>
+                    </div>
                 </div>
                 <div className="right-two-thirds">
                     <div>
                         <h1>Enter Your Details</h1>
                     </div>
-                    <form>
+                    <form className="client-info">
                         <input
                             type="text"
                             name="firstName"

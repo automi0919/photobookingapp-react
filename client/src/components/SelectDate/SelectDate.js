@@ -36,13 +36,20 @@ export function SelectDate({ appointmentData, setAppointmentData }) {
         <div className="page-wrapper">
             <div className="book-wrapper">
                 <div className="left-third">
-                    <CurrentStep />
+                    <div className="current-step-wrapper">
+                        <div className="step active">1</div>
+                        <div className="step active">2</div>
+                        <div className="step active">3</div>
+                        <div className="step">4</div>
+                        <div className="step">5</div>
+                        <div className="step">6</div>
+                    </div>
                 </div>
                 <div className="right-two-thirds">
                     <div className="header">
                         <h1>Select a Date</h1>
                     </div>
-                    <form>
+                    <form className="select-date">
                         <input
                             type="date"
                             onChange={(e) => handleChange('date', e.target.value)}

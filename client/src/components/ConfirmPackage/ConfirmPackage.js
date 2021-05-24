@@ -49,35 +49,35 @@ export function ConfirmPackage({ appointmentData, setAppointmentData }) {
 
     // console.log(appointmentData.package)
 
-    if (!appointmentData.sq_ft) {
-        return (
-            <div>
-                <h1>Getting Home Data...</h1>
-            </div>
-        )
-    } else {
-        return (
-            <div className='page-wrapper'>
-                <div className="book-wrapper">
-                    <div className="left-third">
-                        <CurrentStep />
+
+    return (
+        <div className='page-wrapper'>
+            <div className="book-wrapper">
+                <div className="left-third">
+                    <div className="current-step-wrapper">
+                        <div className="step active">1</div>
+                        <div className="step active">2</div>
+                        <div className="step">3</div>
+                        <div className="step">4</div>
+                        <div className="step">5</div>
+                        <div className="step">6</div>
                     </div>
-                    <div className="right-two-thirds">
-                        <div className="header">
-                            <h1>Confirm Your Package</h1>
-                        </div>
-                        <div>
-                            <h2>That property is {appointmentData.sq_ft} square feet which is {appointmentData.price}.</h2>
-                        </div>
-                        <div className="button-wrapper">
-                            <button id="back-button" onClick={() => history.goBack()}>BACK</button>
-                            <button onClick={handleConfirmation}>NEXT STEP</button>
-                        </div>
+                </div>
+                <div className="right-two-thirds">
+                    <div className="header">
+                        <h1>Confirm Your Package</h1>
+                    </div>
+                    <div>
+                        {!appointmentData.sq_ft ? <h2>Loading Property Data...</h2> : <h2>That property is {appointmentData.sq_ft} square feet which is {appointmentData.price}.</h2>}
+                    </div>
+                    <div className="button-wrapper">
+                        <button id="back-button" onClick={() => history.goBack()}>BACK</button>
+                        <button onClick={handleConfirmation}>NEXT STEP</button>
                     </div>
                 </div>
             </div>
-        )
-    }
-
-
+        </div>
+    )
 }
+
+
