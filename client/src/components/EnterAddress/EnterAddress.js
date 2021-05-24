@@ -147,7 +147,9 @@ export function EnterAddress({ appointmentData, setAppointmentData }) {
                             />
                         </div>
                     </form>
+                    <div className="button-wrapper">
                     <button onClick={handleSubmit}>NEXT STEP</button>
+                    </div>
                 </div>
             </div>
         </div>
