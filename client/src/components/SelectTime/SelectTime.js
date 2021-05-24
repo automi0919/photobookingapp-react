@@ -35,24 +35,34 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
     }, []);
 
     return (
-        <div>
-            <h1>Select a Time Slot</h1>
-            <div className="choose-time-button-container">
-                {appointments ? availability.map((slot) => (
-                    <>
-                        <input
-                            type="radio"
-                            id={slot}
-                            value={slot}
-                            name="appointmentSelection"
-                            onChange={(e) => handleChange("timeSlot", e.target.value)}
-                            disabled={appointments.some(appt => appt === slot)}
-                        />
-                        <span>{slot}</span>
-                    </>
-                )) : <div className="table-loading">Loading Appointment Data</div>}
+        <div className="page-wrapper">
+            <div className="book-wrapper">
+                <div className="left-third">
+
+                </div>
+                <div className="right-two-thirds">
+                    <h1>Select a Time Slot</h1>
+                    <div className="choose-time-button-container">
+                        {appointments ? availability.map((slot) => (
+                            <>
+                                <input
+                                    type="radio"
+                                    id={slot}
+                                    value={slot}
+                                    name="appointmentSelection"
+                                    onChange={(e) => handleChange("timeSlot", e.target.value)}
+                                    disabled={appointments.some(appt => appt === slot)}
+                                />
+                                <span>{slot}</span>
+                            </>
+                        )) : <div className="table-loading">Loading Appointment Data</div>}
+                    </div>
+                    <div className="button-wrapper">
+                        <button id="back-button">Back</button>
+                        <button onClick={handleSubmit}>Book Appointment</button>
+                    </div>
+                </div>
             </div>
-            <button onClick={handleSubmit}>Book Appointment</button>
         </div>
     )
 }

@@ -31,44 +31,55 @@ export function ClientInfo({ appointmentData, setAppointmentData }) {
             .catch((err) => console.log(err));
     }
     return (
-        <div>
-            <div>
-                <h1>Enter Your Details</h1>
+        <div className="page-wrapper">
+            <div className="book-wrapper">
+                <div className="left-third">
+
+                </div>
+                <div className="right-two-thirds">
+                    <div>
+                        <h1>Enter Your Details</h1>
+                    </div>
+                    <form>
+                        <input
+                            type="text"
+                            name="firstName"
+                            id="firstName"
+                            placeholder="Enter your first name"
+                            onChange={(e) => handleChange("firstName", e.target.value)}
+                        />
+                        <input
+                            type="text"
+                            name="lastName"
+                            id="lastName"
+                            placeholder="Enter your last name"
+                            onChange={(e) => handleChange("lastName", e.target.value)}
+                        />
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            onChange={(e) => handleChange("email", e.target.value)}
+                        />
+                        <input
+                            type="checkbox"
+                            name="realtor"
+                            id="realtor"
+                            onChange={(e) => handleRealtorChange("realtor", e.target.checked)}
+                        />
+                        <span>Are you a realtor?</span>
+                        {/* <input
+                            type="submit"
+                            value="Book Appointment"
+                        /> */}
+                    </form>
+                    <div className="button-wrapper">
+                        <button id="back-button">Back</button>
+                        <button onClick={handleSubmit}>NEXT STEP</button>
+                    </div>
+                </div>
             </div>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name="firstName"
-                    id="firstName"
-                    placeholder="Enter your first name"
-                    onChange={(e) => handleChange("firstName", e.target.value)}
-                />
-                <input
-                    type="text"
-                    name="lastName"
-                    id="lastName"
-                    placeholder="Enter your last name"
-                    onChange={(e) => handleChange("lastName", e.target.value)}
-                />
-                <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="Enter your email"
-                    onChange={(e) => handleChange("email", e.target.value)}
-                />
-                <input
-                    type="checkbox"
-                    name="realtor"
-                    id="realtor"
-                    onChange={(e) => handleRealtorChange("realtor", e.target.checked)}
-                />
-                <span>Are you a realtor?</span>
-                <input
-                    type="submit"
-                    value="Book Appointment"
-                />
-            </form>
         </div>
     )
 }

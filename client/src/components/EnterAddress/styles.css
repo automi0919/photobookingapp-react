@@ -119,3 +119,13 @@ button:hover {
     justify-content: flex-end;
 }
 
+.date-picker-wrapper {
+
+}
+
+#back-button {
+    background: #f3f3f3;
+    color: black;
+    border: 2px solid;
+}
+

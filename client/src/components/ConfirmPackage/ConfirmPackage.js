@@ -52,13 +52,24 @@ export function ConfirmPackage({ appointmentData, setAppointmentData }) {
         )
     } else {
         return (
-            <div>
-                <div>
-                    <h1>Confirm Your Package</h1>
-                </div>
-                <div>
-                    <h3>That property is {appointmentData.sq_ft} square feet which is {appointmentData.price}.</h3>
-                    <button onClick={handleConfirmation}>Confirm</button>
+            <div className='page-wrapper'>
+                <div className="book-wrapper">
+                    <div className="left-third">
+
+                    </div>
+                    <div className="right-two-thirds">
+                        <div className="header">
+                            <h1>Confirm Your Package</h1>
+                        </div>
+                        <div>
+                            <h2>That property is {appointmentData.sq_ft} square feet which is {appointmentData.price}.</h2>
+
+                        </div>
+                        <div className="button-wrapper">
+                            <button id="back-button">Back</button>
+                            <button onClick={handleConfirmation}>Confirm</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         )

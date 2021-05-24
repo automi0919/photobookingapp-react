@@ -2,6 +2,7 @@ import React from 'react'
 import './styles.css'
 import { useHistory } from 'react-router-dom';
 import API from '../../utils/API';
+import './styles.css';
 
 export function SelectDate({ appointmentData, setAppointmentData }) {
 
@@ -31,18 +32,33 @@ export function SelectDate({ appointmentData, setAppointmentData }) {
     // }
 
     return (
-        <div>
-            <h1>Select a Date</h1>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="date"
-                    onChange={(e) => handleChange('date', e.target.value)}
-                />
-                <input
-                    type="Submit"
-                    value="Choose Date"
-                />
-            </form>
+        <div className="page-wrapper">
+            <div className="book-wrapper">
+                <div className="left-third">
+
+                </div>
+                <div className="right-two-thirds">
+                    <div className="header">
+                        <h1>Select a Date</h1>
+                    </div>
+
+                    <form>
+                        <input
+                            type="date"
+                            onChange={(e) => handleChange('date', e.target.value)}
+                        />
+                        {/* <input
+                            type="Submit"
+                            value="Choose Date"
+                        /> */}
+                    </form>
+                    <div className="button-wrapper">
+                        <button id="back-button">Back</button>
+                        <button onClick={handleSubmit}>Confirm</button>
+                    </div>
+
+                </div>
+            </div>
         </div>
     )
 }
