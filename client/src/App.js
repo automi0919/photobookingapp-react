@@ -5,7 +5,7 @@ import { Confirmation } from './components/Confirmation/Confirmation';
 import { SelectDate } from './components/SelectDate/SelectDate';
 import { SelectTime } from './components/SelectTime/SelectTime';
 import { ClientInfo } from './components/ClientInfo/ClientInfo';
-import { ConfirmPackage } from './components/ConfirmPackage/ConfirmPackage'; 
+import { ConfirmPackage } from './components/ConfirmPackage/ConfirmPackage';
 import { Dashboard } from './screens/Dashboard/Dashboard';
 import { Login } from './screens/Login/Login';
 import { Signup } from './screens/Signup/Signup';
@@ -15,7 +15,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-
+import Normalize from 'react-normalize';
 
 
 function App() {
@@ -37,6 +37,7 @@ function App() {
 
   return (
     <Router>
+      <Normalize />
       <Switch>
         <Route path="/login">
           <Login />
