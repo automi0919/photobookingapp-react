@@ -59,7 +59,6 @@ export function ConfirmPackage({ appointmentData, setAppointmentData }) {
             <div className='page-wrapper'>
                 <div className="book-wrapper">
                     <div className="left-third">
-
                     </div>
                     <div className="right-two-thirds">
                         <div className="header">
@@ -67,7 +66,6 @@ export function ConfirmPackage({ appointmentData, setAppointmentData }) {
                         </div>
                         <div>
                             <h2>That property is {appointmentData.sq_ft} square feet which is {appointmentData.price}.</h2>
-
                         </div>
                         <div className="button-wrapper">
                             <button id="back-button" onClick={() => history.goBack()}>BACK</button>

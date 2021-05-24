@@ -38,7 +38,6 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
         <div className="page-wrapper">
             <div className="book-wrapper">
                 <div className="left-third">
-
                 </div>
                 <div className="right-two-thirds">
                     <h1>Select a Time Slot</h1>

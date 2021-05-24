@@ -2,6 +2,8 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import API from '../../utils/API';
 import './styles.css';
+import { CurrentStep } from '../CurrentStep/CurrentStep';
+
 export function EnterAddress({ appointmentData, setAppointmentData }) {
 
     let history = useHistory();
@@ -62,9 +64,7 @@ export function EnterAddress({ appointmentData, setAppointmentData }) {
         <div className="page-wrapper">
             <div className="book-wrapper">
                 <div className="left-third">
-                    <div>
-
-                    </div>
+                    <CurrentStep />
                 </div>
                 <div className="right-two-thirds">
                     <div className="header">

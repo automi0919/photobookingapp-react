@@ -35,28 +35,21 @@ export function SelectDate({ appointmentData, setAppointmentData }) {
         <div className="page-wrapper">
             <div className="book-wrapper">
                 <div className="left-third">
-
                 </div>
                 <div className="right-two-thirds">
                     <div className="header">
                         <h1>Select a Date</h1>
                     </div>
-
                     <form>
                         <input
                             type="date"
                             onChange={(e) => handleChange('date', e.target.value)}
                         />
-                        {/* <input
-                            type="Submit"
-                            value="Choose Date"
-                        /> */}
                     </form>
                     <div className="button-wrapper">
                         <button id="back-button" onClick={() => history.goBack()}>BACK</button>
                         <button onClick={handleSubmit}>NEXT STEP</button>
                     </div>
-
                 </div>
             </div>
         </div>

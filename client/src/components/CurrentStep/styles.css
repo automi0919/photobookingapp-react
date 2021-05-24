@@ -1,0 +1,15 @@
+p {
+    color: white;
+    border: 1px white solid;
+    border-radius: 20px;
+}
+
+.current-step-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* height: -webkit-fill-available; */
+    /* max-block-size: -webkit-fill-available; */
+    text-align: center;
+    height: 100%;
+}

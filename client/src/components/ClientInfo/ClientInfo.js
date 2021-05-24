@@ -34,7 +34,6 @@ export function ClientInfo({ appointmentData, setAppointmentData }) {
         <div className="page-wrapper">
             <div className="book-wrapper">
                 <div className="left-third">
-
                 </div>
                 <div className="right-two-thirds">
                     <div>
@@ -69,10 +68,6 @@ export function ClientInfo({ appointmentData, setAppointmentData }) {
                             onChange={(e) => handleRealtorChange("realtor", e.target.checked)}
                         />
                         <span>Are you a realtor?</span>
-                        {/* <input
-                            type="submit"
-                            value="Book Appointment"
-                        /> */}
                     </form>
                     <div className="button-wrapper">
                         <button id="back-button" onClick={() => history.goBack()}>BACK</button>

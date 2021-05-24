@@ -6,7 +6,6 @@ export function Confirmation({ appointmentData }) {
         <div className="page-wrapper">
             <div className="book-wrapper">
                 <div className="left-third">
-
                 </div>
                 <div className="right-two-thirds">
                     <div>
@@ -17,7 +16,6 @@ export function Confirmation({ appointmentData }) {
                         <p>Address: {appointmentData.street} {appointmentData.city} {appointmentData.state} {appointmentData.zip}</p>
                     </div>
                 </div>
-
             </div>
         </div>
     )
