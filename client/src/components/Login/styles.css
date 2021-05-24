@@ -1,0 +1,16 @@
+.LoginForm-wrapper {
+    display: flex;
+    flex-direction: column;
+    /* width: inherit; */
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form-form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding-bottom: 40px;
+    padding-top: 40px;
+}
