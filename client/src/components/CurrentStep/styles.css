@@ -1,7 +1,16 @@
-p {
-    color: white;
-    border: 1px white solid;
-    border-radius: 20px;
+.step {
+    font: 13px Arial, sans-serif;
+    width: 2em;
+    height: 2em;
+    box-sizing: initial;
+    /* background: #fff; */
+    border: 0.1em solid #f3f3f3;
+    color: #f3f3f3;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 2em;
+    box-sizing: content-box;
+    margin: 10px; 
 }
 
 .current-step-wrapper {
@@ -12,4 +21,9 @@ p {
     /* max-block-size: -webkit-fill-available; */
     text-align: center;
     height: 100%;
+}
+
+.active {
+    background-color: #f3f3f3;
+    color: #03256C;
 }

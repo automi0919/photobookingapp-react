@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import API from '../../utils/API';
-
+import { CurrentStep } from '../CurrentStep/CurrentStep';
 
 
 export function SelectTime({ appointmentData, setAppointmentData }) {
@@ -38,6 +38,7 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
         <div className="page-wrapper">
             <div className="book-wrapper">
                 <div className="left-third">
+                    <CurrentStep />
                 </div>
                 <div className="right-two-thirds">
                     <h1>Select a Time Slot</h1>

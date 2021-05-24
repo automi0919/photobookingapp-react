@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import API from '../../utils/API';
+import { CurrentStep } from '../CurrentStep/CurrentStep';
 
 export function ClientInfo({ appointmentData, setAppointmentData }) {
 
@@ -34,6 +35,7 @@ export function ClientInfo({ appointmentData, setAppointmentData }) {
         <div className="page-wrapper">
             <div className="book-wrapper">
                 <div className="left-third">
+                    <CurrentStep />
                 </div>
                 <div className="right-two-thirds">
                     <div>

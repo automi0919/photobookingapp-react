@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { CurrentStep } from '../CurrentStep/CurrentStep';
 
 export function ConfirmPackage({ appointmentData, setAppointmentData }) {
 
@@ -59,6 +60,7 @@ export function ConfirmPackage({ appointmentData, setAppointmentData }) {
             <div className='page-wrapper'>
                 <div className="book-wrapper">
                     <div className="left-third">
+                        <CurrentStep />
                     </div>
                     <div className="right-two-thirds">
                         <div className="header">

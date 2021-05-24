@@ -3,6 +3,7 @@ import './styles.css'
 import { useHistory } from 'react-router-dom';
 import API from '../../utils/API';
 import './styles.css';
+import { CurrentStep } from '../CurrentStep/CurrentStep';
 
 export function SelectDate({ appointmentData, setAppointmentData }) {
 
@@ -35,6 +36,7 @@ export function SelectDate({ appointmentData, setAppointmentData }) {
         <div className="page-wrapper">
             <div className="book-wrapper">
                 <div className="left-third">
+                    <CurrentStep />
                 </div>
                 <div className="right-two-thirds">
                     <div className="header">
