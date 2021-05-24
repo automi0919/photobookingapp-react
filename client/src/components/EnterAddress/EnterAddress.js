@@ -69,6 +69,7 @@ export function EnterAddress({ appointmentData, setAppointmentData }) {
                 <div className="right-two-thirds">
                     <div className="header">
                         <h1>Enter The Property Address</h1>
+                        <h3>Our system will lookup the square footage and automatically apply the correct package.</h3>
                     </div>
                     <form>
                         <div className="street-input">
@@ -87,6 +88,7 @@ export function EnterAddress({ appointmentData, setAppointmentData }) {
                                 onChange={(e) => handleChange("city", e.target.value)}
                             />
                             <select onChange={(e) => handleChange("state", e.target.value)}>
+                                <option selected disabled default value="State">State</option>
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
                                 <option value="AZ">Arizona</option>
@@ -148,7 +150,7 @@ export function EnterAddress({ appointmentData, setAppointmentData }) {
                         </div>
                     </form>
                     <div className="button-wrapper">
-                    <button onClick={handleSubmit}>NEXT STEP</button>
+                        <button onClick={handleSubmit}>NEXT STEP</button>
                     </div>
                 </div>
             </div>

@@ -16,10 +16,16 @@
     height: 100%;
     /* background-color: #f3f3f3; */
     border-radius: 0px 20px 20px 0px;
+    padding-right: 30px;
+    padding-left: 30px;
 }
 
 h1 {
     font-size: 30px;
+}
+
+h3 {
+    font-weight: light;
 }
 
 input, select {
@@ -28,9 +34,10 @@ input, select {
     border-radius: 10px; */
     margin-top: 30px;
     margin-bottom: 30px;
-    text-align: center;
+    /* text-align: center; */
     border:none;
     border-bottom: 1px solid #081c30;
+    color: gray;
 }
 
 input:focus {
@@ -102,12 +109,13 @@ button:hover {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 50px;
 }
 
 .button-wrapper {
     display: flex;
     width: 80%;
-    margin-top: 50px;
+    /* margin-top: 50px; */
     justify-content: flex-end;
 }
 
