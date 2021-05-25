@@ -21,8 +21,8 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   loginUser: function (req, res) {
-    db.User.findOne({ email: 'mknowlton89@gmail.com' })
+    db.User.find()
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  },
+  }
 };

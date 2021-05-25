@@ -3,7 +3,8 @@ const appController = require("../../controllers/appointmentsController");
 
 // Matches with "/api/appointments"
 router
-.route('/')
-.post(appController.createNewUser)
+    .route('/')
+    .post(appController.create)
+    .get(appController.getAppointmentsByDate)
 
 module.exports = router;

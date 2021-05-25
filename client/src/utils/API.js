@@ -18,6 +18,6 @@ export default {
     return axios.post("/api/users", newUser);
   },
   loginUser: function (userData) {
-    return axios.get("/api/users", userData)
+    return axios.get("/api/users/");
   }
 }

@@ -41,10 +41,10 @@ function App() {
       <UserContext.Provider>
         <Normalize />
         <Switch>
-          <Route path="/login">
+          <Route exact path="/login">
             <Login />
           </Route>
-          <Route path="/signup">
+          <Route exact path="/signup">
             <Signup />
           </Route>
           <Route exact path="/book">
@@ -65,7 +65,7 @@ function App() {
           <Route exact path="/book/confirm">
             <Confirmation appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
           </Route>
-          <Route path="/dashboard">
+          <Route exact path="/dashboard">
             <Dashboard />
           </Route>
         </Switch>

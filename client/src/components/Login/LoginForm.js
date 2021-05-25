@@ -22,7 +22,7 @@ export function LoginForm() {
 
     const handleSubmit = () => {
         API.loginUser(userData)
-            .then(res => console.log(res))
+            .then(res => console.log(res.data))
     }
 
     console.log(userData);
