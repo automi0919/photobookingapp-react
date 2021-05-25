@@ -38,7 +38,7 @@ function App() {
 
   return (
     <Router>
-      <UserContext.Provider>
+      {/* <UserContext.Provider> */}
         <Normalize />
         <Switch>
           <Route exact path="/login">
@@ -69,7 +69,7 @@ function App() {
             <Dashboard />
           </Route>
         </Switch>
-      </UserContext.Provider>
+      {/* </UserContext.Provider> */}
     </Router>
   );
 }

@@ -5,14 +5,14 @@ import API from "../../utils/API";
 
 export function LoginForm() {
 
-    const [userData, setUserData] = useState({
+    const [userLoginData, setUserLoginData] = useState({
         email: '',
         password: '',
         authenticated: false
     })
 
     const handleChange = (field, value) => {
-        setUserData(prevState => {
+        setUserLoginData(prevState => {
             return {
                 ...prevState,
                 [field]: value
@@ -21,11 +21,11 @@ export function LoginForm() {
     }
 
     const handleSubmit = () => {
-        API.loginUser(userData)
+        API.loginUser(userLoginData)
             .then(res => console.log(res.data))
     }
 
-    console.log(userData);
+    // console.log(userLoginData);
 
     return (
         <div className="LoginForm-wrapper">
