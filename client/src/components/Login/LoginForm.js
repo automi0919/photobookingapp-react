@@ -8,7 +8,7 @@ export function LoginForm() {
                 <input type="text" placeholder="Username/Email" />
                 <input type="password" placeholder="Password" />
             </form>
-            <button>Submit</button>
+            <button>Log In</button>
         </div>
     )
 }

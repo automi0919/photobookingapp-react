@@ -1,11 +1,12 @@
-.LoginForm-wrapper {
+.SignUpForm-wrapper {
     display: flex;
     flex-direction: column;
+    /* width: inherit; */
     justify-content: center;
     align-items: center;
 }
 
-.login-form-form {
+.signup-form-form {
     display: flex;
     flex-direction: column;
     width: 300px;
