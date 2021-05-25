@@ -39,36 +39,36 @@ function App() {
   return (
     <Router>
       {/* <UserContext.Provider> */}
-        <Normalize />
-        <Switch>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/signup">
-            <Signup />
-          </Route>
-          <Route exact path="/book">
-            <EnterAddress appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
-          </Route>
-          <Route exact path="/book/confirm-package">
-            <ConfirmPackage appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
-          </Route>
-          <Route exact path="/book/select-date">
-            <SelectDate appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
-          </Route>
-          <Route exact path="/book/select-time">
-            <SelectTime appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
-          </Route>
-          <Route exact path="/book/add-info">
-            <ClientInfo appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
-          </Route>
-          <Route exact path="/book/confirm">
-            <Confirmation appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
-          </Route>
-          <Route exact path="/dashboard">
-            <Dashboard />
-          </Route>
-        </Switch>
+      <Normalize />
+      <Switch>
+        <Route exact path="/login">
+          <Login />
+        </Route>
+        <Route exact path="/signup">
+          <Signup />
+        </Route>
+        <Route exact path="/book">
+          <EnterAddress appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
+        </Route>
+        <Route exact path="/book/confirm-package">
+          <ConfirmPackage appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
+        </Route>
+        <Route exact path="/book/select-date">
+          <SelectDate appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
+        </Route>
+        <Route exact path="/book/select-time">
+          <SelectTime appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
+        </Route>
+        <Route exact path="/book/add-info">
+          <ClientInfo appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
+        </Route>
+        <Route exact path="/book/confirm">
+          <Confirmation appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
+        </Route>
+        <Route exact path="/dashboard">
+          <Dashboard />
+        </Route>
+      </Switch>
       {/* </UserContext.Provider> */}
     </Router>
   );
