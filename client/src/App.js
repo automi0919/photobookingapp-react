@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import AppointmentContext from './utils/AppointmentContext';
 import { EnterAddress } from "./components/EnterAddress/EnterAddress";
 import { Confirmation } from './components/Confirmation/Confirmation';
 import { SelectDate } from './components/SelectDate/SelectDate';
@@ -17,10 +16,9 @@ import {
 } from "react-router-dom";
 import Normalize from 'react-normalize';
 
-
 function App() {
   const [appointmentData, setAppointmentData] = useState({
-    street: 'Test',
+    street: '',
     city: '',
     state: '',
     zip: '',
