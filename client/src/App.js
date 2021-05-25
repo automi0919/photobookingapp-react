@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { EnterAddress } from "./components/EnterAddress/EnterAddress";
 import { Confirmation } from './components/Confirmation/Confirmation';
 import { SelectDate } from './components/SelectDate/SelectDate';
@@ -18,12 +18,7 @@ import {
 import Normalize from 'react-normalize';
 
 function App() {
-  const [userData, setUserData] = useState({
-    email: "",
-    password: "",
-    authenticated: false,
-    user_id: ""
-  });
+  // const [userData, setUserData] = useContext(UserContext);
 
   const [appointmentData, setAppointmentData] = useState({
     street: '',
@@ -43,7 +38,7 @@ function App() {
 
   return (
     <Router>
-      <UserContext.Provider userData={userData} setUserData={setUserData}>
+      <UserContext.Provider>
         <Normalize />
         <Switch>
           <Route path="/login">

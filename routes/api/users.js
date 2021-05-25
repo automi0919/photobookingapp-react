@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const appController = require("../../controllers/appointmentsController");
 
-// Matches with "/api/appointments"
+// Matches with "/api/users"
 router
     .route('/')
     .post(appController.createNewUser)
