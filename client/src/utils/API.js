@@ -17,7 +17,11 @@ export default {
   createNewUser: function (newUser) {
     return axios.post("/api/users", newUser);
   },
-  loginUser: function (userData) {
-    return axios.get("/api/users/");
+  loginUser: function (userLoginData) {
+    return axios.get("/api/users/", {
+      params: {
+        email: userLoginData.email
+      }
+    });
   }
 }
