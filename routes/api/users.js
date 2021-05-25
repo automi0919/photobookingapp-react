@@ -3,7 +3,7 @@ const appController = require("../../controllers/appointmentsController");
 
 // Matches with "/api/appointments"
 router
-.route('/')
-.post(appController.createNewUser)
+    .route('/')
+    .post(appController.createNewUser)
 
 module.exports = router;

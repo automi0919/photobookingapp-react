@@ -13,5 +13,8 @@ export default {
         date: appointmentData.date
       }
     });
+  },
+  createNewUser: function (newUser) {
+    return axios.post("/api/users", newUser);
   }
 }
