@@ -5,5 +5,6 @@ const appController = require("../../controllers/appointmentsController");
 router
     .route('/')
     .post(appController.createNewUser)
+    .get(appController.loginUser)
 
 module.exports = router;
