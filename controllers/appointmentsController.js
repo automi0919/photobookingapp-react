@@ -1,4 +1,5 @@
 const db = require("../models");
+const { getMaxListeners } = require("../models/appointment");
 
 module.exports = {
   create: function (req, res) {
@@ -18,5 +19,10 @@ module.exports = {
     db.User.create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  }
+  },
+  loginUser: function (req, res) {
+    db.User.findOne({ email: 'mknowlton89@gmail.com' })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
 };

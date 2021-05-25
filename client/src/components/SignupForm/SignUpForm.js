@@ -19,8 +19,6 @@ export function SignUpForm({ newUser, setNewUser }) {
             .then(res => console.log(res))
     }
 
-    // console.log(newUser)
-
     return (
         <div className="SignUpForm-wrapper">
             <form className="signup-form-form">
@@ -29,7 +27,6 @@ export function SignUpForm({ newUser, setNewUser }) {
                 <input onChange={(e) => handleChange("businessName", e.target.value)} type="text" placeholder="Business Name" />
                 <input onChange={(e) => handleChange("email", e.target.value)} type="text" placeholder="Email" />
                 <input onChange={(e) => handleChange("password", e.target.value)} type="password" placeholder="Password" />
-                {/* <input onChange={(e) => handleChange("passwordConfirmation", e.target.value)} type="password" placeholder="Confirm Password" /> */}
             </form>
             <button onClick={handleSubmit}>Create Account</button>
         </div>

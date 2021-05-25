@@ -1,21 +1,39 @@
-import React from 'react'
+import React, { useState } from "react";
+import UserContext from "../../utils/UserContext";
 import './styles.css'
 import API from "../../utils/API";
 
-const handleSubmit = () => {
-    API.loginUser()
-        .then(res => console.log(res))
-}
+export function LoginForm() {
 
-export function LoginForm({ userData, seUserData }) {
+    const [userData, setUserData] = useState({
+        email: '',
+        password: '',
+        authenticated: false
+    })
+
+    const handleChange = (field, value) => {
+        setUserData(prevState => {
+            return {
+                ...prevState,
+                [field]: value
+            }
+        })
+    }
+
+    const handleSubmit = () => {
+        API.loginUser(userData)
+            .then(res => console.log(res))
+    }
+
     console.log(userData);
+
     return (
         <div className="LoginForm-wrapper">
             <form className="login-form-form">
-                <input type="text" placeholder="Username/Email" />
-                <input type="password" placeholder="Password" />
+                <input onChange={(e) => handleChange("email", e.target.value)} type="text" placeholder="Username/Email" />
+                <input onChange={(e) => handleChange("password", e.target.value)} type="password" placeholder="Password" />
             </form>
-            <button onSubmit={handleSubmit}>Log In</button>
+            <button onClick={handleSubmit}>Log In</button>
         </div>
     )
 }
