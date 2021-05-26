@@ -21,24 +21,18 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  // loginUser: function (req, res) {
-  //   db.User.findOne({ email: req.query.email })
-  //     .then(db.User.comparePassword(req.query.password, function (matchError, isMatch)))
-  //     // .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // }
   loginUser: function (req, callback) {
     UserModel.findOne({ email: req.query.email }).exec(function (error, user) {
       if (error) {
-        callback.json({ error: true })
+        callback.status(422).json(error)
       } else if (!user) {
-        callback.json({ error: true })
+        callback.status(422).json(error)
       } else {
         user.comparePassword(req.query.password, function (matchError, isMatch) {
           if (matchError) {
-            callback.json({ error: true })
+            callback.status(42).json(error)
           } else if (!isMatch) {
-            callback.json({ error: true })
+            callback.status(422).json(error)
           } else {
             callback.json({ success: true })
           }
