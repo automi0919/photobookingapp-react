@@ -7,16 +7,13 @@ export function AppointmentList() {
     const { userEmail, userId, isAuthenticated, updateUser } = useContext(UserContext);
 
     const [appointmentList, setAppointmentList] = useState([])
-    console.log(userEmail);
-    console.log(userId);
 
     useEffect(() => {
         API.getDashboardData(userId)
             .then(res => setAppointmentList(res.data))
+            // .then(res => console.log(res.data))
             .catch(err => console.log(err));
     }, []);
-
-    console.log(appointmentList);
 
     return (
         <div>

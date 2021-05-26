@@ -1,0 +1,23 @@
+.top-nav-container{
+    display: flex;
+    background-color: #cecece;
+    justify-content: flex-end;
+    /* padding-right: 25px; */
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    margin: 25px 50px 15px 0px;
+    padding: 0px 10px 10px 10px;
+    border-bottom: 1px solid transparent;
+}
+
+a:hover {
+    border-bottom: 1px solid black;
+}
+
+a:visited{
+    color:black;
+}
