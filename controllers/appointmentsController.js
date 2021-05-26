@@ -30,17 +30,17 @@ module.exports = {
   loginUser: function (req, callback) {
     UserModel.findOne({ email: req.query.email }).exec(function (error, user) {
       if (error) {
-        callback({ error: true })
+        callback.json({ error: true })
       } else if (!user) {
-        callback({ error: true })
+        callback.json({ error: true })
       } else {
         user.comparePassword(req.query.password, function (matchError, isMatch) {
           if (matchError) {
-            callback({ error: true })
+            callback.json({ error: true })
           } else if (!isMatch) {
-            callback({ error: true })
+            callback.json({ error: true })
           } else {
-            return "Success!"
+            callback.json({ success: true })
           }
         })
       }
