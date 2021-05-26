@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import UserContext from "../../utils/UserContext";
 import API from '../../utils/API';
 import { useHistory } from 'react-router-dom';
+import { AppointmentList } from '../../components/AppointmentList/AppointmentList';
 
 export function Dashboard() {
 
@@ -20,14 +21,14 @@ export function Dashboard() {
             .catch(err => console.log(err))
     }, []);
 
-    console.log(userId);
-    console.log(isAuthenticated);
-    console.log(userEmail);
-
     return (
         <div>
             <h1>Dashboard</h1>
-            {!userId ? <h1>You  must be logged in to view this content.</h1> : <button onClick={handleRedirect}>View Booking Link</button>}
+            {!userId ? <h1>You  must be logged in to view this content.</h1> : 
+            <div>
+            <AppointmentList />
+            <button onClick={handleRedirect}>View Booking Link</button>
+            </div>}
         </div>
     )
 };

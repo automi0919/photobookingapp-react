@@ -25,10 +25,10 @@ export default {
       }
     });
   },
-  getDashboardData: function (userEmail) {
+  getDashboardData: function (userId) {
     return axios.get('/api/appointments/dashboard', {
       params: {
-        email: userEmail
+        photographerId: userId
       }
     })
   },
