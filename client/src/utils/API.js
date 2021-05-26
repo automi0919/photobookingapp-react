@@ -20,7 +20,8 @@ export default {
   loginUser: function (userLoginData) {
     return axios.get("/api/users/", {
       params: {
-        email: userLoginData.email
+        email: userLoginData.email,
+        password: userLoginData.password
       }
     });
   }
