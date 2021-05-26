@@ -2,6 +2,8 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import API from '../../utils/API';
 import { CurrentStep } from '../CurrentStep/CurrentStep';
+import getUserId from '../../utils/getUserId';
+
 
 export function ClientInfo({ appointmentData, setAppointmentData }) {
 
@@ -28,9 +30,12 @@ export function ClientInfo({ appointmentData, setAppointmentData }) {
     function handleSubmit(e) {
         e.preventDefault();
         API.saveAppointment(appointmentData)
-            .then(res => history.push('/book/confirm'))
+            .then(res => history.push(`/book/confirm/${userId}`))
             .catch((err) => console.log(err));
     }
+
+    let userId = getUserId.getUserId(window.location.pathname);
+
     return (
         <div className="page-wrapper">
             <div className="book-wrapper">

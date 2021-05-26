@@ -54,9 +54,8 @@ const appointmentSchema = new Schema(
     price: {
       type: String
     },
-    photographerEmail: {
+    photographerId: {
       type: String,
-      required: true
     }
   });
 
