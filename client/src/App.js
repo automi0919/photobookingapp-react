@@ -20,9 +20,10 @@ import Normalize from 'react-normalize';
 function App() {
   const [currentUser, setCurrentUser] = useState({
     userEmail: '',
+    userId: '',
     isAuthenticated: 'false',
-    updateUser: (userEmail, isAuthenticated) => {
-      setCurrentUser({...currentUser, userEmail, isAuthenticated})
+    updateUser: (userEmail, userId, isAuthenticated) => {
+      setCurrentUser({ ...currentUser, userEmail, userId, isAuthenticated })
     }
   });
 
@@ -53,22 +54,22 @@ function App() {
           <Route exact path="/signup">
             <Signup />
           </Route>
-          <Route exact path="/book">
+          <Route exact path="/book/:id">
             <EnterAddress appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
           </Route>
-          <Route exact path="/book/confirm-package">
+          <Route exact path="/book/confirm-package/:id">
             <ConfirmPackage appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
           </Route>
-          <Route exact path="/book/select-date">
+          <Route exact path="/book/select-date/:id">
             <SelectDate appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
           </Route>
-          <Route exact path="/book/select-time">
+          <Route exact path="/book/select-time/:id">
             <SelectTime appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
           </Route>
-          <Route exact path="/book/add-info">
+          <Route exact path="/book/add-info/:id">
             <ClientInfo appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
           </Route>
-          <Route exact path="/book/confirm">
+          <Route exact path="/book/confirm/:id">
             <Confirmation appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
           </Route>
           <Route exact path="/dashboard">

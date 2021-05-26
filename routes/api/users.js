@@ -7,4 +7,8 @@ router
     .post(appController.createNewUser)
     .get(appController.loginUser)
 
+router
+    .route('/dashboard')
+    .get(appController.getUserData)
+
 module.exports = router;
