@@ -18,7 +18,13 @@ import {
 import Normalize from 'react-normalize';
 
 function App() {
-  // const [userData, setUserData] = useContext(UserContext);
+  const [currentUser, setCurrentUser] = useState({
+    userEmail: 'test@test.com',
+    isAuthenticated: 'false',
+    updateUser: (userEmail, isAuthenticated) => {
+      setCurrentUser({...currentUser, userEmail, isAuthenticated})
+    }
+  });
 
   const [appointmentData, setAppointmentData] = useState({
     street: '',
@@ -38,38 +44,38 @@ function App() {
 
   return (
     <Router>
-      {/* <UserContext.Provider> */}
-      <Normalize />
-      <Switch>
-        <Route exact path="/login">
-          <Login />
-        </Route>
-        <Route exact path="/signup">
-          <Signup />
-        </Route>
-        <Route exact path="/book">
-          <EnterAddress appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
-        </Route>
-        <Route exact path="/book/confirm-package">
-          <ConfirmPackage appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
-        </Route>
-        <Route exact path="/book/select-date">
-          <SelectDate appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
-        </Route>
-        <Route exact path="/book/select-time">
-          <SelectTime appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
-        </Route>
-        <Route exact path="/book/add-info">
-          <ClientInfo appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
-        </Route>
-        <Route exact path="/book/confirm">
-          <Confirmation appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
-        </Route>
-        <Route exact path="/dashboard">
-          <Dashboard />
-        </Route>
-      </Switch>
-      {/* </UserContext.Provider> */}
+      <UserContext.Provider value={currentUser}>
+        <Normalize />
+        <Switch>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/signup">
+            <Signup />
+          </Route>
+          <Route exact path="/book">
+            <EnterAddress appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
+          </Route>
+          <Route exact path="/book/confirm-package">
+            <ConfirmPackage appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
+          </Route>
+          <Route exact path="/book/select-date">
+            <SelectDate appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
+          </Route>
+          <Route exact path="/book/select-time">
+            <SelectTime appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
+          </Route>
+          <Route exact path="/book/add-info">
+            <ClientInfo appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
+          </Route>
+          <Route exact path="/book/confirm">
+            <Confirmation appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
+          </Route>
+          <Route exact path="/dashboard">
+            <Dashboard />
+          </Route>
+        </Switch>
+      </UserContext.Provider>
     </Router>
   );
 }
