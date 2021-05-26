@@ -42,7 +42,9 @@ module.exports = {
   },
   getDashboardData: function (req, res) {
     console.log(req.query)
-    db.Appointments.find({ email: req.query })
+    db.Appointment.find(req.query)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   },
   getUserData: function (req, res) {
     db.User.findOne(req.query)
