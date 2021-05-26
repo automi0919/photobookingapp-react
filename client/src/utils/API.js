@@ -26,6 +26,13 @@ export default {
     });
   },
   getDashboardData: function (userEmail) {
+    return axios.get('/api/appointments/dashboard', {
+      params: {
+        email: userEmail
+      }
+    })
+  },
+  getUserData: function (userEmail) {
     return axios.get('/api/users/dashboard', {
       params: {
         email: userEmail

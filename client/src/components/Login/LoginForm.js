@@ -8,7 +8,7 @@ export function LoginForm() {
 
     let history = useHistory();
 
-    const { userEmail, isAuthenticated, updateUser } = useContext(UserContext);
+    const { userEmail, userId, isAuthenticated, updateUser } = useContext(UserContext);
 
     const [userLoginData, setUserLoginData] = useState({
         email: '',
@@ -26,7 +26,7 @@ export function LoginForm() {
     }
 
     const handleLogin = () => {
-        updateUser(userLoginData.email, true);
+        updateUser(userLoginData.email, null, true);
         history.push('/dashboard');
     }
 
