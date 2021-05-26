@@ -24,5 +24,12 @@ export default {
         password: userLoginData.password
       }
     });
+  },
+  getDashboardData: function (userEmail) {
+    return axios.get('/api/users/dashboard', {
+      params: {
+        email: userEmail
+      }
+    })
   }
 }

@@ -39,5 +39,9 @@ module.exports = {
         })
       }
     })
+  },
+  getDashboardData: function (req, res) {
+    console.log(req.query)
+    db.Appointments.find({email: req.query})
   }
 };

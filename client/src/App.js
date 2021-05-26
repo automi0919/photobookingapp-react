@@ -19,7 +19,7 @@ import Normalize from 'react-normalize';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({
-    userEmail: 'test@test.com',
+    userEmail: '',
     isAuthenticated: 'false',
     updateUser: (userEmail, isAuthenticated) => {
       setCurrentUser({...currentUser, userEmail, isAuthenticated})

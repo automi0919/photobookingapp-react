@@ -28,14 +28,12 @@ export function LoginForm() {
     const handleLogin = () => {
         updateUser(userLoginData.email, true);
         history.push('/dashboard');
-
     }
 
     const handleSubmit = () => {
         API.loginUser(userLoginData)
             .then(res => handleLogin())
             .catch(err => console.log(err))
-        // If there are errors, I need to manipulate the DOM to reflect those.
     }
 
     return (
@@ -45,7 +43,6 @@ export function LoginForm() {
                 <input onChange={(e) => handleChange("password", e.target.value)} type="password" placeholder="Password" />
             </form>
             <button onClick={handleSubmit}>Log In</button>
-            {/* <button onClick={() => onClick("isAuthenticated", true)}>Authenticate</button> */}
         </div>
     )
 }

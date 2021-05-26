@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import API from '../../utils/API';
-import { CurrentStep } from '../CurrentStep/CurrentStep';
 
 
 export function SelectTime({ appointmentData, setAppointmentData }) {
@@ -27,8 +26,6 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
         API.getAppointments(appointmentData)
             .then((res) => setAppointments(res.data))
     };
-
-
 
     useEffect(() => {
         getAppointments();

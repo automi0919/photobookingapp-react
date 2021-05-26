@@ -11,31 +11,31 @@ const appointmentSchema = new Schema(
     lastName: {
       type: String,
       trim: true,
-      // required: "lastName is required"
+      required: "lastName is required"
     },
     email: {
       type: String,
       trim: true,
-      // required: "email is required"
+      required: "email is required"
     },
     realtor: {
       type: Boolean
     },
     street: {
       type: String,
-      // required: "Street is required"
+      required: "Street is required"
     },
     state: {
       type: String,
-      // required: "State is required"
+      required: "State is required"
     },
     zip: {
       type: String,
-      // required: "Zip is required"
+      required: "Zip is required"
     },
     city: {
       type: String,
-      // required: "City is required"
+      required: "City is required"
     },
     date: {
       type: String
@@ -45,14 +45,18 @@ const appointmentSchema = new Schema(
     },
     package: {
       type: String,
-      // required: "Package is required"
+      required: "Package is required"
     },
     sq_ft: {
       type: Number,
-      // required: "sq_ft is required"
+      required: "sq_ft is required"
     },
     price: {
       type: String
+    },
+    photographerEmail: {
+      type: String,
+      required: true
     }
   });
 

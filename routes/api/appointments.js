@@ -7,4 +7,8 @@ router
     .post(appController.create)
     .get(appController.getAppointmentsByDate)
 
+    router
+    .route('/dashboard')
+    .get(appController.getDashboardData)
+
 module.exports = router;
