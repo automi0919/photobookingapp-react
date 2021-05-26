@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom';
 import API from '../../utils/API';
 import './styles.css';
 import { CurrentStep } from '../CurrentStep/CurrentStep';
+import getUserId from '../../utils/getUserId';
+
 
 export function SelectDate({ appointmentData, setAppointmentData }) {
 
@@ -21,7 +23,7 @@ export function SelectDate({ appointmentData, setAppointmentData }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        history.push('/book/select-time')
+        history.push(`/book/select-time/${userId}`)
     }
 
     // function handleSubmit(e) {
@@ -31,6 +33,9 @@ export function SelectDate({ appointmentData, setAppointmentData }) {
     //         // .then(res => history.push('/book/select-time'))
     //         .catch((err) => console.log(err));
     // }
+
+    let userId = getUserId.getUserId(window.location.pathname);
+
 
     return (
         <div className="page-wrapper">

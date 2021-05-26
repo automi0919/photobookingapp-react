@@ -3,8 +3,10 @@ import { useHistory } from 'react-router-dom';
 import API from '../../utils/API';
 import './styles.css';
 import { CurrentStep } from '../CurrentStep/CurrentStep';
+import getUserId from '../../utils/getUserId';
 
 export function EnterAddress({ appointmentData, setAppointmentData }) {
+
 
     let history = useHistory();
 
@@ -12,7 +14,8 @@ export function EnterAddress({ appointmentData, setAppointmentData }) {
         setAppointmentData(prevState => {
             return {
                 ...prevState,
-                [field]: value
+                [field]: value,
+                "photographerId": userId
             }
         })
         console.log(appointmentData);
@@ -57,8 +60,12 @@ export function EnterAddress({ appointmentData, setAppointmentData }) {
             }
         })
 
-        history.push('/book/confirm-package')
+        history.push(`/book/confirm-package/${userId}`)
     }
+
+    let userId = getUserId.getUserId(window.location.pathname);
+
+    console.log(appointmentData);
 
     return (
         <div className="page-wrapper">

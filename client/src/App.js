@@ -40,7 +40,8 @@ function App() {
     realtor: false,
     sq_ft: '',
     package: '',
-    price: ''
+    price: '',
+    photographerId: ''
   })
 
   return (

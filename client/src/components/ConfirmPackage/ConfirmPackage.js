@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { CurrentStep } from '../CurrentStep/CurrentStep';
+import getUserId from '../../utils/getUserId';
 
 export function ConfirmPackage({ appointmentData, setAppointmentData }) {
 
@@ -40,7 +41,7 @@ export function ConfirmPackage({ appointmentData, setAppointmentData }) {
     }, [appointmentData.sq_ft]);
 
     function handleConfirmation() {
-        history.push('/book/select-date')
+        history.push(`/book/select-date/${userId}`)
     }
 
     // function handleBackButton() {
@@ -48,6 +49,8 @@ export function ConfirmPackage({ appointmentData, setAppointmentData }) {
     // }
 
     // console.log(appointmentData.package)
+
+    let userId = getUserId.getUserId(window.location.pathname);
 
 
     return (

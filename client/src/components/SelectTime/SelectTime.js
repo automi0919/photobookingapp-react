@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import API from '../../utils/API';
+import getUserId from '../../utils/getUserId';
 
 
 export function SelectTime({ appointmentData, setAppointmentData }) {
@@ -19,7 +20,7 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
     };
 
     function handleSubmit(e) {
-        history.push('/book/add-info')
+        history.push(`/book/add-info/${userId}`)
     }
 
     function getAppointments() {
@@ -30,6 +31,9 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
     useEffect(() => {
         getAppointments();
     }, []);
+
+    let userId = getUserId.getUserId(window.location.pathname);
+
 
     return (
         <div className="page-wrapper">
@@ -53,6 +57,7 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
                                     type="radio"
                                     id={slot}
                                     value={slot}
+                                    key={slot}
                                     name="appointmentSelection"
                                     onChange={(e) => handleChange("timeSlot", e.target.value)}
                                     disabled={appointments.some(appt => appt === slot)}
