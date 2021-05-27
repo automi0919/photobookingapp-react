@@ -46,15 +46,20 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
         })
     };
 
-    function handleDateChange(field, value) {
-        setAppointmentData(prevState => {
-            return {
-                ...prevState,
-                [field]: value
-            }
-        })
-        getAppointments();
+    const handleDateChange = function (field, value) {
+        setAppointmentData({ ...appointmentData, [field]: value });
+        // getAppointments();
     }
+
+    // function handleDateChange(field, value) {
+    //     setAppointmentData(prevState => {
+    //         return {
+    //             ...prevState,
+    //             [field]: value
+    //         }
+    //     })
+    //     getAppointments();
+    // }
 
     function handleSubmit(e) {
         history.push(`/book/add-info/${userId}`)
@@ -63,13 +68,16 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
     function getAppointments() {
         console.log(appointmentData)
         API.getAppointments(appointmentData)
-            // .then((res) => setAppointments(res.data))
-            .then(res => console.log(res));
+            .then((res) => setAppointments(res.data))
+        // .then(res => console.log(res));
     };
 
-    // useEffect(() => {
-    //     getAppointments();
-    // }, [appointmentData]);
+    useEffect(() => {
+        if (!appointmentData.date) {
+            return
+        }
+        getAppointments();
+    }, [appointmentData]);
 
     let userId = getUserId.getUserId(window.location.pathname);
 
@@ -109,7 +117,7 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
                                         key={slot}
                                         name="appointmentSelection"
                                         onChange={(e) => handleChange(e.target.attributes.startTime.value, e.target.attributes.endTime.value)}
-                                        disabled={appointments.some(appt => appt === slot)}
+                                        disabled={appointments.some(appt => appt.startTime === slot.startTime)}
                                     />
                                     <span>{slot.startTime} - {slot.endTime}</span>
                                 </div>

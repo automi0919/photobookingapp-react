@@ -9,10 +9,10 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   getAppointmentsByDate: function (req, res) {
-    db.Appointment.find(req.query, "-_id timeSlot")
+    db.Appointment.find(req.query, "-_id")
       .then(dbModel => {
-        let formattedDbModel = dbModel.map((slot) => slot.timeSlot)
-        res.json(formattedDbModel)
+        // let formattedDbModel = dbModel.map((slot) => slot.startTime)
+        res.json(dbModel)
       })
       .catch(err => res.status(422).json(err));
   },
