@@ -14,10 +14,18 @@ a {
     border-bottom: 1px solid transparent;
 }
 
-a:hover {
+/* a:hover {
     border-bottom: 1px solid black;
-}
+} */
 
 a:visited{
     color:black;
+}
+
+.initials-span {
+    background-color: black;
+    color: white;
+    border-radius: 100%;
+    margin: 5px;
+    padding: 9px;
 }

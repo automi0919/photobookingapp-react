@@ -18,7 +18,11 @@ export function TopNav() {
     return (
         <div className="top-nav-container">
             <a onClick={handleLoginLogout} href="/login">{userId ? "Logout" : "Login"}</a>
-            <a href="/dashboard">My Profile</a>
+            <a href="/dashboard">
+            {/* <span className="initials-span">
+                MK
+            </span> */}
+            My Profile</a>
         </div>
     )
 }
