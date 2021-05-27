@@ -12,24 +12,34 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
     // const availability = ['9:00 - 10:30', '11:00 - 12:30', '1:00 - 2:30', '3:00 - 4:30', '5:00 - 6:30'];
 
     const availability = [{
-        startTime: '9:00',
+        startTimeDisplay: '9:00',
+        endTimeDisplay: '10:30',
+        startTime: '9:0',
         endTime: '10:30'
     },
     {
-        startTime: '11:00',
-        endTime: '12:30'
+        startTimeDisplay: '11:00',
+        endTimeDisplay: '12:30',
+        startTime: '11:0',
+        endTime: '13:30'
     },
     {
-        startTime: '1:00',
-        endTime: '2:30'
+        startTimeDisplay: '1:00',
+        endTimeDisplay: '2:30',
+        startTime: '13:0',
+        endTime: '14:30'
     },
     {
-        startTime: '3:00',
-        endTime: '4:30'
+        startTimeDisplay: '3:00',
+        endTimeDisplay: '4:30',
+        startTime: '15:0',
+        endTime: '16:30'
     },
     {
-        startTime: '5:00',
-        endTime: '6:30'
+        startTimeDisplay: '5:00',
+        endTimeDisplay: '6:30',
+        startTime: '17:0',
+        endTime: '18:30'
     },
     ];
     let history = useHistory();
@@ -119,7 +129,7 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
                                         onChange={(e) => handleChange(e.target.attributes.startTime.value, e.target.attributes.endTime.value)}
                                         disabled={appointments.some(appt => appt.startTime === slot.startTime)}
                                     />
-                                    <span>{slot.startTime} - {slot.endTime}</span>
+                                    <span>{slot.startTimeDisplay} - {slot.endTimeDisplay}</span>
                                 </div>
                             )) : <div className="table-loading">Choose a date to see available appointments.</div>}
                         </div>
