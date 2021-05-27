@@ -33,7 +33,7 @@ function App() {
     state: '',
     zip: '',
     date: '',
-    timeSlot: '',
+    // timeSlot: '',
     firstName: '',
     lastName: '',
     email: '',
@@ -41,7 +41,9 @@ function App() {
     sq_ft: '',
     package: '',
     price: '',
-    photographerId: ''
+    photographerId: '',
+    startTime: '',
+    endTime: ''
   })
 
   return (

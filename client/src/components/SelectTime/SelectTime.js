@@ -2,39 +2,86 @@ import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import API from '../../utils/API';
 import getUserId from '../../utils/getUserId';
+import './SelectTime.css';
+import Calendar from 'react-calendar';
 
 
 export function SelectTime({ appointmentData, setAppointmentData }) {
 
     const [appointments, setAppointments] = useState()
-    const availability = ['9:00 - 10:30', '11:00 - 12:30', '1:00 - 2:30', '3:00 - 4:30', '5:00 - 6:30'];
+    // const availability = ['9:00 - 10:30', '11:00 - 12:30', '1:00 - 2:30', '3:00 - 4:30', '5:00 - 6:30'];
+
+    const availability = [{
+        startTime: '9:00',
+        endTime: '10:30'
+    },
+    {
+        startTime: '11:00',
+        endTime: '12:30'
+    },
+    {
+        startTime: '1:00',
+        endTime: '2:30'
+    },
+    {
+        startTime: '3:00',
+        endTime: '4:30'
+    },
+    {
+        startTime: '5:00',
+        endTime: '6:30'
+    },
+    ];
     let history = useHistory();
 
-    function handleChange(field, value) {
+    function handleChange(startTimeValue, endTimeValue) {
+        console.log(startTimeValue);
+        console.log(endTimeValue);
         setAppointmentData(prevState => {
             return {
                 ...prevState,
-                [field]: value
+                startTime: startTimeValue,
+                endTime: endTimeValue
             }
         })
     };
+
+    const handleDateChange = function (field, value) {
+        setAppointmentData({ ...appointmentData, [field]: value });
+        // getAppointments();
+    }
+
+    // function handleDateChange(field, value) {
+    //     setAppointmentData(prevState => {
+    //         return {
+    //             ...prevState,
+    //             [field]: value
+    //         }
+    //     })
+    //     getAppointments();
+    // }
 
     function handleSubmit(e) {
         history.push(`/book/add-info/${userId}`)
     }
 
     function getAppointments() {
+        console.log(appointmentData)
         API.getAppointments(appointmentData)
             .then((res) => setAppointments(res.data))
+        // .then(res => console.log(res));
     };
 
     useEffect(() => {
+        if (!appointmentData.date) {
+            return
+        }
         getAppointments();
-    }, []);
+    }, [appointmentData]);
 
     let userId = getUserId.getUserId(window.location.pathname);
 
-
+    console.log(appointmentData);
     return (
         <div className="page-wrapper">
             <div className="book-wrapper">
@@ -50,21 +97,32 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
                 </div>
                 <div className="right-two-thirds">
                     <h1>Select a Time Slot</h1>
-                    <div className="choose-time-button-container">
-                        {appointments ? availability.map((slot) => (
-                            <>
-                                <input
-                                    type="radio"
-                                    id={slot}
-                                    value={slot}
-                                    key={slot}
-                                    name="appointmentSelection"
-                                    onChange={(e) => handleChange("timeSlot", e.target.value)}
-                                    disabled={appointments.some(appt => appt === slot)}
-                                />
-                                <span>{slot}</span>
-                            </>
-                        )) : <div className="table-loading">Loading Appointment Data</div>}
+                    <div className="card-content">
+                        <div className="date-picker">
+                            <h2>Choose a Date</h2>
+                            <input
+                                type="date"
+                                onChange={(e) => handleDateChange('date', e.target.value)}
+                            />
+                        </div>
+                        <div className="choose-time-button-container">
+                            {appointments ? availability.map((slot) => (
+                                <div className="inputs">
+                                    <input
+                                        type="radio"
+                                        id={slot}
+                                        startTime={slot.startTime}
+                                        endTime={slot.endTime}
+                                        value={slot.startTime}
+                                        key={slot}
+                                        name="appointmentSelection"
+                                        onChange={(e) => handleChange(e.target.attributes.startTime.value, e.target.attributes.endTime.value)}
+                                        disabled={appointments.some(appt => appt.startTime === slot.startTime)}
+                                    />
+                                    <span>{slot.startTime} - {slot.endTime}</span>
+                                </div>
+                            )) : <div className="table-loading">Choose a date to see available appointments.</div>}
+                        </div>
                     </div>
                     <div className="button-wrapper">
                         <button id="back-button" onClick={() => history.goBack()}>BACK</button>

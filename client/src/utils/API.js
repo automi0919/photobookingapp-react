@@ -8,6 +8,7 @@ export default {
     return axios.post("/api/appointments", appointmentData);
   },
   getAppointments: async function (appointmentData) {
+    console.log(appointmentData.date)
     return await axios.get("/api/appointments", {
       params: {
         date: appointmentData.date

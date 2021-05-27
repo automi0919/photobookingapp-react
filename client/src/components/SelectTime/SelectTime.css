@@ -1,0 +1,33 @@
+.card-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.choose-time-button-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+}
+
+.inputs span {
+    padding-left: 20px;
+}
+
+.date-picker {
+
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    width:50%;
+    margin-right:50px;
+}
