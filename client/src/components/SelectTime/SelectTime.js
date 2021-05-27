@@ -7,7 +7,29 @@ import getUserId from '../../utils/getUserId';
 export function SelectTime({ appointmentData, setAppointmentData }) {
 
     const [appointments, setAppointments] = useState()
-    const availability = ['9:00 - 10:30', '11:00 - 12:30', '1:00 - 2:30', '3:00 - 4:30', '5:00 - 6:30'];
+    // const availability = ['9:00 - 10:30', '11:00 - 12:30', '1:00 - 2:30', '3:00 - 4:30', '5:00 - 6:30'];
+
+    const availability = [{
+        startTime: '9:00',
+        endTime: '10:30'
+    },
+    {
+        startTime: '11:00',
+        endTime: '12:30'
+    },
+    {
+        startTime: '1:00',
+        endTime: '2:30'
+    },
+    {
+        startTime: '3:00',
+        endTime: '4:30'
+    },
+    {
+        startTime: '5:00',
+        endTime: '6:30'
+    },
+];
     let history = useHistory();
 
     function handleChange(field, value) {
@@ -62,7 +84,7 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
                                     onChange={(e) => handleChange("timeSlot", e.target.value)}
                                     disabled={appointments.some(appt => appt === slot)}
                                 />
-                                <span>{slot}</span>
+                                <span>{slot.startTime} - {slot.endTime}</span>
                             </>
                         )) : <div className="table-loading">Loading Appointment Data</div>}
                     </div>
