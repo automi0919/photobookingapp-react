@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import API from '../../utils/API';
 import getUserId from '../../utils/getUserId';
+import './SelectTime.css';
+import Calendar from 'react-calendar';
 
 
 export function SelectTime({ appointmentData, setAppointmentData }) {
@@ -44,6 +46,16 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
         })
     };
 
+    function handleDateChange(field, value) {
+        setAppointmentData(prevState => {
+            return {
+                ...prevState,
+                [field]: value
+            }
+        })
+        getAppointments();
+    }
+
     function handleSubmit(e) {
         history.push(`/book/add-info/${userId}`)
     }
@@ -53,9 +65,9 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
             .then((res) => setAppointments(res.data))
     };
 
-    useEffect(() => {
-        getAppointments();
-    }, []);
+    // useEffect(() => {
+    //     getAppointments();
+    // }, [appointmentData]);
 
     let userId = getUserId.getUserId(window.location.pathname);
 
@@ -75,23 +87,32 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
                 </div>
                 <div className="right-two-thirds">
                     <h1>Select a Time Slot</h1>
-                    <div className="choose-time-button-container">
-                        {appointments ? availability.map((slot) => (
-                            <>
-                                <input
-                                    type="radio"
-                                    id={slot}
-                                    startTime={slot.startTime}
-                                    endTime={slot.endTime}
-                                    value={slot.startTime}
-                                    key={slot}
-                                    name="appointmentSelection"
-                                    onChange={(e) => handleChange(e.target.attributes.startTime.value, e.target.attributes.endTime.value)}
-                                    disabled={appointments.some(appt => appt === slot)}
-                                />
-                                <span>{slot.startTime} - {slot.endTime}</span>
-                            </>
-                        )) : <div className="table-loading">Loading Appointment Data</div>}
+                    <div className="card-content">
+                        <div className="date-picker">
+                            <h2>Choose a Date</h2>
+                            <input
+                                type="date"
+                                onChange={(e) => handleDateChange('date', e.target.value)}
+                            />
+                        </div>
+                        <div className="choose-time-button-container">
+                            {appointments ? availability.map((slot) => (
+                                <div className="inputs">
+                                    <input
+                                        type="radio"
+                                        id={slot}
+                                        startTime={slot.startTime}
+                                        endTime={slot.endTime}
+                                        value={slot.startTime}
+                                        key={slot}
+                                        name="appointmentSelection"
+                                        onChange={(e) => handleChange(e.target.attributes.startTime.value, e.target.attributes.endTime.value)}
+                                        disabled={appointments.some(appt => appt === slot)}
+                                    />
+                                    <span>{slot.startTime} - {slot.endTime}</span>
+                                </div>
+                            )) : <div className="table-loading">Choose a date to see available appointments.</div>}
+                        </div>
                     </div>
                     <div className="button-wrapper">
                         <button id="back-button" onClick={() => history.goBack()}>BACK</button>

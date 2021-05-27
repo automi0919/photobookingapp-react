@@ -41,7 +41,7 @@ export function ConfirmPackage({ appointmentData, setAppointmentData }) {
     }, [appointmentData.sq_ft]);
 
     function handleConfirmation() {
-        history.push(`/book/select-date/${userId}`)
+        history.push(`/book/select-time/${userId}`)
     }
 
     // function handleBackButton() {
