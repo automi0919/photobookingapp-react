@@ -4,6 +4,7 @@ import API from '../../utils/API';
 import { useHistory } from 'react-router-dom';
 import { AppointmentList } from '../../components/AppointmentList/AppointmentList';
 import { TopNav } from '../../components/TopNav/TopNav';
+import { CalendarComponent } from '../../components/CalendarComponent/CalendarComponent';
 
 export function Dashboard() {
 
@@ -31,6 +32,7 @@ export function Dashboard() {
                     <div>
                         <AppointmentList />
                         <button onClick={handleRedirect}>View Booking Link</button>
+                        <CalendarComponent />
                     </div>}
             </div>
         </div>
