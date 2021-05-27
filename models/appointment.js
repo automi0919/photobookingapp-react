@@ -40,7 +40,10 @@ const appointmentSchema = new Schema(
     date: {
       type: String
     },
-    timeSlot: {
+    startTime: {
+      type: String
+    },
+    endTime: {
       type: String
     },
     package: {

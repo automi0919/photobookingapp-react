@@ -29,14 +29,17 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
         startTime: '5:00',
         endTime: '6:30'
     },
-];
+    ];
     let history = useHistory();
 
-    function handleChange(field, value) {
+    function handleChange(startTimeValue, endTimeValue) {
+        console.log(startTimeValue);
+        console.log(endTimeValue);
         setAppointmentData(prevState => {
             return {
                 ...prevState,
-                [field]: value
+                startTime: startTimeValue,
+                endTime: endTimeValue
             }
         })
     };
@@ -56,7 +59,7 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
 
     let userId = getUserId.getUserId(window.location.pathname);
 
-
+    console.log(appointmentData);
     return (
         <div className="page-wrapper">
             <div className="book-wrapper">
@@ -78,10 +81,12 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
                                 <input
                                     type="radio"
                                     id={slot}
-                                    value={slot}
+                                    startTime={slot.startTime}
+                                    endTime={slot.endTime}
+                                    value={slot.startTime}
                                     key={slot}
                                     name="appointmentSelection"
-                                    onChange={(e) => handleChange("timeSlot", e.target.value)}
+                                    onChange={(e) => handleChange(e.target.attributes.startTime.value, e.target.attributes.endTime.value)}
                                     disabled={appointments.some(appt => appt === slot)}
                                 />
                                 <span>{slot.startTime} - {slot.endTime}</span>
