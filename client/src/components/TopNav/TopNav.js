@@ -13,8 +13,6 @@ export function TopNav() {
         updateUser('', '', false)
     }
 
-    console.log(userEmail);
-
     return (
         <div className="top-nav-container">
             <a onClick={handleLoginLogout} href="/login">{userId ? "Logout" : "Login"}</a>
