@@ -1,0 +1,29 @@
+button {
+    margin: 0px 10px 0px 10px;
+    /* border-radius: 50%; */
+}
+
+.body-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.body-content-container {
+    padding: 2%;
+   width: 100%;
+}
+
+.page-header {
+    text-align: center;
+    font-size: 30px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 2%;
+}
+
+/* .e-toolbar-item e-views e-work-week e-active-view, e-toolbar-item e-views e-agenda {
+    display: none;
+} */

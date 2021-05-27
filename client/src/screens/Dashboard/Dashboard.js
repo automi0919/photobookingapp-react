@@ -5,6 +5,8 @@ import { useHistory } from 'react-router-dom';
 import { AppointmentList } from '../../components/AppointmentList/AppointmentList';
 import { TopNav } from '../../components/TopNav/TopNav';
 import { CalendarComponent } from '../../components/CalendarComponent/CalendarComponent';
+import { LeftNav } from '../../components/LeftNav/LeftNav';
+import './Dashboard.css';
 
 export function Dashboard() {
 
@@ -26,14 +28,21 @@ export function Dashboard() {
     return (
         <div>
             <TopNav />
-            <div className="body-content-container">
-                <h1>Dashboard</h1>
-                {!userId ? <h1>You  must be logged in to view this content.</h1> :
-                    <div>
-                        <AppointmentList />
-                        <button onClick={handleRedirect}>View Booking Link</button>
-                        <CalendarComponent />
-                    </div>}
+            <div className="body-container">
+                <LeftNav />
+                <div className="body-content-container">
+                    <h1 className="page-header">Dashboard</h1>
+                    {!userId ? <h1>You  must be logged in to view this content.</h1> :
+                        <div>
+                            {/* <AppointmentList /> */}
+                            <div className="button-container">
+                                <button className="new-appointment">+ ADD NEW</button>
+                                <button>BLOCK TIME</button>
+                                <button onClick={handleRedirect}>BOOKING LINK</button>
+                            </div>
+                            <CalendarComponent />
+                        </div>}
+                </div>
             </div>
         </div>
     )
