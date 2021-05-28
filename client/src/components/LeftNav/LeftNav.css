@@ -1,7 +1,42 @@
 .LeftNav-container {
     background-color: #001f4e;
     color: #f3f3f3;
-    width:200px;
-    height:auto;
-    padding: 2%;
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    width: 19%;
+    top: 0;
+}
+a {
+    font-size: 15px;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+a:visited{
+    color:white;
+}
+
+.top-nav-btn {
+    text-decoration: none;
+    font-size: 18px;
+    margin: 5px 50px 5px 0px;
+    padding: 10px 20px 10px 20px;
+    border-bottom: 1px solid transparent;
+    color: white;
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+.logout {
+    padding:20px;
+}
+
+.logout, .initials, .left-nav-links {
+    display: flex;
+    justify-content: center;
 }
