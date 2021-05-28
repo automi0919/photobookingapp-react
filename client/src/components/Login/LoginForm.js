@@ -27,21 +27,26 @@ export function LoginForm() {
         })
     }
 
-    const handleLogin = () => {
-        updateUser(userLoginData.email, null, true);
-        history.push('/dashboard');
+    function setLocalStorage(user) {
+        console.log(user)
+        window.localStorage.setItem("userId", JSON.stringify(user._id))
+        window.localStorage.setItem("isAuthenticated", JSON.stringify(true))
+        history.push('/dashboard')
+    }
+
+    function fetchUserData(res) {
+            API.getUserData(userLoginData.email)
+                .then(res => setLocalStorage(res.data))
+                .catch(err => console.log(err))
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
         API.loginUser(userLoginData)
-            .then(res => handleLogin())
+            .then(res => fetchUserData(res.data))
+            // .then(res => console.log(res.data))
             .catch(err => setErrorState(err))
-        // .catch(err => console.log(err))
-
     }
-
-    console.log(errorState);
 
     return (
         <div className="LoginForm-wrapper">
@@ -58,7 +63,7 @@ export function LoginForm() {
                     placeholder="Password"
                     required
                 />
-                {errorState && <p className='error'>Sorry, your username or password is incorrect.</p>}
+                {errorState && <p className='error'>Email or password is incorrect</p>}
                 <div className="login-btn-container">
                     <input
                         className="login-btn"

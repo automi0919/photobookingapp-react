@@ -34,6 +34,7 @@ export default {
     })
   },
   getUserData: function (userEmail) {
+    console.log(userEmail)
     return axios.get('/api/users/dashboard', {
       params: {
         email: userEmail

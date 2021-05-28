@@ -16,7 +16,6 @@ export function SignUpForm({ newUser, setNewUser }) {
                 [field]: value
             }
         })
-
     }
 
     const handleSubmit = () => {
@@ -24,8 +23,6 @@ export function SignUpForm({ newUser, setNewUser }) {
             .then(history.push('/dashboard'))
             .catch(err => setErrorState(err))
     }
-
-
 
     return (
         <div className="SignUpForm-wrapper">
@@ -40,7 +37,6 @@ export function SignUpForm({ newUser, setNewUser }) {
                     <input className="submit-btn" type="submit" value="CREATE ACCOUNT" />
                 </div>
             </form>
-            {/* <button onClick={handleSubmit}>Create Account</button> */}
         </div>
     )
 }

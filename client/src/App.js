@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { EnterAddress } from "./components/EnterAddress/EnterAddress";
 import { Confirmation } from './components/Confirmation/Confirmation';
 import { SelectDate } from './components/SelectDate/SelectDate';
@@ -33,7 +33,6 @@ function App() {
     state: '',
     zip: '',
     date: '',
-    // timeSlot: '',
     firstName: '',
     lastName: '',
     email: '',
@@ -44,7 +43,20 @@ function App() {
     photographerId: '',
     startTime: '',
     endTime: ''
-  })
+  });
+
+  useEffect(() => {
+    const userIdS = JSON.parse(localStorage.getItem("userId"));
+    const isAuthenticatedS = JSON.parse(localStorage.getItem("isAuthenticated"));
+    setCurrentUser(prevState => {
+      return {
+        ...prevState,
+        userId: userIdS,
+        isAuthenticated: isAuthenticatedS
+      }
+    })
+
+  }, [])
 
   return (
     <Router>
@@ -76,6 +88,9 @@ function App() {
             <Confirmation appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
           </Route>
           <Route exact path="/dashboard">
+            <Dashboard />
+          </Route>
+          <Route exact path="/">
             <Dashboard />
           </Route>
         </Switch>

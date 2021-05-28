@@ -47,7 +47,8 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   getUserData: function (req, res) {
-    db.User.findOne(req.query)
+    console.log(req.query)
+    db.User.findOne(req.query, {password:0})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }

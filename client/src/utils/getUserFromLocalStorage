@@ -1,0 +1,10 @@
+
+export default {
+    getUserFromLocalStorage: function () {
+
+        const userId = pathname.substring(pathname.lastIndexOf('/') + 1);
+
+        return userId;
+    },
+
+}

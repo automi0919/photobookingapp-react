@@ -18,31 +18,29 @@ export function Dashboard() {
     }
 
     useEffect(() => {
-        API.getUserData(userEmail)
+        API.getUserData(userId)
             .then(res => updateUser(userEmail, res.data._id, isAuthenticated))
             .catch(err => console.log(err))
-    }, []);
-
-    console.log(userEmail);
+    }, [userId]);
 
     return (
         <div>
-            <TopNav />
+            {!userId ? <h3>Loading...</h3> : <div><TopNav />
             <div className="body-container">
                 <LeftNav />
                 <div className="body-content-container">
                     <h1 className="page-header">Dashboard</h1>
-                    {!userEmail ? <h1>You  must be logged in to view this content.</h1> :
-                        <div>
-                            <div className="button-container">
+                    
+                        {isAuthenticated === false ? <h2>You must be logged in to view</h2> : <div><div className="button-container">
                                 <button className="new-appointment">+ ADD NEW</button>
                                 <button>BLOCK TIME</button>
                                 <button onClick={handleRedirect}>BOOKING LINK</button>
                             </div>
-                            <CalendarComponent />
-                        </div>}
+                            <CalendarComponent /></div>}
+                            
+                
                 </div>
-            </div>
+            </div></div>}
         </div>
     )
 };

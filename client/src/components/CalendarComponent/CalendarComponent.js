@@ -9,23 +9,8 @@ export function CalendarComponent() {
 
     const [appointmentList, setAppointmentList] = useState([])
 
-    //     city: "Atlanta"
-    // date: "2021-05-29"
-    // email: "mknowlton89@gmail.com"
-    // endTime: "10:30"
-    // firstName: "Michael"
-    // lastName: "Knowlton"
-    // package: "standard-home"
-    // photographerId: "60ad8aeede0d7a0f6d75a3b3"
-    // price: "$199"
-    // realtor: true
-    // sq_ft: 1700
-    // startTime: "9:00"
-    // state: "GA"
-    // street: "1966 McJenkins St"
-    // zip: "30339"
-
     useEffect(() => {
+        if (userId) {
         API.getDashboardData(userId)
             .then(res => {
                 const formattedRes = res.data.map(appointment => {
@@ -43,27 +28,12 @@ export function CalendarComponent() {
                 })
                 setAppointmentList(formattedRes)
             })
-            // .then(res => console.log(res.data))
             .catch(err => console.log(err));
-    }, []);
-
-
-
-    // let localData: EventSettingsModel = {
-    //     dataSource: [{
-    //         Subject: "Small Home",
-    //         EndTime: new Date(2021, 4, 28, 12, 30),
-    //         StartTime: new Date(2021, 4, 28, 14, 0),
-    //         Location: "4107 Winding Valley Dr, Smyrna, GA 30082",
-    //         Description: "Client Name: Michael Knowlton | Client Number: 770-843-4662",
-    //     }]
-    // }
+    }}, [userId]);
 
     const localData = {
         dataSource: appointmentList
     }
-
-    console.log(appointmentList)
 
     return (
         <div>

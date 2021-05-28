@@ -59,6 +59,7 @@ const appointmentSchema = new Schema(
     },
     photographerId: {
       type: String,
+      required: "Photographer ID is required"
     }
   });
 

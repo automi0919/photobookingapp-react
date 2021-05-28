@@ -9,15 +9,19 @@ export function TopNav() {
 
     const { userEmail, userId, isAuthenticated, updateUser } = useContext(UserContext);
 
-    function handleLoginLogout() {
-        updateUser('', '', false)
+    function handleLogout() {
+        window.localStorage.setItem("userId", JSON.stringify(''))
+        window.localStorage.setItem("isAuthenticated", JSON.stringify(false))
+        history.push('/login')
     }
 
     return (
         <div className="top-nav-container">
-            <a onClick={handleLoginLogout} href="/login">{userId ? "Logout" : "Login"}</a>
+            {isAuthenticated ? <a onClick={handleLogout}>Logout</a> : <a href="/login">Login</a>}
+            {/* <a onClick={handleLoginLogout} href="/login">{userId ? "Logout" : "Login"}</a> */}
+            {/* <a onClick={handleLoginLogout} href="/login">{userId ? "Logout" : "Login"}</a> */}
             <a href="/dashboard">
-            {/* <span className="initials-span">
+                {/* <span className="initials-span">
                 MK
             </span> */}
             My Profile</a>
