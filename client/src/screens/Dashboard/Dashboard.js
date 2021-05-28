@@ -32,11 +32,12 @@ export function Dashboard() {
                     <h1 className="page-header">Dashboard</h1>
                     
                         {isAuthenticated === false ? <h2>You must be logged in to view</h2> : <div><div className="button-container">
-                                <button className="new-appointment">+ ADD NEW</button>
-                                <button>BLOCK TIME</button>
-                                <button onClick={handleRedirect}>BOOKING LINK</button>
+                                <button className="new-appointment">ADD APPOINTMENT</button>
+                                <button className="block-btn">BLOCK TIME</button>
+                                <button className="book-btn" onClick={handleRedirect}>VIEW BOOKING FORM</button>
                             </div>
-                            <CalendarComponent /></div>}
+                            <CalendarComponent />
+                            </div>}
                             
                 
                 </div>

@@ -17,7 +17,7 @@ export function TopNav() {
 
     return (
         <div className="top-nav-container">
-            {isAuthenticated ? <a className="top-nav-btn" onClick={handleLogout}>LOGOUT</a> : <a className="top-nav-btn" href="/login">LOGIN</a>}
+            {isAuthenticated ? <a className="top-nav-btn" onClick={handleLogout}>LOGOUT ➜</a> : <a className="top-nav-btn" href="/login">LOGIN</a>}
             {/* {isAuthenticated ? <button className="top-nav-btn" onClick={handleLogout}>Logout</button> : <button className="top-nav-btn" href="/login">Login</button>} */}
             {/* <a onClick={handleLoginLogout} href="/login">{userId ? "Logout" : "Login"}</a> */}
             {/* <a onClick={handleLoginLogout} href="/login">{userId ? "Logout" : "Login"}</a> */}
