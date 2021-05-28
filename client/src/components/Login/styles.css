@@ -12,3 +12,36 @@
     padding-bottom: 40px;
     padding-top: 40px;
 }
+
+.login-btn-container {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.login-btn {
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background: linear-gradient(
+90deg
+, rgba(2,0,36,1) 0%, rgba(23,104,172,1) 0%, rgba(6,190,225,1) 100%);
+    color: white;
+    box-shadow: 4px 5px 15px -3px rgb(0 0 0 / 42%);
+    font-weight: bold;
+}
+
+.login-btn:hover {
+    cursor: pointer;
+}
+
+/* input:invalid {
+    border: 1px solid tomato;
+  } */
+
+  .error {
+      color: red;
+  }

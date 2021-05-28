@@ -1,8 +1,11 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom';
 import './styles.css'
 import API from "../../utils/API"
 
 export function SignUpForm({ newUser, setNewUser }) {
+
+    let history = useHistory();
 
     function handleChange(field, value) {
         setNewUser(prevState => {
@@ -16,8 +19,12 @@ export function SignUpForm({ newUser, setNewUser }) {
 
     const handleSubmit = () => {
         API.createNewUser(newUser)
-            .then(res => console.log(res))
+            // .then(res => console.log(res))
+            .then(history.push('/dashboard'))
+            .catch(err => console.log(err))
     }
+
+    
 
     return (
         <div className="SignUpForm-wrapper">

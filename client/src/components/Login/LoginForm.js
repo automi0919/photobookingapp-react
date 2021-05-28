@@ -16,6 +16,8 @@ export function LoginForm() {
         error: ''
     })
 
+    const [errorState, setErrorState] = useState()
+
     const handleChange = (field, value) => {
         setUserLoginData(prevState => {
             return {
@@ -30,19 +32,40 @@ export function LoginForm() {
         history.push('/dashboard');
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
         API.loginUser(userLoginData)
             .then(res => handleLogin())
-            .catch(err => console.log(err))
+            .catch(err => setErrorState(err))
+        // .catch(err => console.log(err))
+
     }
+
+    console.log(errorState);
 
     return (
         <div className="LoginForm-wrapper">
-            <form className="login-form-form">
-                <input onChange={(e) => handleChange("email", e.target.value)} type="text" placeholder="Username/Email" />
-                <input onChange={(e) => handleChange("password", e.target.value)} type="password" placeholder="Password" />
+            <form onSubmit={handleSubmit} className="login-form-form">
+                <input
+                    onChange={(e) => handleChange("email", e.target.value)}
+                    type="text"
+                    placeholder="Username/Email"
+                    required
+                />
+                <input
+                    onChange={(e) => handleChange("password", e.target.value)}
+                    type="password"
+                    placeholder="Password"
+                    required
+                />
+                {errorState && <p className='error'>Sorry, your username or password is incorrect.</p>}
+                <div className="login-btn-container">
+                    <input
+                        className="login-btn"
+                        type="submit"
+                        value="LOGIN" />
+                </div>
             </form>
-            <button onClick={handleSubmit}>Log In</button>
         </div>
     )
 }
