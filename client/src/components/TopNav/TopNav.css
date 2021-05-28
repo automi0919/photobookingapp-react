@@ -10,9 +10,11 @@ a {
     color: black;
     font-size: 18px;
     margin: 25px 50px 15px 0px;
-    padding: 0px 10px 10px 10px;
+    padding: 10px 20px 10px 20px;
     border-bottom: 1px solid transparent;
+    color: white;
 }
+
 
 /* a:hover {
     border-bottom: 1px solid black;
@@ -28,4 +30,9 @@ a:visited{
     border-radius: 100%;
     margin: 5px;
     padding: 9px;
+}
+
+.top-nav-btn {
+    background-color: blue;
+    border-radius: 10px;
 }

@@ -17,14 +17,15 @@ export function TopNav() {
 
     return (
         <div className="top-nav-container">
-            {isAuthenticated ? <a onClick={handleLogout}>Logout</a> : <a href="/login">Login</a>}
+            {isAuthenticated ? <a className="top-nav-btn" onClick={handleLogout}>Logout</a> : <a className="top-nav-btn" href="/login">Login</a>}
+            {/* {isAuthenticated ? <button className="top-nav-btn" onClick={handleLogout}>Logout</button> : <button className="top-nav-btn" href="/login">Login</button>} */}
             {/* <a onClick={handleLoginLogout} href="/login">{userId ? "Logout" : "Login"}</a> */}
             {/* <a onClick={handleLoginLogout} href="/login">{userId ? "Logout" : "Login"}</a> */}
-            <a href="/dashboard">
-                {/* <span className="initials-span">
+            {/* <a href="/dashboard">
+                <span className="initials-span">
                 MK
-            </span> */}
-            My Profile</a>
+            </span>
+            My Profile</a> */}
         </div>
     )
 }
