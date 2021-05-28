@@ -25,7 +25,9 @@ export function Dashboard() {
 
     return (
         <div>
-            {!userId ? <h3>Loading...</h3> : <div><TopNav />
+            {!userId ? <h3>Loading...</h3> : 
+            <div>
+            <TopNav />
             <div className="body-container">
                 <LeftNav />
                 <div className="body-content-container">

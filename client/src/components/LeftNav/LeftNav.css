@@ -2,6 +2,11 @@
     background-color: #001f4e;
     color: #f3f3f3;
     width:200px;
-    height:auto;
+    height:100vh;
     padding: 2%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
 }
