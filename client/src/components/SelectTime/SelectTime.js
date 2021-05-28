@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import API from '../../utils/API';
 import getUserId from '../../utils/getUserId';
+import "../EnterAddress/EnterAddress.css";
 import './SelectTime.css';
 import Calendar from 'react-calendar';
 
@@ -136,7 +137,7 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
                     </div>
                     <div className="button-wrapper">
                         <button id="back-button" onClick={() => history.goBack()}>BACK</button>
-                        <button onClick={handleSubmit}>NEXT STEP</button>
+                        <button className="book-btn" onClick={handleSubmit}>NEXT STEP</button>
                     </div>
                 </div>
             </div>

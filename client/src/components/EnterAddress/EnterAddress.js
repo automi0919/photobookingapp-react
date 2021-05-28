@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import API from '../../utils/API';
-import './styles.css';
+import './EnterAddress.css';
 import { CurrentStep } from '../CurrentStep/CurrentStep';
 import getUserId from '../../utils/getUserId';
 
@@ -164,7 +164,7 @@ export function EnterAddress({ appointmentData, setAppointmentData }) {
                         </div>
                     </form>
                     <div className="button-wrapper">
-                        <button onClick={handleSubmit}>NEXT STEP</button>
+                        <button className="book-btn" onClick={handleSubmit}>NEXT STEP</button>
                     </div>
                 </div>
             </div>
