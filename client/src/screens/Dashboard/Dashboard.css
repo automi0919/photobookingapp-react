@@ -3,6 +3,13 @@
     flex-direction: row;
 }
 
+.left-nav {
+    width:25%;
+    /* position: sticky; */
+    height: 100vh;
+    /* margin: 10px; */
+}
+
 .body-content-container {
     padding: 2%;
    width: 100%;
