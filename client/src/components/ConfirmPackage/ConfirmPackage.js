@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { CurrentStep } from '../CurrentStep/CurrentStep';
 import getUserId from '../../utils/getUserId';
+import "../EnterAddress/EnterAddress.css";
 
 export function ConfirmPackage({ appointmentData, setAppointmentData }) {
 
@@ -75,7 +76,7 @@ export function ConfirmPackage({ appointmentData, setAppointmentData }) {
                     </div>
                     <div className="button-wrapper">
                         <button id="back-button" onClick={() => history.goBack()}>BACK</button>
-                        <button onClick={handleConfirmation}>NEXT STEP</button>
+                        <button className="book-btn" onClick={handleConfirmation}>NEXT STEP</button>
                     </div>
                 </div>
             </div>
