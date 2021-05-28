@@ -38,10 +38,6 @@
     cursor: pointer;
 }
 
-/* input:invalid {
-    border: 1px solid tomato;
-  } */
-
   .error {
       color: red;
   }

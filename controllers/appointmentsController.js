@@ -24,15 +24,15 @@ module.exports = {
   loginUser: function (req, callback) {
     UserModel.findOne({ email: req.query.email }).exec(function (error, user) {
       if (error) {
-        callback.status(400).json("No user found")
+        callback.status(422).json(error)
       } else if (!user) {
-        callback.status(404).json("No user found")
+        callback.status(404).json(error)
       } else {
         user.comparePassword(req.query.password, function (matchError, isMatch) {
           if (matchError) {
-            callback.status(422).json(error)
+            callback.status(42).json(error)
           } else if (!isMatch) {
-            callback.status(401).json("Incorrect Password")
+            callback.status(401).json(error)
           } else {
             callback.json({ success: true })
           }

@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import './styles.css'
 import API from "../../utils/API"
 
 export function SignUpForm({ newUser, setNewUser }) {
+
+    const [errorState, setErrorState] = useState()
 
     let history = useHistory();
 
@@ -19,23 +21,26 @@ export function SignUpForm({ newUser, setNewUser }) {
 
     const handleSubmit = () => {
         API.createNewUser(newUser)
-            // .then(res => console.log(res))
             .then(history.push('/dashboard'))
-            .catch(err => console.log(err))
+            .catch(err => setErrorState(err))
     }
 
-    
+
 
     return (
         <div className="SignUpForm-wrapper">
-            <form className="signup-form-form">
-                <input onChange={(e) => handleChange("firstName", e.target.value)} type="text" placeholder="First Name" />
-                <input onChange={(e) => handleChange("lastName", e.target.value)} type="text" placeholder="Last Name" />
-                <input onChange={(e) => handleChange("businessName", e.target.value)} type="text" placeholder="Business Name" />
-                <input onChange={(e) => handleChange("email", e.target.value)} type="text" placeholder="Email" />
-                <input onChange={(e) => handleChange("password", e.target.value)} type="password" placeholder="Password" />
+            <form onSubmit={handleSubmit} className="signup-form-form">
+                <input onChange={(e) => handleChange("firstName", e.target.value)} type="text" placeholder="First Name" required />
+                <input onChange={(e) => handleChange("lastName", e.target.value)} type="text" placeholder="Last Name" required />
+                <input onChange={(e) => handleChange("businessName", e.target.value)} type="text" placeholder="Business Name   (Optional)" />
+                <input onChange={(e) => handleChange("email", e.target.value)} type="text" placeholder="Email" required />
+                <input onChange={(e) => handleChange("password", e.target.value)} type="password" placeholder="Password" required />
+                {errorState && <p className="error">An error has occurred. Please try again.</p>}
+                <div className="submit-btn-container">
+                    <input className="submit-btn" type="submit" value="CREATE ACCOUNT" />
+                </div>
             </form>
-            <button onClick={handleSubmit}>Create Account</button>
+            {/* <button onClick={handleSubmit}>Create Account</button> */}
         </div>
     )
 }
