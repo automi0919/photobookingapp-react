@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@auth0/auth0-react": "^1.5.0",
+    "@syncfusion/ej2-react-buttons": "^19.1.63",
     "@syncfusion/ej2-react-schedule": "^19.1.65",
     "axios": "^0.18.1",
     "bcryptjs": "^2.4.3",

@@ -28,7 +28,6 @@ export function SignUpForm({ newUser, setNewUser }) {
     function fetchUserData() {
         API.getUserData(newUser.email)
             .then(res => setLocalStorage(res.data))
-            // .then(res => console.log(res.data))
             .catch(err => console.log(err))
     }
 
@@ -36,8 +35,6 @@ export function SignUpForm({ newUser, setNewUser }) {
         e.preventDefault();
         API.createNewUser(newUser)
             .then(res => fetchUserData())
-            // .then(res => setLocalStorage()) 
-            // .then(history.push('/dashboard'))
             .catch(err => setErrorState(err))
     }
 
