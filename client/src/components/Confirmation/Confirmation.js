@@ -13,17 +13,20 @@ export function Confirmation({ appointmentData }) {
                         <div className="step active">3</div>
                         <div className="step active">4</div>
                         <div className="step active">5</div>
-                        <div className="step active">6</div>
                     </div>
                 </div>
                 <div className="right-two-thirds">
-                    <div>
-                        <h1>Congratulations! Your appointment is confirmed</h1>
+                    <div className="confirmation-header">
+                        <h1>Appointment Confirmed</h1>
+                        <h2>You're all set. The details of your appointment are below.</h2>
+                        <hr></hr>
+                        <p><b>Appointment Date/Time:</b> {appointmentData.date}</p>
+                        <p><b>Address:</b> {appointmentData.street} {appointmentData.city} {appointmentData.state} {appointmentData.zip}</p>
                     </div>
-                    <div>
+                    {/* <div>
                         <p>Appointment Date/Time: {appointmentData.date} {appointmentData.timeSlot}</p>
                         <p>Address: {appointmentData.street} {appointmentData.city} {appointmentData.state} {appointmentData.zip}</p>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

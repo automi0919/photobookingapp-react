@@ -64,7 +64,6 @@ export function ConfirmPackage({ appointmentData, setAppointmentData }) {
                         <div className="step">3</div>
                         <div className="step">4</div>
                         <div className="step">5</div>
-                        <div className="step">6</div>
                     </div>
                 </div>
                 <div className="right-two-thirds">

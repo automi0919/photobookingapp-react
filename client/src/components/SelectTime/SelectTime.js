@@ -101,9 +101,8 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
                         <div className="step active">1</div>
                         <div className="step active">2</div>
                         <div className="step active">3</div>
-                        <div className="step active">4</div>
+                        <div className="step">4</div>
                         <div className="step">5</div>
-                        <div className="step">6</div>
                     </div>
                 </div>
                 <div className="right-two-thirds">
