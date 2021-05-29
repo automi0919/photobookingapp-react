@@ -22,7 +22,7 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
         startTimeDisplay: '11:00',
         endTimeDisplay: '12:30',
         startTime: '11:0',
-        endTime: '13:30'
+        endTime: '12:30'
     },
     {
         startTimeDisplay: '1:00',
