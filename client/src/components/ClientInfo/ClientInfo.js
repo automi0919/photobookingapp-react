@@ -46,8 +46,7 @@ export function ClientInfo({ appointmentData, setAppointmentData }) {
                         <div className="step active">2</div>
                         <div className="step active">3</div>
                         <div className="step active">4</div>
-                        <div className="step active">5</div>
-                        <div className="step">6</div>
+                        <div className="step">5</div>
                     </div>
                 </div>
                 <div className="right-two-thirds">
