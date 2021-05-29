@@ -18,9 +18,26 @@ export function SignUpForm({ newUser, setNewUser }) {
         })
     }
 
-    const handleSubmit = () => {
+    function setLocalStorage(user) {
+        console.log(user)
+        window.localStorage.setItem("userId", JSON.stringify(user._id))
+        window.localStorage.setItem("isAuthenticated", JSON.stringify(true))
+        history.push('/dashboard')
+    }
+
+    function fetchUserData() {
+        API.getUserData(newUser.email)
+            .then(res => setLocalStorage(res.data))
+            // .then(res => console.log(res.data))
+            .catch(err => console.log(err))
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
         API.createNewUser(newUser)
-            .then(history.push('/dashboard'))
+            .then(res => fetchUserData())
+            // .then(res => setLocalStorage()) 
+            // .then(history.push('/dashboard'))
             .catch(err => setErrorState(err))
     }
 

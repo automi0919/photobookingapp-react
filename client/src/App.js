@@ -27,6 +27,8 @@ function App() {
     }
   });
 
+  let userIdS = '';
+
   const [appointmentData, setAppointmentData] = useState({
     street: '',
     city: '',
@@ -46,7 +48,7 @@ function App() {
   });
 
   useEffect(() => {
-    const userIdS = JSON.parse(localStorage.getItem("userId"));
+    userIdS = JSON.parse(localStorage.getItem("userId"));
     const isAuthenticatedS = JSON.parse(localStorage.getItem("isAuthenticated"));
     setCurrentUser(prevState => {
       return {
@@ -56,7 +58,7 @@ function App() {
       }
     })
 
-  }, [])
+  }, [userIdS])
 
   return (
     <Router>

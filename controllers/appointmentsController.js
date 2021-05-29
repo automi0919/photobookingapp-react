@@ -41,7 +41,7 @@ module.exports = {
     })
   },
   getDashboardData: function (req, res) {
-    console.log(req.query)
+    // console.log(req.query)
     db.Appointment.find(req.query)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

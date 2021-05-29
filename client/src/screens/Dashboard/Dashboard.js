@@ -19,7 +19,7 @@ export function Dashboard() {
 
     useEffect(() => {
         API.getUserData(userId)
-            .then(res => updateUser(userEmail, res.data._id, isAuthenticated))
+            .then(res => updateUser(res.data.email, res.data._id, isAuthenticated))
             .catch(err => console.log(err))
     }, [userId]);
 
