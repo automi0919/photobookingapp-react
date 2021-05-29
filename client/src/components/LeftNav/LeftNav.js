@@ -21,7 +21,7 @@ export function LeftNav() {
             <div className="left-nav-links">
                 <h1 className="logo">PhotoCal</h1>
                 <a href="/">Customize Packages</a>
-                <a href="/">Default Availability</a>
+                <a href="/dashboard/availability">Default Availability</a>
                 <a href="/">My Profile</a>
             </div>
             <div className="logout">{isAuthenticated ? <a className="login-logout-btn" onClick={handleLogout}>❮ LOGOUT</a> : <a className="login-logout-btn" href="/login">LOGIN</a>}</div>

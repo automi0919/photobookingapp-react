@@ -16,6 +16,7 @@ import {
   Route
 } from "react-router-dom";
 import Normalize from 'react-normalize';
+import DashboardAvailability from './screens/DashboardAvailability/DashboardAvailability';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({
@@ -91,6 +92,9 @@ function App() {
           </Route>
           <Route exact path="/dashboard">
             <Dashboard />
+          </Route>
+          <Route exact path="/dashboard/availability">
+            <DashboardAvailability />
           </Route>
           <Route exact path="/">
             <Dashboard />
