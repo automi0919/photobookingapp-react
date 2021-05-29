@@ -31,13 +31,14 @@
     padding-right: 20px;
 }
 
-.new-appointment, .block-btn {
-    background: linear-gradient( 
-        21deg
-         , rgba(2,0,36,1) 0%, rgb(34, 117, 96) 0%, rgb(41, 241, 198) 100%);
+.new-appointment, .block-btn, .book-link-btn {
     border: none;
     border-radius: 10px;
-    color: white;
+    height: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background: #A2C5AC;
+    color: #2f3236;
     margin-right: 20px;
     padding-left: 20px;
     padding-right: 20px;
@@ -45,9 +46,12 @@
 }
 
 .block-btn {
-    background: linear-gradient( 
-        21deg
-         , rgba(2,0,36,1) 0%, rgb(117, 34, 34) 0%, rgb(241, 41, 41) 100%);
+    background: #bb99a8;
+}
+
+.book-link-btn {
+    border: 2px solid #878E99;
+    background-color: transparent;
 }
 
 /* .calendar-btn-container {

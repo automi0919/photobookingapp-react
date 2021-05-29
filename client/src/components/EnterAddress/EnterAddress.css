@@ -1,8 +1,6 @@
 .left-third {
     width: 33%;
-    background: linear-gradient( 
-        21deg
-         , rgba(2,0,36,1) 0%, rgba(23,104,172,1) 0%, rgba(6,190,225,1) 100%);
+    background: #D3D5D4;
     height: 100%;
     border-radius: 20px 0px 0px 20px;
     display:flex;
@@ -89,10 +87,8 @@ form {
     height: 40px;
     padding-left: 40px;
     padding-right: 40px;
-    background: linear-gradient(
-90deg
-, rgba(2,0,36,1) 0%, rgba(23,104,172,1) 0%, rgba(6,190,225,1) 100%);
-    color: white;
+    background: #6492f5;
+    color: #f3f3f3;
     box-shadow: 4px 5px 15px -3px rgb(0 0 0 / 42%);
     font-weight: bold;
 }
@@ -144,23 +140,23 @@ button:hover {
     height: 40px;
     padding-left: 40px;
     padding-right: 40px;
-    background: white;
+    background: transparent;
     margin-right: 20px;
-    color: #03256c;
-    border: 1px solid rgba(6,190,225,1);
+    color: #2f3236;
+    border: 12x solid #2f3236;
     border-radius: 10px;
     box-shadow: 4px 5px 15px -3px rgb(0 0 0 / 42%);
     font-weight: bold;
 }
 
 .step {
-    font: 13px Arial, sans-serif;
-    width: 2em;
-    height: 2em;
+    font: 15px Arial, sans-serif;
+    width: 3em;
+    height: 3em;
     box-sizing: initial;
     /* background: #fff; */
-    border: 0.1em solid #f3f3f3;
-    color: #f3f3f3;
+    border: 0.1em solid #2f3236;
+    color: #2f3236;
     text-align: center;
     border-radius: 50%;
     line-height: 2em;
@@ -180,6 +176,6 @@ button:hover {
 
 .active {
     background-color: #f3f3f3;
-    color: #03256C;
+    color: #2f3236;
 }
 

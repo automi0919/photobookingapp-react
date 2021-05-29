@@ -38,7 +38,7 @@ export function Dashboard() {
                                 <div className="button-container">
                                     <button className="new-appointment">ADD APPOINTMENT</button>
                                     <button className="block-btn">BLOCK TIME</button>
-                                    <button className="book-btn" onClick={handleRedirect}>VIEW BOOKING FORM</button>
+                                    <button className="book-link-btn" onClick={handleRedirect}>VIEW BOOKING FORM</button>
                                 </div>
                                 <CalendarComponent />
                             </div>}

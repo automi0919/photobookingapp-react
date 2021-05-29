@@ -1,16 +1,16 @@
 .step {
-    font: 13px Arial, sans-serif;
-    width: 2em;
-    height: 2em;
+    font: 14px Arial, sans-serif;
+    width: 3em;
+    height: 3em;
     box-sizing: initial;
     /* background: #fff; */
-    border: 0.1em solid #f3f3f3;
-    color: #f3f3f3;
-    text-align: center;
+    /* border: 0.1em solid #f3f3f3; */
+    /* color: #f3f3f3; */
+    /* text-align: center; */
     border-radius: 50%;
-    line-height: 2em;
+    line-height: 3em;
     box-sizing: content-box;
-    margin: 10px; 
+    margin: 10px;
 }
 
 .current-step-wrapper {
@@ -24,6 +24,6 @@
 }
 
 .active {
-    background-color: #f3f3f3;
-    color: #03256C;
+    background-color: #A2C5AC;
+    border: none;
 }
