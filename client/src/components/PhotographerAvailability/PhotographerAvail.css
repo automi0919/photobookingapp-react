@@ -4,3 +4,26 @@
     text-align: center;
     justify-content: space-around;
 }
+
+input, select {
+    border: none;
+}
+
+.availability-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+form {
+    width: 100%;
+}
+
+.availability-setup-container {
+    padding: 25px;
+}
+
+/* .submit-btn {
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+} */
