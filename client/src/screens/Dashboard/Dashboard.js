@@ -31,14 +31,14 @@ export function Dashboard() {
                         <LeftNav />
                     </div>
                     <div className="body-content-container">
-                        <h1 className="page-header">Dashboard</h1>
+                        <h1 className="page-header">Appointment Calendar</h1>
                         {isAuthenticated === false ?
                             <h2>You must be logged in to view</h2> :
                             <div className="calendar-btn-container">
                                 <div className="button-container">
-                                    <button className="new-appointment">ADD APPOINTMENT</button>
-                                    <button className="block-btn">BLOCK TIME</button>
-                                    <button className="book-link-btn" onClick={handleRedirect}>VIEW BOOKING FORM</button>
+                                    {/* <button className="new-appointment">ADD APPOINTMENT</button>
+                                    <button className="block-btn">BLOCK TIME</button> */}
+                                    <button className="new-appointment" onClick={handleRedirect}>+ ADD APPOINTMENT</button>
                                 </div>
                                 <CalendarComponent />
                             </div>}
