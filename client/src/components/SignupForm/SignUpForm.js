@@ -22,11 +22,11 @@ export function SignUpForm({ newUser, setNewUser }) {
         console.log(user)
         window.localStorage.setItem("userId", JSON.stringify(user._id))
         window.localStorage.setItem("isAuthenticated", JSON.stringify(true))
-        history.push('/dashboard')
+        history.push('/')
     }
 
     function fetchUserData() {
-        API.getUserData(newUser.email)
+        API.getUserDataByEmail(newUser.email)
             .then(res => setLocalStorage(res.data))
             .catch(err => console.log(err))
     }

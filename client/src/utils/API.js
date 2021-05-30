@@ -54,5 +54,12 @@ export default {
         update
       }
     })
-  }
+  },
+  getUserDataByEmail: function (userEmail) {
+    return axios.get(`/api/users/${userEmail}`, {
+      params: {
+        email: userEmail
+      }
+    })
+  },
 }

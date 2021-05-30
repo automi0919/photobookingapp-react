@@ -15,4 +15,8 @@ router
     .route('/update/:id')
     .post(appController.updateUser)
 
+router
+    .route('/:email')
+    .get(appController.getUserDataByEmail)
+
 module.exports = router;
