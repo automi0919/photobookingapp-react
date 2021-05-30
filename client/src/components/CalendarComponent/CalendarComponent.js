@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import UserContext from '../../utils/UserContext';
 import API from '../../utils/API';
 import { Inject, ScheduleComponent, Day, Week, Month, EventSettingsModel } from '@syncfusion/ej2-react-schedule';
-import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
+
 
 export function CalendarComponent() {
 
@@ -12,26 +12,27 @@ export function CalendarComponent() {
 
     useEffect(() => {
         if (userId) {
-        API.getDashboardData(userId)
-            .then(res => {
-                const formattedRes = res.data.map(appointment => {
-                    console.log(appointment)
-                    const splitDate = appointment.date.split('-')
-                    const splitStartTime = appointment.startTime.split(":");
-                    const splitEndTime = appointment.endTime.split(":");
-                    return {
-                        Subject: appointment.package,
-                        EndTime: new Date(splitDate[0], splitDate[1] - 1, splitDate[2], splitEndTime[0], splitEndTime[1]),
-                        StartTime: new Date(splitDate[0], splitDate[1] - 1, splitDate[2], splitStartTime[0], splitStartTime[1]),
-                        Location: `${appointment.street} ${appointment.city} ${appointment.state} ${appointment.zip}`,
-                        Description: `Client Name: ${appointment.firstName} ${appointment.lastName}| Client Email: ${appointment.email}`,
-                        AppointmentId: `${appointment._id}`
-                    }
+            API.getDashboardData(userId)
+                .then(res => {
+                    const formattedRes = res.data.map(appointment => {
+                        console.log(appointment)
+                        const splitDate = appointment.date.split('-')
+                        const splitStartTime = appointment.startTime.split(":");
+                        const splitEndTime = appointment.endTime.split(":");
+                        return {
+                            Subject: appointment.package,
+                            EndTime: new Date(splitDate[0], splitDate[1] - 1, splitDate[2], splitEndTime[0], splitEndTime[1]),
+                            StartTime: new Date(splitDate[0], splitDate[1] - 1, splitDate[2], splitStartTime[0], splitStartTime[1]),
+                            Location: `${appointment.street} ${appointment.city} ${appointment.state} ${appointment.zip}`,
+                            Description: `Client Name: ${appointment.firstName} ${appointment.lastName}| Client Email: ${appointment.email}`,
+                            Id: `${appointment._id}`
+                        }
+                    })
+                    setAppointmentList(formattedRes)
                 })
-                setAppointmentList(formattedRes)
-            })
-            .catch(err => console.log(err));
-    }}, [userId]);
+                .catch(err => console.log(err));
+        }
+    }, [userId]);
 
     const localData = {
         dataSource: appointmentList
