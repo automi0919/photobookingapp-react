@@ -11,6 +11,8 @@ export function CalendarComponent() {
 
     const [appointmentList, setAppointmentList] = useState([])
 
+    const [currentUser, setCurrentUser] = useState()
+
     useEffect(() => {
         if (userId) {
             API.getDashboardData(userId)
@@ -80,12 +82,24 @@ export function CalendarComponent() {
             </div>);
     }
 
+    useEffect(() => {
+        if (userId) {
+            API.getUserData(userId)
+                .then(res => setCurrentUser(res.data))
+                .catch(err => console.log(err))
+            // Get the photographer's openingTime and closingTime
+            // Set those values as the default values for the biz hours form below.
+        }
+    }, [])
+
     return (
         <div>
-            <ScheduleComponent allowDragAndDrop={false} width='100%' height='650px' startHour='08:00' endHour='20:00' workHours={{ highlight: true, start: '08:00', end: '20:00' }}
-                eventSettings={localData} editorTemplate={template}>
-                <Inject services={[Day, Week, Month]} />
-            </ScheduleComponent>
+            {!currentUser ? <h1>Loading...</h1> : <div>
+                <ScheduleComponent allowDragAndDrop={false} width='100%' height='650px' startHour='08:00' endHour='20:00' workHours={{ highlight: true, start: currentUser.openingTime, end: currentUser.closingTime }}
+                    eventSettings={localData} editorTemplate={template}>
+                    <Inject services={[Day, Week, Month]} />
+                </ScheduleComponent>
+            </div>}
         </div>
     )
 }
