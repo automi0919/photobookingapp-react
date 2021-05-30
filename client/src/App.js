@@ -8,6 +8,7 @@ import { ConfirmPackage } from './components/ConfirmPackage/ConfirmPackage';
 import { Dashboard } from './screens/Dashboard/Dashboard';
 import { Login } from './screens/Login/Login';
 import { Signup } from './screens/Signup/Signup';
+import { Availability } from './screens/Availability/Availability';
 import UserContext from "./utils/UserContext";
 import './App.css';
 import {
@@ -22,6 +23,8 @@ function App() {
     userEmail: '',
     userId: '',
     isAuthenticated: 'false',
+    // openingTime: '08:00',
+    // closingTime: '17:00',
     updateUser: (userEmail, userId, isAuthenticated) => {
       setCurrentUser({ ...currentUser, userEmail, userId, isAuthenticated })
     }
@@ -45,7 +48,7 @@ function App() {
     photographerId: '',
     startTime: '',
     endTime: '',
-    status: 'active'
+    status: 'active',
   });
 
   useEffect(() => {
@@ -55,7 +58,7 @@ function App() {
       return {
         ...prevState,
         userId: userIdS,
-        isAuthenticated: isAuthenticatedS
+        isAuthenticated: isAuthenticatedS,
       }
     })
 
@@ -89,6 +92,9 @@ function App() {
           </Route>
           <Route exact path="/book/confirm/:id">
             <Confirmation appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
+          </Route>
+          <Route exact path="/availability">
+            <Availability />
           </Route>
           <Route exact path="/dashboard">
             <Dashboard />

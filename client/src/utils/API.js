@@ -32,10 +32,10 @@ export default {
       }
     })
   },
-  getUserData: function (userEmail) {
+  getUserData: function (userId) {
     return axios.get('/api/users/dashboard', {
       params: {
-        email: userEmail
+        _id: userId
       }
     })
   },
@@ -43,6 +43,15 @@ export default {
     return axios.post(`/api/appointments/cancel/:${id}`, {
       params: {
         _id: id
+      }
+    })
+  },
+  updateUser: function (id, update) {
+    console.log(update)
+    return axios.post(`api/users/update/:${id}`, {
+      params: {
+        _id: id,
+        update
       }
     })
   }

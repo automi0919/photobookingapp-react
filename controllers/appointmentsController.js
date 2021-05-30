@@ -57,5 +57,12 @@ module.exports = {
     db.Appointment.findOneAndUpdate(req.body.params, { status: 'cancelled' })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  updateUser: function (req, res) {
+    console.log(req.body.params.update.openingTime)
+    console.log(req.body.params._id)
+    db.User.findOneAndUpdate({ _id: req.body.params._id }, { openingTime: req.body.params.update.openingTime, closingTime: req.body.params.update.closingTime })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   }
 };

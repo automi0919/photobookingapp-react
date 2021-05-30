@@ -11,4 +11,8 @@ router
     .route('/dashboard')
     .get(appController.getUserData)
 
+router
+    .route('/update/:id')
+    .post(appController.updateUser)
+
 module.exports = router;

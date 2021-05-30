@@ -28,6 +28,14 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true
+    },
+    openingTime: {
+      type: String,
+      default: '08:00'
+    },
+    closingTime: {
+      type: String,
+      default: '18:00'
     }
   });
 
@@ -54,8 +62,8 @@ userSchema.pre("save", function (next) {
   }
 })
 
-userSchema.methods.comparePassword = function(password, callback) {
-  bcrypt.compare(password, this.password, function(error, isMatch) {
+userSchema.methods.comparePassword = function (password, callback) {
+  bcrypt.compare(password, this.password, function (error, isMatch) {
     if (error) {
       return callback(error)
     } else {
