@@ -7,8 +7,12 @@ router
     .post(appController.create)
     .get(appController.getAppointmentsByDate)
 
-    router
+router
     .route('/dashboard')
     .get(appController.getDashboardData)
+
+router
+    .route('/cancel/:id')
+    .post(appController.cancelEvent)
 
 module.exports = router;

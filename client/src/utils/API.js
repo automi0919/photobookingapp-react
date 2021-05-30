@@ -8,7 +8,6 @@ export default {
     return axios.post("/api/appointments", appointmentData);
   },
   getAppointments: async function (appointmentData) {
-    console.log(appointmentData.date)
     return await axios.get("/api/appointments", {
       params: {
         date: appointmentData.date
@@ -34,10 +33,16 @@ export default {
     })
   },
   getUserData: function (userEmail) {
-    console.log(userEmail)
     return axios.get('/api/users/dashboard', {
       params: {
         email: userEmail
+      }
+    })
+  },
+  cancelEvent: function (id) {
+    return axios.post(`/api/appointments/cancel/:${id}`, {
+      params: {
+        _id: id
       }
     })
   }

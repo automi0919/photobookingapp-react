@@ -1,0 +1,21 @@
+
+.e-event-delete, .e-event-save, .e-event-cancel, .e-event-create { 
+    display: none; 
+} 
+  
+.e-quick-popup-wrapper .e-event-popup .e-popup-header .e-header-icon-wrapper .e-delete {
+    display: none; 
+  }
+
+.e-schedule-form {
+    width: 100%;
+}
+
+.btn-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      height: 100%;
+      /* position: relative;
+      bottom: 10px; */
+}

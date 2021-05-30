@@ -9,7 +9,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   getAppointmentsByDate: function (req, res) {
-    db.Appointment.find(req.query, "-_id")
+    db.Appointment.find(req.query)
       .then(dbModel => {
         // let formattedDbModel = dbModel.map((slot) => slot.startTime)
         res.json(dbModel)
@@ -48,7 +48,13 @@ module.exports = {
   },
   getUserData: function (req, res) {
     console.log(req.query)
-    db.User.findOne(req.query, {password:0})
+    db.User.findOne(req.query, { password: 0 })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  cancelEvent: function (req, res) {
+    console.log(req.body.params)
+    db.Appointment.findOneAndUpdate(req.body.params, { status: 'cancelled' })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }

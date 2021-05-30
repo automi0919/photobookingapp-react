@@ -77,7 +77,6 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
     }
 
     function getAppointments() {
-        console.log(appointmentData)
         API.getAppointments(appointmentData)
             .then((res) => setAppointments(res.data))
         // .then(res => console.log(res));

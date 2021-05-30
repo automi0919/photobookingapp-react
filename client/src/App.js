@@ -44,7 +44,8 @@ function App() {
     price: '',
     photographerId: '',
     startTime: '',
-    endTime: ''
+    endTime: '',
+    status: 'active'
   });
 
   useEffect(() => {
