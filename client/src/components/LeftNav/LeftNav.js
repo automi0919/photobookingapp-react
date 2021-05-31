@@ -20,7 +20,7 @@ export function LeftNav() {
         <div className="LeftNav-container">
             <div className="left-nav-links">
                 <h1 className="logo">PhotoCal</h1>
-                <a href="/">Appointments</a>
+                <a href="/">Calendar</a>
                 {/* <a href="/">Customize Packages</a> */}
                 <a href="/availability">Default Availability</a>
                 {/* <button className="book-appt-btn">BOOK APPOINTMENT</button> */}

@@ -86,22 +86,26 @@ export function EnterAddress({ appointmentData, setAppointmentData }) {
                     </div>
                     <form>
                         <div className="street-input">
+                            {/* <label for="streetAddress" value="Street Address">Street Address</label> */}
                             <input
+                                id="streetAddress"
                                 type="text"
                                 name="streetAddress"
-                                placeholder="Enter the street address"
+                                placeholder="    Enter the street address"
                                 onChange={(e) => handleChange("street", e.target.value)}
                             />
                         </div>
                         <div className="city-street-zip-input">
+                        {/* <label for="city">City</label> */}
                             <input
+                            id="city"
                                 type="text"
                                 name="city"
-                                placeholder="City"
+                                placeholder="    City"
                                 onChange={(e) => handleChange("city", e.target.value)}
                             />
                             <select onChange={(e) => handleChange("state", e.target.value)}>
-                                <option selected disabled default value="State">State</option>
+                                <option selected disabled default value="    State">State</option>
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
                                 <option value="AZ">Arizona</option>
@@ -157,7 +161,7 @@ export function EnterAddress({ appointmentData, setAppointmentData }) {
                             <input
                                 type="text"
                                 name="zip"
-                                placeholder="Zip Code"
+                                placeholder="    Zip Code"
                                 onChange={(e) => handleChange("zip", e.target.value)}
                             />
                         </div>

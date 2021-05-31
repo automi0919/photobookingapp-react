@@ -58,21 +58,21 @@ export function ClientInfo({ appointmentData, setAppointmentData }) {
                             type="text"
                             name="firstName"
                             id="firstName"
-                            placeholder="Enter your first name"
+                            placeholder="    Enter your first name"
                             onChange={(e) => handleChange("firstName", e.target.value)}
                         />
                         <input
                             type="text"
                             name="lastName"
                             id="lastName"
-                            placeholder="Enter your last name"
+                            placeholder="    Enter your last name"
                             onChange={(e) => handleChange("lastName", e.target.value)}
                         />
                         <input
                             type="email"
                             name="email"
                             id="email"
-                            placeholder="Enter your email"
+                            placeholder="    Enter your email"
                             onChange={(e) => handleChange("email", e.target.value)}
                         />
                         <input

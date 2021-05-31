@@ -105,13 +105,13 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
                     </div>
                 </div>
                 <div className="right-two-thirds">
-                    <h1>Select a Time Slot</h1>
                     <div className="card-content">
                         <div className="date-picker">
                             <h2>Choose a Date</h2>
                             <input
                                 type="date"
                                 onChange={(e) => handleDateChange('date', e.target.value)}
+                                placeholder="    mm/dd/yyyy"
                             />
                         </div>
                         <div className="choose-time-button-container">
@@ -119,16 +119,22 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
                                 <div className="inputs">
                                     <input
                                         type="radio"
-                                        id={slot}
+                                        id={slot.startTime}
                                         startTime={slot.startTime}
                                         endTime={slot.endTime}
                                         value={slot.startTime}
                                         key={slot}
                                         name="appointmentSelection"
                                         onChange={(e) => handleChange(e.target.attributes.startTime.value, e.target.attributes.endTime.value)}
-                                        disabled={appointments.some(appt => appt.startTime === slot.startTime)}
+                                        hidden={appointments.some(appt => appt.startTime === slot.startTime)}
                                     />
-                                    <span>{slot.startTimeDisplay} - {slot.endTimeDisplay}</span>
+                                    <label
+                                        for={slot.startTime}
+                                        // className={appointments.some(appt => appt.startTime === slot.startTime)}>
+                                        hidden={appointments.some(appt => appt.startTime === slot.startTime)}>
+                                        {slot.startTimeDisplay} - {slot.endTimeDisplay}
+                                    </label>
+                                    {/* <span>{slot.startTimeDisplay} - {slot.endTimeDisplay}</span> */}
                                 </div>
                             )) : <div className="table-loading">Choose a date to see available appointments.</div>}
                         </div>

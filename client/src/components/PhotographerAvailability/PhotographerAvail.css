@@ -5,7 +5,7 @@
     justify-content: space-around;
 }
 
-input, select {
+.availability-setup-container input, .availability-setup-container select {
     border: none;
 }
 
