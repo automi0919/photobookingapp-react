@@ -9,9 +9,8 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   getAppointmentsByDate: function (req, res) {
-    db.Appointment.find(req.query)
+    db.Appointment.find({ date: req.query.date, status: "active" })
       .then(dbModel => {
-        // let formattedDbModel = dbModel.map((slot) => slot.startTime)
         res.json(dbModel)
       })
       .catch(err => res.status(422).json(err));
@@ -41,26 +40,21 @@ module.exports = {
     })
   },
   getDashboardData: function (req, res) {
-    // console.log(req.query)
     db.Appointment.find(req.query)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   getUserData: function (req, res) {
-    console.log(req.query)
     db.User.findOne(req.query, { password: 0 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   cancelEvent: function (req, res) {
-    console.log(req.body.params)
     db.Appointment.findOneAndUpdate(req.body.params, { status: 'cancelled' })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   updateUser: function (req, res) {
-    console.log(req.body.params.update.openingTime)
-    console.log(req.body.params._id)
     db.User.findOneAndUpdate({ _id: req.body.params._id }, { openingTime: req.body.params.update.openingTime, closingTime: req.body.params.update.closingTime })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

@@ -46,8 +46,6 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
     let history = useHistory();
 
     function handleChange(startTimeValue, endTimeValue) {
-        console.log(startTimeValue);
-        console.log(endTimeValue);
         setAppointmentData(prevState => {
             return {
                 ...prevState,
@@ -78,7 +76,9 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
 
     function getAppointments() {
         API.getAppointments(appointmentData)
+            // .then(res => console.log(res))
             .then((res) => setAppointments(res.data))
+            .catch(err => console.log(err))
         // .then(res => console.log(res));
     };
 

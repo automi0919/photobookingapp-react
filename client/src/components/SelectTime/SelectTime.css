@@ -48,26 +48,26 @@ label {
     justify-content: center;
 }
 
-/* label:before {
+label:before {
     content: "";
     height: 20px;
     width: 20px;
     border: 2px solid #09B2DA;
     border-radius: 50%;
     margin-right: 20px;
-} */
+}
 
 input[type="radio"]:checked + label {
     background-color: #09B2DA;
     color: white;
 }
 
-/* input[type="radio"]:checked + label::before {
+input[type="radio"]:checked + label::before {
     height: 10px;
     width: 10px;
     border: 8px solid white;
     background-color: #09B2DA;
-} */
+}
 
 label:disabled:before {
     color: gray;
