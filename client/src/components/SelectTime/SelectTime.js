@@ -110,8 +110,10 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
                             <h2>Choose a Date</h2>
                             <input
                                 type="date"
+                                id="appointmentDate"
+                                name="appointmentDate"
                                 onChange={(e) => handleDateChange('date', e.target.value)}
-                                placeholder="    mm/dd/yyyy"
+                                // value={appointmentData.data ? appointmentData.date : "MM/DD/YYY"}
                             />
                         </div>
                         <div className="choose-time-button-container">
@@ -127,6 +129,7 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
                                         name="appointmentSelection"
                                         onChange={(e) => handleChange(e.target.attributes.startTime.value, e.target.attributes.endTime.value)}
                                         hidden={appointments.some(appt => appt.startTime === slot.startTime)}
+                                        checked={appointmentData.startTime === slot.startTime}
                                     />
                                     <label
                                         for={slot.startTime}

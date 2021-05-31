@@ -65,7 +65,7 @@ export function EnterAddress({ appointmentData, setAppointmentData }) {
 
     let userId = getUserId.getUserId(window.location.pathname);
 
-    console.log(appointmentData);
+    console.log(appointmentData.state);
 
     return (
         <div className="page-wrapper">
@@ -91,21 +91,23 @@ export function EnterAddress({ appointmentData, setAppointmentData }) {
                                 id="streetAddress"
                                 type="text"
                                 name="streetAddress"
-                                placeholder="    Enter the street address"
+                                placeholder={appointmentData.street ? appointmentData.street : "    Enter the street address"}
                                 onChange={(e) => handleChange("street", e.target.value)}
                             />
                         </div>
                         <div className="city-street-zip-input">
-                        {/* <label for="city">City</label> */}
+                            {/* <label for="city">City</label> */}
                             <input
-                            id="city"
+                                id="city"
                                 type="text"
                                 name="city"
-                                placeholder="    City"
+                                placeholder={appointmentData.city ? appointmentData.city : "    City"}
                                 onChange={(e) => handleChange("city", e.target.value)}
                             />
                             <select onChange={(e) => handleChange("state", e.target.value)}>
-                                <option selected disabled default value="    State">State</option>
+                                {/* <option selected={appointmentData.state ? appointmentData.state : disabled default value="    State"}>State</option> */}
+                                <option selected disabled default value={appointmentData.state ? appointmentData.state : "    State"}>{appointmentData.state ? appointmentData.state : "    State"}</option>
+                                {/* <option {appointmentData.state ? selected value=selectedData.state : selected disabled default value="    State"}>State */}
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
                                 <option value="AZ">Arizona</option>
@@ -161,7 +163,7 @@ export function EnterAddress({ appointmentData, setAppointmentData }) {
                             <input
                                 type="text"
                                 name="zip"
-                                placeholder="    Zip Code"
+                                placeholder={appointmentData.zip ? appointmentData.zip : "    Zip Code"}
                                 onChange={(e) => handleChange("zip", e.target.value)}
                             />
                         </div>
