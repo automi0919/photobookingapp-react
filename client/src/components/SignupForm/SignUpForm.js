@@ -9,6 +9,10 @@ export function SignUpForm({ newUser, setNewUser }) {
 
     let history = useHistory();
 
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     function handleChange(field, value) {
         setNewUser(prevState => {
             return {
@@ -18,11 +22,12 @@ export function SignUpForm({ newUser, setNewUser }) {
         })
     }
 
-    function setLocalStorage(user) {
+    async function setLocalStorage(user) {
         console.log(user)
         window.localStorage.setItem("userId", JSON.stringify(user._id))
         window.localStorage.setItem("isAuthenticated", JSON.stringify(true))
-        history.push('/')
+        await sleep(500)
+        history.push('/dashboard')
     }
 
     function fetchUserData() {

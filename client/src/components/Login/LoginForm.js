@@ -18,6 +18,10 @@ export function LoginForm() {
 
     const [errorState, setErrorState] = useState()
 
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
+
     const handleChange = (field, value) => {
         setUserLoginData(prevState => {
             return {
@@ -27,15 +31,15 @@ export function LoginForm() {
         })
     }
 
-    function setLocalStorage(user) {
-        console.log(user)
+    async function setLocalStorage(user) {
         window.localStorage.setItem("userId", JSON.stringify(user._id))
         window.localStorage.setItem("isAuthenticated", JSON.stringify(true))
+        await sleep(500)
         history.push('/dashboard')
     }
 
     function fetchUserData(res) {
-            API.getUserData(userLoginData.email)
+            API.getUserDataByEmail(userLoginData.email)
                 .then(res => setLocalStorage(res.data))
                 .catch(err => console.log(err))
     }
@@ -44,7 +48,6 @@ export function LoginForm() {
         e.preventDefault();
         API.loginUser(userLoginData)
             .then(res => fetchUserData(res.data))
-            // .then(res => console.log(res.data))
             .catch(err => setErrorState(err))
     }
 
