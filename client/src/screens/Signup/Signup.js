@@ -9,6 +9,7 @@ export function Signup() {
     return (
         <div className="signup-wrapper">
             <h1>Create An Account</h1>
+            <h3>Already a user? <a className="signup-link" href="/login">Click here to log in!</a></h3>
             <SignUpForm newUser={newUser} setNewUser={setNewUser} />
         </div>
     )

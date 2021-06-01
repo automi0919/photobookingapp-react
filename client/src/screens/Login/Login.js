@@ -6,7 +6,7 @@ export function Login() {
     return (
         <div className="login-wrapper">
             <h1>Login Below</h1>
-            <h3>Not a user? Create your account today!</h3>
+            <h3>Not a user? <a className="signup-link" href="/signup">Create your account today!</a></h3>
             <LoginForm />
         </div>
     )

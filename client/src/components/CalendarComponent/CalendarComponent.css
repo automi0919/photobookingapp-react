@@ -19,3 +19,33 @@
       /* position: relative;
       bottom: 10px; */
 }
+
+.delete-btn {
+    /* position: absolute;
+    bottom: 55px;
+    right: 132px; */
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background: linear-gradient( 
+        21deg
+         , rgba(2,0,36,1) 0%, rgb(172, 23, 23) 0%, rgb(225, 32, 6) 100%);
+    color: #f3f3f3;
+    box-shadow: 4px 5px 15px -3px rgb(0 0 0 / 42%);
+    font-weight: bold;
+}
+
+.delete-btn-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.e-dlg-content {
+    
+}
+

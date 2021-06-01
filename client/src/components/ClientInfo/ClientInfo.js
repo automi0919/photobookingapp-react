@@ -50,7 +50,7 @@ export function ClientInfo({ appointmentData, setAppointmentData }) {
                     </div>
                 </div>
                 <div className="right-two-thirds">
-                    <div>
+                    <div className="header">
                         <h1>Enter Your Details</h1>
                     </div>
                     <form className="client-info">

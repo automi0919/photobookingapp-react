@@ -54,13 +54,13 @@ export function LoginForm() {
                 <input
                     onChange={(e) => handleChange("email", e.target.value)}
                     type="text"
-                    placeholder="Username/Email"
+                    placeholder="    Enter Your Email"
                     required
                 />
                 <input
                     onChange={(e) => handleChange("password", e.target.value)}
                     type="password"
-                    placeholder="Password"
+                    placeholder="    Enter Your Password"
                     required
                 />
                 {errorState && <p className='error'>Email or password is incorrect</p>}

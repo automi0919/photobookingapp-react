@@ -5,3 +5,12 @@
     align-items: center;
     height: 100vh;
 }
+
+a.signup-link, h3 {
+    color: black;
+    font-size: 15px;
+}
+
+a:hover {
+    text-decoration: underline;
+}

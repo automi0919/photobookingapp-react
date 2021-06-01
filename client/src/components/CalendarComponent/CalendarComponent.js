@@ -66,18 +66,18 @@ export function CalendarComponent() {
         // console.log(appointmentList[0]);
         return (
             <div className="editor-container">
-                <div className="appointment-content-container">
-                    {/* <label for="subject" value="Package" /> */}
-                    {/* <input id="subject" type="text" value={appointmentList[0].Subject} placeholder={appointmentList[0].Subject} /> */}
-                </div>
+                {/* <div className="appointment-content-container">
+                    <label for="subject" value="Package" />
+                    <input id="subject" type="text" value={appointmentList[0].Subject} placeholder={appointmentList[0].Subject} />
+                </div> */}
                 <div className='btn-container'>
                     <div className="delete-btn-container">
-                        <button value={appointmentList._id} onClick={(e) => updateEvent(e.target.form.attributes[3].value, "cancel")}>CANCEL APPOINTMENT</button>
+                        <button className="delete-btn" value={appointmentList._id} onClick={(e) => updateEvent(e.target.form.attributes[3].value, "cancel")}>CANCEL APPOINTMENT</button>
                     </div>
-                    <div className="save-cancel-btn-container">
+                    {/* <div className="save-cancel-btn-container">
                         <button value={appointmentList._id} onClick={(e) => updateEvent(e.target.form.attributes[3].value, "update")}>SAVE</button>
-                        {/* <button value={appointmentList._id} onClick={(e) => deleteEvent(e)}>BACK</button> */}
-                    </div>
+                        <button value={appointmentList._id} onClick={(e) => deleteEvent(e)}>BACK</button>
+                    </div> */}
                 </div>
             </div>);
     }

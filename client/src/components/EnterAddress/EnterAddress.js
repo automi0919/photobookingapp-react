@@ -104,7 +104,7 @@ export function EnterAddress({ appointmentData, setAppointmentData }) {
                                 placeholder={appointmentData.city ? appointmentData.city : "    City"}
                                 onChange={(e) => handleChange("city", e.target.value)}
                             />
-                            <select onChange={(e) => handleChange("state", e.target.value)}>
+                            <select id="stateSelector" onChange={(e) => handleChange("state", e.target.value)}>
                                 {/* <option selected={appointmentData.state ? appointmentData.state : disabled default value="    State"}>State</option> */}
                                 <option selected disabled default value={appointmentData.state ? appointmentData.state : "    State"}>{appointmentData.state ? appointmentData.state : "    State"}</option>
                                 {/* <option {appointmentData.state ? selected value=selectedData.state : selected disabled default value="    State"}>State */}
