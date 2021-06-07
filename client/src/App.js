@@ -8,6 +8,7 @@ import { Dashboard } from './screens/Dashboard/Dashboard';
 import { Login } from './screens/Login/Login';
 import { Signup } from './screens/Signup/Signup';
 import { Availability } from './screens/Availability/Availability';
+import { Packages } from './screens/Packages/Packages';
 import UserContext from "./utils/UserContext";
 import './App.css';
 import {
@@ -91,6 +92,9 @@ function App() {
           </Route>
           <Route exact path="/availability">
             <Availability />
+          </Route>
+          <Route exact path="/packages">
+            <Packages />
           </Route>
           <Route exact path="/dashboard">
             <Dashboard />

@@ -23,6 +23,7 @@ export function LeftNav() {
                 <a href="/">Calendar</a>
                 {/* <a href="/">Customize Packages</a> */}
                 <a href="/availability">Default Availability</a>
+                <a href="/packages">Setup Packages</a>
                 {/* <button className="book-appt-btn">BOOK APPOINTMENT</button> */}
                 {/* <a href="/">My Profile</a> */}
             </div>
