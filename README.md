@@ -18,6 +18,6 @@ If you would like to explore how to use this application, you can view it here -
 
 Login Credentials
 
-Email: test@user.com
-Password: testuser
+<p>Email: test@user.com</p>
+<p>Password: testuser</p>
 
