@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { EnterAddress } from "./components/EnterAddress/EnterAddress";
 import { Confirmation } from './components/Confirmation/Confirmation';
-import { SelectDate } from './components/SelectDate/SelectDate';
 import { SelectTime } from './components/SelectTime/SelectTime';
 import { ClientInfo } from './components/ClientInfo/ClientInfo';
 import { ConfirmPackage } from './components/ConfirmPackage/ConfirmPackage';
@@ -80,9 +79,6 @@ function App() {
           </Route>
           <Route exact path="/book/confirm-package/:id">
             <ConfirmPackage appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
-          </Route>
-          <Route exact path="/book/select-date/:id">
-            <SelectDate appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
           </Route>
           <Route exact path="/book/select-time/:id">
             <SelectTime appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
