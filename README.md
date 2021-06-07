@@ -12,3 +12,12 @@ This is an on-going personal project that is in active development.
 
 <img width="1190" alt="Screen Shot 2021-06-07 at 1 00 43 PM" src="https://user-images.githubusercontent.com/75274610/121060941-42cf4f80-c791-11eb-8294-4a049709a627.png">
 
+# How to explore
+
+If you would like to explore how to use this application, you can view it here - https://photo-calendar.herokuapp.com/login.
+
+Login Credentials
+
+Email: test@user.com
+Password: testuser
+
