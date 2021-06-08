@@ -1,34 +1,37 @@
-.week-selector {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: space-around;
-}
-
 .availability-setup-container input, .availability-setup-container select {
     border: none;
-}
-
-.availability-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-form {
-    width: 100%;
 }
 
 .availability-setup-container {
     padding: 25px;
 }
 
-/* .submit-btn {
-    padding: 10px 20px 10px 20px;
-    border-radius: 10px;
-} */
+.modal-header {
+    text-align: center;
+}
 
-.date-picker button {
-    border: none;
-    background-color: transparent;
+.modal-btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.new-package-form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* .new-package-modal {
+    width: 80%;
+} */
+.package-form-label {
+    font-size: 18px;
+}
+
+.modal-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }

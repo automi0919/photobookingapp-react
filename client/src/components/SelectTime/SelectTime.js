@@ -122,6 +122,7 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
                             {appointments ? availability.map((slot) => (
                                 <div className="inputs">
                                     <input
+                                        className="slot-inputs"
                                         type="radio"
                                         id={slot.startTime}
                                         startTime={slot.startTime}
@@ -135,6 +136,7 @@ export function SelectTime({ appointmentData, setAppointmentData }) {
                                     />
                                     <label
                                         for={slot.startTime}
+                                        className="slot-labels"
                                         // className={appointments.some(appt => appt.startTime === slot.startTime)}>
                                         hidden={appointments.some(appt => appt.startTime === slot.startTime)}>
                                         {slot.startTimeDisplay} - {slot.endTimeDisplay}

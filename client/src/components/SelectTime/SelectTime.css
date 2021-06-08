@@ -36,7 +36,7 @@ input[type="radio"]{
     display: none;
 }
 
-label {
+.slot-labels {
     font-size: 20px;
     border: 2px solid #09B2DA;
     border-radius: 10px;
@@ -48,7 +48,7 @@ label {
     justify-content: center;
 }
 
-label:before {
+.slot-labels:before {
     content: "";
     height: 20px;
     width: 20px;
@@ -57,19 +57,19 @@ label:before {
     margin-right: 20px;
 }
 
-input[type="radio"]:checked + label {
+input[type="radio"]:checked + .slot-labels {
     background-color: #09B2DA;
     color: white;
 }
 
-input[type="radio"]:checked + label::before {
+input[type="radio"]:checked + .slot-labels::before {
     height: 10px;
     width: 10px;
     border: 8px solid white;
     background-color: #09B2DA;
 }
 
-label:disabled:before {
+.slot-labels:disabled:before {
     color: gray;
     border-color: gray;
 }

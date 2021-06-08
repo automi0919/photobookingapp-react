@@ -20,6 +20,12 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  createNewPackage: function (req, res) {
+    console.log(req)
+    db.Package.create(req.body)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   loginUser: function (req, callback) {
     UserModel.findOne({ email: req.query.email }).exec(function (error, user) {
       if (error) {
