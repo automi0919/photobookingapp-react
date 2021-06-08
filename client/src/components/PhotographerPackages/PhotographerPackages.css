@@ -6,6 +6,12 @@
     padding: 25px;
 }
 
+.availability-setup-container-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .modal-header {
     text-align: center;
 }
@@ -29,9 +35,36 @@
     font-size: 18px;
 }
 
+.package-container, .package-price {
+    text-align: center;
+}
+
+.package-container {
+    background-color: #f3f3f3;
+    border: none;
+    border-radius: 5px;
+
+}
+
+.package-container h2 {
+    padding-top: 20px;
+}
+
+.package-container p {
+    padding-bottom: 20px;
+}
+
 .modal-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
 }

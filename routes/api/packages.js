@@ -6,4 +6,8 @@ router
     .route('/new')
     .post(appController.createNewPackage)
 
+router
+    .route('/')
+    .get(appController.getPackageData)
+
 module.exports = router;

@@ -42,6 +42,14 @@ export default {
       }
     })
   },
+  getPackageData: function (userId) {
+    console.log(userId)
+    return axios.get('/api/packages/', {
+      params: {
+        _id: userId
+      }
+    })
+  },
   cancelEvent: function (id) {
     return axios.post(`/api/appointments/cancel/:${id}`, {
       params: {

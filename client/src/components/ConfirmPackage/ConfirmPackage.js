@@ -1,58 +1,50 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { CurrentStep } from '../CurrentStep/CurrentStep';
 import getUserId from '../../utils/getUserId';
 import "../EnterAddress/EnterAddress.css";
+import API from '../../utils/API';
 
 export function ConfirmPackage({ appointmentData, setAppointmentData }) {
 
-    // console.log(appointmentData.package)
+    const [existingPackages, setExistingPackages] = useState()
 
     let history = useHistory();
 
     useEffect(() => {
 
-        console.log(appointmentData.sq_ft)
+        if (existingPackages) {
 
-        if (appointmentData.sq_ft <= 1499) {
-            setAppointmentData(prevState => {
-                return {
-                    ...prevState,
-                    package: 'small-home',
-                    price: '$159'
-                }
-            })
-        } else if (appointmentData.sq_ft >= 1500 && appointmentData.sq_ft <= 2999) {
-            setAppointmentData(prevState => {
-                return {
-                    ...prevState,
-                    package: 'standard-home',
-                    price: '$199'
-                }
-            })
-        } else if (appointmentData.sq_ft >= 3000) {
-            setAppointmentData(prevState => {
-                return {
-                    ...prevState,
-                    package: 'large-home',
-                    price: '$239'
+            existingPackages.map((photoPackage) => {
+                if (appointmentData.sq_ft <= photoPackage.sq_ft_max && appointmentData.sq_ft >= photoPackage.sq_ft_min) {
+                    console.log(photoPackage.price)
+                    setAppointmentData(prevState => {
+                        return {
+                            ...prevState,
+                            package: photoPackage.package,
+                            price: photoPackage.price
+                        }
+                    })
                 }
             })
         }
-    }, [appointmentData.sq_ft]);
+    }, [appointmentData.sq_ft, existingPackages]);
 
     function handleConfirmation() {
         history.push(`/book/select-time/${userId}`)
     }
 
-    // function handleBackButton() {
-    //     history.push
-    // }
-
-    // console.log(appointmentData.package)
-
     let userId = getUserId.getUserId(window.location.pathname);
 
+    useEffect(() => {
+        if (userId) {
+            API.getPackageData(userId)
+                .then(res => setExistingPackages(res.data))
+                .catch(err => console.log(err))
+        }
+    }, [])
+
+    console.log(existingPackages)
 
     return (
         <div className='page-wrapper'>

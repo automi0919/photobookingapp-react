@@ -49,6 +49,11 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  getPackageData: function (req, res) {
+    db.Package.find({ photographerId: req.query._id }).sort({ price: 1 })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   getUserData: function (req, res) {
     db.User.findOne(req.query, { password: 0 })
       .then(dbModel => res.json(dbModel))

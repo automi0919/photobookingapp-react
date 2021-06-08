@@ -11,11 +11,11 @@ export function PhotographerPackages() {
 
     const { userEmail, userId, isAuthenticated, updateUser } = useContext(UserContext);
 
-    const [modalIsOpen, setModalIsOpen] = useState(true)
+    const [modalIsOpen, setModalIsOpen] = useState(false)
 
     const [currentUser, setCurrentUser] = useState()
 
-    const [ existingPackages, setExistingPackages] = useState()
+    const [existingPackages, setExistingPackages] = useState()
 
     const [newPackage, setNewPackage] = useState({
         package: null,
@@ -36,10 +36,8 @@ export function PhotographerPackages() {
 
     function handleSubmit(e) {
         e.preventDefault();
+        setModalIsOpen(false);
         API.createNewPackage(userId, newPackage)
-            // .then(res => console.log(res))
-
-            // Do I need to call a function here to setExisting Packages AND setIsOpen to false?
             .then(res => setExistingPackages(prevState => setExistingPackages(res.data)))
             .catch(err => console.log(err))
     }
@@ -52,7 +50,13 @@ export function PhotographerPackages() {
         }
     }, [])
 
-    //I think I need another useEffect to pull the existingPackages (if there are any and display them, otherwise, display an empty state.)
+    useEffect(() => {
+        if (userId) {
+            API.getPackageData(userId)
+                .then(res => setExistingPackages(res.data))
+                .catch(err => console.log(err))
+        }
+    }, [])
 
     console.log(existingPackages);
 
@@ -60,8 +64,25 @@ export function PhotographerPackages() {
         <div>
             {!currentUser ? <h1>Loading...</h1> :
                 <div className="availability-setup-container">
-                    <h1>Set up your availability</h1>
-                    <button onClick={() => setModalIsOpen(true)}>Create New Package</button>
+                    <div className="availability-setup-container-header">
+                        <h1>Set up your packages</h1>
+                        <button className="new-appointment" onClick={() => setModalIsOpen(true)}>Create New Package</button>
+                    </div>
+
+                    {!existingPackages ?
+                        <div className="empty-state">
+                            <h2>It looks like you haven't created any packages yet.</h2>
+                            <button className="new-appointment" onClick={() => setModalIsOpen(true)}>Create New Package</button>
+                        </div> :
+                        <div>
+                            {existingPackages.map((photoPackage) => (
+                                <div className="package-container">
+                                    <h2>{photoPackage.package}</h2>
+                                    <h3 className="package-price">${photoPackage.price}</h3>
+                                    <p>{photoPackage.sq_ft_min} sq-ft to {photoPackage.sq_ft_max} sq-ft</p>
+                                </div>
+                            ))}
+                        </div>}
 
                     <Modal isOpen={modalIsOpen}>
                         <div className="modal-container">
