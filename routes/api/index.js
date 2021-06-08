@@ -6,6 +6,6 @@ const packageRoutes = require('./packages');
 // Post routes
 router.use("/appointments", appRoutes);
 router.use("/users", userRoutes);
-router.use("/packages", userRoutes);
+router.use("/packages", packageRoutes);
 
 module.exports = router;
