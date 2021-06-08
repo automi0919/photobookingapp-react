@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from 'react-router-dom';
-import UserContext from "../../utils/UserContext";
+import UserContext from "../../../utils/UserContext";
 import './styles.css'
-import API from "../../utils/API";
+import API from "../../../utils/API";
 
 export function LoginForm() {
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import API from '../../utils/API';
+import API from '../../../utils/API';
 import { CurrentStep } from '../CurrentStep/CurrentStep';
-import getUserId from '../../utils/getUserId';
+import getUserId from '../../../utils/getUserId';
 import "../EnterAddress/EnterAddress.css";
 
 

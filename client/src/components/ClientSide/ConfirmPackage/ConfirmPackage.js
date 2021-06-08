@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { CurrentStep } from '../CurrentStep/CurrentStep';
-import getUserId from '../../utils/getUserId';
+import getUserId from '../../../utils/getUserId';
 import "../EnterAddress/EnterAddress.css";
-import API from '../../utils/API';
+import API from '../../../utils/API';
 
 export function ConfirmPackage({ appointmentData, setAppointmentData }) {
 

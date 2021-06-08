@@ -1,18 +1,18 @@
 const router = require("express").Router();
-const appController = require("../../controllers/appointmentsController");
+const appointmentController = require("../../controllers/appointmentsController");
 
 // Matches with "/api/appointments"
 router
     .route('/')
-    .post(appController.create)
-    .get(appController.getAppointmentsByDate)
+    .post(appointmentController.create)
+    .get(appointmentController.getAppointmentsByDate)
 
 router
     .route('/dashboard')
-    .get(appController.getDashboardData)
+    .get(appointmentController.getDashboardData)
 
 router
     .route('/cancel/:id')
-    .post(appController.cancelEvent)
+    .post(appointmentController.cancelEvent)
 
 module.exports = router;

@@ -1,22 +1,22 @@
 const router = require("express").Router();
-const appController = require("../../controllers/appointmentsController");
+const usersController = require("../../controllers/usersController");
 
 // Matches with "/api/users"
 router
     .route('/')
-    .post(appController.createNewUser)
-    .get(appController.loginUser)
+    .post(usersController.createNewUser)
+    .get(usersController.loginUser)
 
 router
     .route('/dashboard')
-    .get(appController.getUserData)
+    .get(usersController.getUserData)
 
 router
     .route('/update/:id')
-    .post(appController.updateUser)
+    .post(usersController.updateUser)
 
 router
     .route('/:email')
-    .get(appController.getUserDataByEmail)
+    .get(usersController.getUserDataByEmail)
 
 module.exports = router;
