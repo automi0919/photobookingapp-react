@@ -21,7 +21,6 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   createNewPackage: function (req, res) {
-    console.log(req)
     db.Package.create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

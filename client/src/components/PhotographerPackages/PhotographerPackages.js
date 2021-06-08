@@ -15,6 +15,8 @@ export function PhotographerPackages() {
 
     const [currentUser, setCurrentUser] = useState()
 
+    const [ existingPackages, setExistingPackages] = useState()
+
     const [newPackage, setNewPackage] = useState({
         package: null,
         sq_ft_min: null,
@@ -35,7 +37,10 @@ export function PhotographerPackages() {
     function handleSubmit(e) {
         e.preventDefault();
         API.createNewPackage(userId, newPackage)
-            .then(res => console.log(res))
+            // .then(res => console.log(res))
+
+            // Do I need to call a function here to setExisting Packages AND setIsOpen to false?
+            .then(res => setExistingPackages(prevState => setExistingPackages(res.data)))
             .catch(err => console.log(err))
     }
 
@@ -47,7 +52,9 @@ export function PhotographerPackages() {
         }
     }, [])
 
-    console.log(newPackage);
+    //I think I need another useEffect to pull the existingPackages (if there are any and display them, otherwise, display an empty state.)
+
+    console.log(existingPackages);
 
     return (
         <div>
