@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom';
-import API from '../../utils/API';
-import getUserId from '../../utils/getUserId';
+import API from '../../../utils/API';
+import getUserId from '../../../utils/getUserId';
 import "../EnterAddress/EnterAddress.css";
 import './SelectTime.css';
 import Calendar from 'react-calendar';

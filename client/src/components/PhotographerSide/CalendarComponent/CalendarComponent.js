@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
-import UserContext from '../../utils/UserContext';
-import API from '../../utils/API';
+import UserContext from '../../../utils/UserContext';
+import API from '../../../utils/API';
 import { Inject, ScheduleComponent, Day, Week, Month, EventSettingsModel } from '@syncfusion/ej2-react-schedule';
 import "./CalendarComponent.css"
 

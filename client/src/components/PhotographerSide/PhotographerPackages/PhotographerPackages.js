@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
-import UserContext from "../../utils/UserContext";
+import UserContext from "../../../utils/UserContext";
 import './PhotographerPackages.css';
-import API from '../../utils/API';
+import API from '../../../utils/API';
 import Modal from 'react-modal';
 import {
     Link

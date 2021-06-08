@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
-import UserContext from "../../utils/UserContext";
-import API from '../../utils/API';
+import UserContext from "../../../utils/UserContext";
+import API from '../../../utils/API';
 
 export function AppointmentList() {
 

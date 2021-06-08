@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import './styles.css'
-import API from "../../utils/API"
+import API from "../../../utils/API"
 
 export function SignUpForm({ newUser, setNewUser }) {
 

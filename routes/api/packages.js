@@ -1,13 +1,13 @@
 const router = require("express").Router();
-const appController = require("../../controllers/appointmentsController");
+const packagesController = require("../../controllers/packagesController");
 
 // Matches with "/api/packages"
 router
     .route('/new')
-    .post(appController.createNewPackage)
+    .post(packagesController.createNewPackage)
 
 router
     .route('/')
-    .get(appController.getPackageData)
+    .get(packagesController.getPackageData)
 
 module.exports = router;
