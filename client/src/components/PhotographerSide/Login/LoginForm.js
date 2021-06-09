@@ -1,14 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
-import UserContext from "../../../utils/UserContext";
 import './styles.css'
 import API from "../../../utils/API";
 
 export function LoginForm() {
 
     let history = useHistory();
-
-    const { userEmail, userId, isAuthenticated, updateUser } = useContext(UserContext);
 
     const [userLoginData, setUserLoginData] = useState({
         email: '',
@@ -20,7 +17,7 @@ export function LoginForm() {
 
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
-      }
+    }
 
     const handleChange = (field, value) => {
         setUserLoginData(prevState => {
@@ -39,9 +36,9 @@ export function LoginForm() {
     }
 
     function fetchUserData(res) {
-            API.getUserDataByEmail(userLoginData.email)
-                .then(res => setLocalStorage(res.data))
-                .catch(err => console.log(err))
+        API.getUserDataByEmail(userLoginData.email)
+            .then(res => setLocalStorage(res.data))
+            .catch(err => console.log(err))
     }
 
     const handleSubmit = (e) => {

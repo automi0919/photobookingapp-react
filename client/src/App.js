@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { EnterAddress } from "./components/EnterAddress/EnterAddress";
-import { Confirmation } from './components/Confirmation/Confirmation';
-import { SelectTime } from './components/SelectTime/SelectTime';
-import { ClientInfo } from './components/ClientInfo/ClientInfo';
-import { ConfirmPackage } from './components/ConfirmPackage/ConfirmPackage';
+import { EnterAddress } from "./components/ClientSide/EnterAddress/EnterAddress";
+import { Confirmation } from './components/ClientSide/Confirmation/Confirmation';
+import { SelectTime } from './components/ClientSide/SelectTime/SelectTime';
+import { ClientInfo } from './components/ClientSide/ClientInfo/ClientInfo';
+import { ConfirmPackage } from './components/ClientSide/ConfirmPackage/ConfirmPackage';
 import { Dashboard } from './screens/Dashboard/Dashboard';
 import { Login } from './screens/Login/Login';
 import { Signup } from './screens/Signup/Signup';
@@ -23,8 +23,6 @@ function App() {
     userEmail: '',
     userId: '',
     isAuthenticated: 'false',
-    // openingTime: '08:00',
-    // closingTime: '17:00',
     updateUser: (userEmail, userId, isAuthenticated) => {
       setCurrentUser({ ...currentUser, userEmail, userId, isAuthenticated })
     }

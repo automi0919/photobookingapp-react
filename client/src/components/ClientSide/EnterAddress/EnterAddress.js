@@ -38,7 +38,7 @@ export function EnterAddress({ appointmentData, setAppointmentData }) {
         //         'x-rapidapi-host': 'mashvisor-api.p.rapidapi.com'
         //     }
         // };
-        // // history.push('/book/select-date');
+
         // API.getAddress(options)
         //     .then(res => {
         //         setAppointmentData(prevState => {
@@ -48,9 +48,7 @@ export function EnterAddress({ appointmentData, setAppointmentData }) {
         //             }
         //         })
         //     })
-        //     .then(
-        //         history.push('/book/confirm-package')
-        //     )
+        //     .then(history.push(`/book/confirm-package/${userId}`))
         //     .catch(err => console.log(err))
 
         setAppointmentData(prevState => {

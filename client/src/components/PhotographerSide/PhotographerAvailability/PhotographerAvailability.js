@@ -5,7 +5,7 @@ import API from '../../../utils/API';
 
 export function PhotographerAvailability() {
 
-    const { userEmail, userId, isAuthenticated, updateUser } = useContext(UserContext);
+    const { userId } = useContext(UserContext);
 
     // const [bizHours, setBizHours] = useState({
     //     // openingTime: '08:00',

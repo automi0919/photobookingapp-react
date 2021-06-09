@@ -1,16 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import UserContext from "../../utils/UserContext";
 import API from '../../utils/API';
 import { useHistory } from 'react-router-dom';
-import { CalendarComponent } from '../../components/CalendarComponent/CalendarComponent';
-import { LeftNav } from '../../components/LeftNav/LeftNav';
+import { CalendarComponent } from '../../components/PhotographerSide/CalendarComponent/CalendarComponent';
+import { LeftNav } from '../../components/PhotographerSide/LeftNav/LeftNav';
 import './Dashboard.css';
 
 export function Dashboard() {
 
     let history = useHistory();
 
-    const { userEmail, userId, isAuthenticated, updateUser } = useContext(UserContext);
+    const { userId, isAuthenticated, updateUser } = useContext(UserContext);
 
     function handleRedirect() {
         history.push(`book/${userId}`)

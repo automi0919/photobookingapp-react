@@ -3,13 +3,10 @@ import UserContext from "../../../utils/UserContext";
 import './PhotographerPackages.css';
 import API from '../../../utils/API';
 import Modal from 'react-modal';
-import {
-    Link
-} from "react-router-dom";
 
 export function PhotographerPackages() {
 
-    const { userEmail, userId, isAuthenticated, updateUser } = useContext(UserContext);
+    const { userId } = useContext(UserContext);
 
     const [modalIsOpen, setModalIsOpen] = useState(false)
 

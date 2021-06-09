@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SignUpForm } from '../../components/SignupForm/SignUpForm';
+import { SignUpForm } from '../../components/PhotographerSide/SignupForm/SignUpForm';
 import "./styles.css"
 
 export function Signup() {

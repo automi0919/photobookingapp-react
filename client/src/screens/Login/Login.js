@@ -1,5 +1,5 @@
 import React from 'react';
-import { LoginForm } from '../../components/Login/LoginForm'
+import { LoginForm } from '../../components/PhotographerSide/Login/LoginForm'
 import './styles.css'
 
 export function Login() {

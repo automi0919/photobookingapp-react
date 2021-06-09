@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import UserContext from "../../utils/UserContext";
-import { LeftNav } from '../../components/LeftNav/LeftNav'
-import { PhotographerAvailability } from '../../components/PhotographerAvailability/PhotographerAvailability'
+import { LeftNav } from '../../components/PhotographerSide/LeftNav/LeftNav'
+import { PhotographerAvailability } from '../../components/PhotographerSide/PhotographerAvailability/PhotographerAvailability'
 
 export function Availability() {
 
-    const { userEmail, userId, isAuthenticated, updateUser } = useContext(UserContext);
+    const { userId } = useContext(UserContext);
 
     return (
         <div>
