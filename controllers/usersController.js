@@ -5,11 +5,13 @@ const bcrypt = require('bcryptjs');
 
 module.exports = {
   authorizeUser: function (req, res) {
-    console.log(req);
-    res.json(req);
-    // db.User.findOne({
+    token = req.body.params.token.split('"');
+    let authorized = jwt.verify(token[1], process.env.SECRET_KEY);
+    console.log(authorized);
 
-    // })
+    db.User.findOne({ _id: authorized.userId }, { password: 0 })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   },
   createNewUser: function (req, res) {
     db.User.create(req.body)
@@ -44,7 +46,6 @@ module.exports = {
   //   })
   // },
   loginUser: function (req, res, next) {
-    console.log('foo')
     let getUser;
     UserModel.findOne({
       email: req.query.email
@@ -55,7 +56,7 @@ module.exports = {
         });
       }
       getUser = user;
-      console.log(user);
+      // console.log(user);
       return bcrypt.compare(req.query.password, user.password);
     }).then(response => {
       if (!response) {
@@ -68,7 +69,7 @@ module.exports = {
       }, process.env.SECRET_KEY, {
         expiresIn: "14d"
       });
-      console.log(jwtToken);
+      // console.log(jwtToken);
       res.status(200).json({
         token: jwtToken,
         expiresIn: 3600,

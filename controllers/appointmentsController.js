@@ -1,5 +1,4 @@
 const db = require("../models");
-const UserModel = require('../models/user')
 const { getMaxListeners } = require("../models/appointment");
 
 module.exports = {

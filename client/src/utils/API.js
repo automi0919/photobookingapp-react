@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default {
   authorizeUser: function (authToken) {
-    return axios.get("/api/users/auth", {
+    return axios.post("/api/users/auth/", {
       params: {
         token: authToken
       }

@@ -21,7 +21,7 @@ router
 
 router
     .route('/auth')
-    .get(usersController.authorizeUser)
+    .post(usersController.authorizeUser)
 
 router
     .route('/')
