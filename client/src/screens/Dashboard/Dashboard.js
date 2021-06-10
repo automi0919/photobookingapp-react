@@ -1,12 +1,15 @@
 import React, { useContext, useEffect } from 'react';
 import UserContext from "../../utils/UserContext";
 import API from '../../utils/API';
+import helper from '../../utils/helper'
 import { useHistory } from 'react-router-dom';
 import { CalendarComponent } from '../../components/PhotographerSide/CalendarComponent/CalendarComponent';
 import { LeftNav } from '../../components/PhotographerSide/LeftNav/LeftNav';
 import './Dashboard.css';
 
 export function Dashboard() {
+
+    let authToken;
 
     let history = useHistory();
 
@@ -16,11 +19,25 @@ export function Dashboard() {
         history.push(`book/${userId}`)
     }
 
+    // useEffect(() => {
+    //     API.getUserData(userId)
+    //         .then(res => updateUser(res.data.email, res.data._id, isAuthenticated))
+    //         .catch(err => console.log(err))
+    // }, [userId]);
+
     useEffect(() => {
-        API.getUserData(userId)
-            .then(res => updateUser(res.data.email, res.data._id, isAuthenticated))
-            .catch(err => console.log(err))
-    }, [userId]);
+        authToken = window.localStorage.getItem('token');
+    }, [])
+
+    useEffect(() => {
+        if (authToken) {
+            API.authorizeUser(authToken)
+                .then(res => console.log(res))
+                // If we authorize the user, set the userId
+                .catch(err => console.log(err))
+                // Otherwise redirect them to the login
+        }
+    })
 
     return (
         <div>

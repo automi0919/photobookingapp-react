@@ -1,6 +1,13 @@
 import axios from "axios";
 
 export default {
+  authorizeUser: function (authToken) {
+    return axios.get("/api/users/auth", {
+      params: {
+        token: authToken
+      }
+    });
+  },
   cancelEvent: function (id) {
     return axios.post(`/api/appointments/cancel/:${id}`, {
       params: {
