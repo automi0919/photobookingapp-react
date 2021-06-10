@@ -1,10 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router';
 import { SignUpForm } from '../../components/PhotographerSide/SignupForm/SignUpForm';
 import "./styles.css"
 
 export function Signup() {
 
-    const [newUser, setNewUser ] = useState({});
+    let history = useHistory();
+
+    const [newUser, setNewUser] = useState({});
+
+    useEffect(() => {
+
+        let authToken = window.localStorage.getItem('token');
+
+        if (authToken) {
+            history.push('dashboard')
+        }
+    })
 
     return (
         <div className="signup-wrapper">

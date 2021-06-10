@@ -1,11 +1,29 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
+import { useHistory } from 'react-router-dom';
+import API from "../../utils/API";
 import UserContext from "../../utils/UserContext";
 import { LeftNav } from '../../components/PhotographerSide/LeftNav/LeftNav'
 import { PhotographerPackages } from '../../components/PhotographerSide/PhotographerPackages/PhotographerPackages'
 
 export function Packages() {
 
-    const { userId } = useContext(UserContext);
+    let authToken;
+
+    let history = useHistory();
+
+    const { userId, updateUser } = useContext(UserContext);
+
+    useEffect(() => {
+        authToken = window.localStorage.getItem('token');
+
+        if (!authToken) {
+            history.push('login')
+        } else {
+            API.authorizeUser(authToken)
+                .then(res => updateUser(res.data.email, res.data._id))
+                .catch(err => console.log(err))
+        }
+    }, [])
 
     return (
         <div>

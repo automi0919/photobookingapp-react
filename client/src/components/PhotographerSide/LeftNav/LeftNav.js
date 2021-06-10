@@ -7,14 +7,12 @@ export function LeftNav() {
 
     const history = useHistory()
 
-    const { isAuthenticated } = useContext(UserContext);
+    const { userId } = useContext(UserContext);
 
     function handleLogout() {
-        window.localStorage.setItem("userId", JSON.stringify(''))
-        window.localStorage.setItem("isAuthenticated", JSON.stringify(false))
+        localStorage.clear()
         history.push('/login')
     }
-
 
     return (
         <div className="LeftNav-container">
@@ -27,7 +25,7 @@ export function LeftNav() {
                 {/* <button className="book-appt-btn">BOOK APPOINTMENT</button> */}
                 {/* <a href="/">My Profile</a> */}
             </div>
-            <div className="logout">{isAuthenticated ? <a className="login-logout-btn" onClick={handleLogout}>❮ LOGOUT</a> : <a className="login-logout-btn" href="/login">LOGIN</a>}</div>
+            <div className="logout">{userId ? <a className="login-logout-btn" onClick={handleLogout}>❮ LOGOUT</a> : <a className="login-logout-btn" href="/login">LOGIN</a>}</div>
         </div>
     )
 }

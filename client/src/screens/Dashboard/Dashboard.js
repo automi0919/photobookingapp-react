@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import UserContext from "../../utils/UserContext";
 import API from '../../utils/API';
-import helper from '../../utils/helper'
 import { useHistory } from 'react-router-dom';
 import { CalendarComponent } from '../../components/PhotographerSide/CalendarComponent/CalendarComponent';
 import { LeftNav } from '../../components/PhotographerSide/LeftNav/LeftNav';
@@ -21,17 +20,15 @@ export function Dashboard() {
 
     useEffect(() => {
         authToken = window.localStorage.getItem('token');
-    }, [])
 
-    useEffect(() => {
-        if (authToken) {
+        if (!authToken) {
+            history.push('login')
+        } else {
             API.authorizeUser(authToken)
                 .then(res => updateUser(res.data.email, res.data._id))
-                .catch(err => history.push('/login'))
+                .catch(err => console.log(err))
         }
-    })
-
-    console.log(userId)
+    }, [])
 
     return (
         <div>
@@ -42,8 +39,6 @@ export function Dashboard() {
                     </div>
                     <div className="body-content-container">
                         <h1 className="page-header">Appointment Calendar</h1>
-                        {isAuthenticated === false ?
-                            <h2>You must be logged in to view</h2> :
                             <div className="calendar-btn-container">
                                 <div className="button-container">
                                     {/* <button className="new-appointment">ADD APPOINTMENT</button>
@@ -51,7 +46,7 @@ export function Dashboard() {
                                     <button className="new-appointment" onClick={handleRedirect}>+ ADD APPOINTMENT</button>
                                 </div>
                                 <CalendarComponent />
-                            </div>}
+                            </div>
                     </div>
                 </div>}
         </div>

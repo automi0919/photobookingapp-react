@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from 'react-router-dom';
 import './styles.css'
 import API from "../../../utils/API";
 
 export function LoginForm() {
 
-    let history = useHistory();
+    let history = useHistory()
 
     const [userLoginData, setUserLoginData] = useState({
         email: '',
@@ -30,24 +30,14 @@ export function LoginForm() {
 
     async function setLocalStorage(token) {
         window.localStorage.setItem("token", JSON.stringify(token.token))
-        // window.localStorage.setItem("isAuthenticated", JSON.stringify(true))
         await sleep(500)
         history.push('/dashboard')
     }
 
-    // function fetchUserData(res) {
-    //     API.getUserDataByEmail(userLoginData.email)
-    //         // .then(res => setLocalStorage(res.data))
-    //         .then(res => console.log(res))
-    //         .catch(err => console.log(err))
-    // }
-
     const handleSubmit = (e) => {
         e.preventDefault();
         API.loginUser(userLoginData)
-            // .then(res => fetchUserData(res.data))
             .then(res => setLocalStorage(res.data))
-            // .then(res => console.log(res))
             .catch(err => setErrorState(err))
     }
 
