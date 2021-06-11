@@ -23,6 +23,8 @@ export function PhotographerPackages() {
         photographerId: userId
     })
 
+    let modalSaveBtn = <button className="book-btn" onClick={handleSubmit}>Save</button>
+
     function handleChange(field, value) {
         setNewPackage(prevState => {
             return {
@@ -47,7 +49,7 @@ export function PhotographerPackages() {
                 .then(res => setExistingPackages(res.data))
                 .catch(err => console.log(err))
         }
-    }, [])
+    }, [modalSaveBtn])
 
     const emptyState = () => {
         if (existingPackages) {
@@ -137,7 +139,7 @@ export function PhotographerPackages() {
                         </form>
                         <div className="modal-btn-container">
                             <button id="back-button" onClick={() => setModalIsOpen(false)}>Close</button>
-                            <button className="book-btn" onClick={handleSubmit}>Save</button>
+                            {modalSaveBtn}
                         </div>
                     </div>
                 </Modal>
