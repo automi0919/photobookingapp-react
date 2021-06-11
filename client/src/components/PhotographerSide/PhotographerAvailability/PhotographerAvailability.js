@@ -33,9 +33,8 @@ export function PhotographerAvailability() {
     function handleSubmit(e) {
         e.preventDefault();
         API.updateUser(userId, currentUser)
-            .then(res => console.log(res))
+            // .then(res => console.log(res))
             .catch(err => console.log(err))
-        // Take the state and make an API call to update the user with it
     }
 
     useEffect(() => {
@@ -43,28 +42,12 @@ export function PhotographerAvailability() {
             API.getUserData(userId)
                 .then(res => setCurrentUser(res.data))
                 .catch(err => console.log(err))
-            // Get the photographer's openingTime and closingTime
-            // Set those values as the default values for the biz hours form below.
         }
     }, [])
 
-    console.log(currentUser)
-    console.log(userId)
-
-    // Get the photographer id from the UserContext
-    // Build the form for the photographer
-    // Standard Hours - use this to control
-    // Standard Operating Days -
-    //     Create recurring appointment slots
-    // Create a state that will save the photographer's preferences
-    // On Submit create a new collection in the DB for photographer's general availability (or should I just add this to the user model?)
-    // On Submit create a new collection of appointment slots
-
-    // console.log(bizHours)
-
     return (
         <div>
-            {!currentUser ? <h1>Loading...</h1> :
+            {currentUser &&
                 <div className="availability-setup-container">
                     <h1>Set up your availability</h1>
                     <form onSubmit={handleSubmit}>

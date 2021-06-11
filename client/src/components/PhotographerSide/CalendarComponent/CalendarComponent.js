@@ -45,25 +45,13 @@ export function CalendarComponent() {
         dataSource: appointmentList
     }
 
-    // useEffect(() => {
-    // }, [appointmentList])
-
     const updateEvent = (id, action) => {
         API.cancelEvent(id)
             .then(res => window.location.reload(false))
             .catch(err => console.log(err))
-        // I need to make an API call to update the appointment
-
-
-
-        // If the action === delete, I need to change the status from "active" to "cancelled"
-        // If the action === update, I just need to update the fields that have changed
-        // I then need to make an API call to update the appointment via the appointment ID
-        // Upon response, I then need to get the new data, map over it, and update the SchedulerComponent's data source (aka, formattedRes)
     }
 
     const template = () => {
-        // console.log(appointmentList[0]);
         return (
             <div className="editor-container">
                 {/* <div className="appointment-content-container">
@@ -87,8 +75,6 @@ export function CalendarComponent() {
             API.getUserData(userId)
                 .then(res => setCurrentUser(res.data))
                 .catch(err => console.log(err))
-            // Get the photographer's openingTime and closingTime
-            // Set those values as the default values for the biz hours form below.
         }
     }, [])
 

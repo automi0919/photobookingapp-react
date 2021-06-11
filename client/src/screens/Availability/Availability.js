@@ -11,7 +11,7 @@ export function Availability() {
 
     let history = useHistory();
 
-    const { userId, isAuthenticated, updateUser } = useContext(UserContext);
+    const { userId, updateUser } = useContext(UserContext);
 
     function handleRedirect() {
         history.push(`book/${userId}`)
