@@ -32,11 +32,12 @@ export function Dashboard() {
 
     return (
         <div>
-            {!userId ? <h3>Loading...</h3> :
+
                 <div className="body-container">
                     <div className="left-nav">
                         <LeftNav />
                     </div>
+                    {userId &&
                     <div className="body-content-container">
                         <h1 className="page-header">Appointment Calendar</h1>
                             <div className="calendar-btn-container">
@@ -47,8 +48,8 @@ export function Dashboard() {
                                 </div>
                                 <CalendarComponent />
                             </div>
-                    </div>
-                </div>}
+                    </div>}
+                </div>
         </div>
     )
 };

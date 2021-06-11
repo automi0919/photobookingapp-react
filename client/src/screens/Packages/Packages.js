@@ -27,15 +27,15 @@ export function Packages() {
 
     return (
         <div>
-            {!userId ? <h3>Loading...</h3> :
                 <div className="body-container">
                     <div className="left-nav">
                         <LeftNav />
                     </div>
+                    {userId &&
                     <div className="body-content-container">
                         <PhotographerPackages />
-                    </div>
-                </div>}
+                    </div>}
+                </div>
         </div>
     )
 }

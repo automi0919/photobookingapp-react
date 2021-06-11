@@ -31,15 +31,15 @@ export function Availability() {
 
     return (
         <div>
-            {!userId ? <h3>Loading...</h3> :
                 <div className="body-container">
                     <div className="left-nav">
                         <LeftNav />
                     </div>
+                    {userId &&
                     <div className="body-content-container">
                         <PhotographerAvailability />
-                    </div>
-                </div>}
+                    </div>}
+                </div>
         </div>
     )
 }
