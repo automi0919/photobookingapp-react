@@ -1,10 +1,13 @@
 import React, { useContext, useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom';
 import UserContext from "../../../utils/UserContext";
 import './PhotographerPackages.css';
 import API from '../../../utils/API';
 import Modal from 'react-modal';
 
 export function PhotographerPackages() {
+
+    let history = useHistory();
 
     const { userId } = useContext(UserContext);
 
@@ -33,18 +36,7 @@ export function PhotographerPackages() {
         e.preventDefault();
         setModalIsOpen(false);
         API.createNewPackage(userId, newPackage)
-            // .then(res => setExistingPackages(prevState => {
-            //     return {
-            //         ...prevState,
-            //         package: res.data.package,
-            //         sq_ft_min: res.data.sq_ft_min,
-            //         sq_ft_max: res.data.sq_ft_max,
-            //         price: res.data.price,
-            //         photographerId: userId
-            //     }
-            // }))
             .then(res => setExistingPackages(prevState => setExistingPackages(res.data)))
-            // .then(res => console.log(res))
             .catch(err => console.log(err))
     }
 
@@ -58,16 +50,14 @@ export function PhotographerPackages() {
 
     const emptyState = () => {
         if (existingPackages) {
-            if (existingPackages.length === 0){
+            if (existingPackages.length === 0) {
                 return <div className="empty-state">
-                            <h1>Create Your First Package Today</h1>
-                            <button className="new-appointment" onClick={() => setModalIsOpen(true)}>Create New Package</button>
-                        </div>
+                    <h1>Create Your First Package Today</h1>
+                    <button className="new-appointment" onClick={() => setModalIsOpen(true)}>Create New Package</button>
+                </div>
             }
         }
     }
-
-    console.log(existingPackages)
 
     return (
         <div>
