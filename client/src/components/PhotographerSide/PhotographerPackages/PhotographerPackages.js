@@ -56,6 +56,19 @@ export function PhotographerPackages() {
         }
     }, [])
 
+    const emptyState = () => {
+        if (existingPackages) {
+            if (existingPackages.length === 0){
+                return <div className="empty-state">
+                            <h1>Create Your First Package Today</h1>
+                            <button className="new-appointment" onClick={() => setModalIsOpen(true)}>Create New Package</button>
+                        </div>
+            }
+        }
+    }
+
+    console.log(existingPackages)
+
     return (
         <div>
             <div className="availability-setup-container">
@@ -64,11 +77,10 @@ export function PhotographerPackages() {
                     <button className="new-appointment" onClick={() => setModalIsOpen(true)}>Create New Package</button>
                 </div>
 
-                {!existingPackages ?
-                    <div className="empty-state">
-                        <h2>It looks like you haven't created any packages yet.</h2>
-                        <button className="new-appointment" onClick={() => setModalIsOpen(true)}>Create New Package</button>
-                    </div> :
+
+                {emptyState()}
+
+                {existingPackages &&
                     <div>
                         {existingPackages.map((photoPackage) => (
                             <div className="package-container">
@@ -78,6 +90,8 @@ export function PhotographerPackages() {
                             </div>
                         ))}
                     </div>}
+
+
 
                 <Modal isOpen={modalIsOpen}>
                     <div className="modal-container">
