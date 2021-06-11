@@ -47,7 +47,7 @@ export function PhotographerPackages() {
                 .then(res => setExistingPackages(res.data))
                 .catch(err => console.log(err))
         }
-    }, [existingPackages])
+    }, [])
 
     const emptyState = () => {
         if (existingPackages) {

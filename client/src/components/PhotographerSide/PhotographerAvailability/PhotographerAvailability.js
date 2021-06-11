@@ -49,6 +49,7 @@ export function PhotographerAvailability() {
     }, [])
 
     console.log(currentUser)
+    console.log(userId)
 
     // Get the photographer id from the UserContext
     // Build the form for the photographer
@@ -63,40 +64,40 @@ export function PhotographerAvailability() {
 
     return (
         <div>
-        {!currentUser ? <h1>Loading...</h1> :
-            <div className="availability-setup-container">
-                <h1>Set up your availability</h1>
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <h2>What are your standard business hours?</h2>
-                        <select onChange={(e) => handleChange("openingTime", e.target.value)} name="openingTime" id="openingTime">
-                            <option value={currentUser.openingTime} selected>{currentUser.openingTime}AM</option>
-                            <option value="06:00">6:00AM</option>
-                            <option value="06:30">6:30AM</option>
-                            <option value="07:00">7:00AM</option>
-                            <option value="07:30">7:30AM</option>
-                            <option value="08:00">8:00AM</option>
-                            <option value="08:30">8:30AM</option>
-                            <option value="09:00">9:00AM</option>
-                            <option value="09:30">9:30AM</option>
-                            <option value="10:00">10:00AM</option>
-                            <option value="10:30">10:30AM</option>
-                        </select>
-                        <select onChange={(e) => handleChange("closingTime", e.target.value)} name="closingTime" id="closingTime">
-                            <option value={currentUser.closingTime} selected>{currentUser.closingTime}PM</option>
-                            <option value="16:00">4:00PM</option>
-                            <option value="16:30">4:30PM</option>
-                            <option value="17:00">5:00PM</option>
-                            <option value="17:30">5:30PM</option>
-                            <option value="18:00">6:00PM</option>
-                            <option value="18:30">6:30PM</option>
-                            <option value="19:00">7:00PM</option>
-                            <option value="19:30">7:30PM</option>
-                            <option value="20:00">8:00PM</option>
-                            <option value="20:30">8:30PM</option>
-                        </select>
-                    </div>
-                    {/* <div>
+            {!currentUser ? <h1>Loading...</h1> :
+                <div className="availability-setup-container">
+                    <h1>Set up your availability</h1>
+                    <form onSubmit={handleSubmit}>
+                        <div>
+                            <h2>What are your standard business hours?</h2>
+                            <select onChange={(e) => handleChange("openingTime", e.target.value)} name="openingTime" id="openingTime">
+                                <option value={currentUser.openingTime} selected>{currentUser.openingTime}AM</option>
+                                <option value="06:00">6:00AM</option>
+                                <option value="06:30">6:30AM</option>
+                                <option value="07:00">7:00AM</option>
+                                <option value="07:30">7:30AM</option>
+                                <option value="08:00">8:00AM</option>
+                                <option value="08:30">8:30AM</option>
+                                <option value="09:00">9:00AM</option>
+                                <option value="09:30">9:30AM</option>
+                                <option value="10:00">10:00AM</option>
+                                <option value="10:30">10:30AM</option>
+                            </select>
+                            <select onChange={(e) => handleChange("closingTime", e.target.value)} name="closingTime" id="closingTime">
+                                <option value={currentUser.closingTime} selected>{currentUser.closingTime}PM</option>
+                                <option value="16:00">4:00PM</option>
+                                <option value="16:30">4:30PM</option>
+                                <option value="17:00">5:00PM</option>
+                                <option value="17:30">5:30PM</option>
+                                <option value="18:00">6:00PM</option>
+                                <option value="18:30">6:30PM</option>
+                                <option value="19:00">7:00PM</option>
+                                <option value="19:30">7:30PM</option>
+                                <option value="20:00">8:00PM</option>
+                                <option value="20:30">8:30PM</option>
+                            </select>
+                        </div>
+                        {/* <div>
                     <h2>Which days of the week are you open?</h2>
                     <div className='week-selector'>
                         <label for="sunday">Sunday</label><br></br>
@@ -115,10 +116,10 @@ export function PhotographerAvailability() {
                         <input onChange={(e) => handleChange("saturday", e.target.checked)} type="checkbox" id="saturday" name="saturday" value="Saturday" checked />
                     </div>
                 </div> */}
-                    <input className="submit-btn" type="submit" value="SAVE" />
-                </form>
-            </div>
-}
-</div>
+                        <input className="submit-btn" type="submit" value="SAVE" />
+                    </form>
+                </div>
+            }
+        </div>
     )
 }

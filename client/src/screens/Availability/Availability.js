@@ -18,14 +18,19 @@ export function Availability() {
     }
 
     useEffect(() => {
-        authToken = window.localStorage.getItem('token');
+        if (!userId) {
 
-        if (!authToken) {
-            history.push('login')
-        } else {
-            API.authorizeUser(authToken)
-                .then(res => updateUser(res.data.email, res.data._id))
-                .catch(err => console.log(err))
+            console.log('useEffect ran');
+
+            authToken = window.localStorage.getItem('token');
+
+            if (!authToken) {
+                history.push('login')
+            } else {
+                API.authorizeUser(authToken)
+                    .then(res => updateUser(res.data.email, res.data._id))
+                    .catch(err => console.log(err))
+            }
         }
     }, [])
 
