@@ -35,8 +35,9 @@ export function PhotographerPackages() {
     function handleSubmit(e) {
         e.preventDefault();
         setModalIsOpen(false);
+        // setExistingPackages(prevState => setExistingPackages(newPackage))
         API.createNewPackage(userId, newPackage)
-            .then(res => setExistingPackages(prevState => setExistingPackages(res.data)))
+            .then(res => history.push('/packages'))
             .catch(err => console.log(err))
     }
 
@@ -46,7 +47,7 @@ export function PhotographerPackages() {
                 .then(res => setExistingPackages(res.data))
                 .catch(err => console.log(err))
         }
-    }, [])
+    }, [existingPackages])
 
     const emptyState = () => {
         if (existingPackages) {
