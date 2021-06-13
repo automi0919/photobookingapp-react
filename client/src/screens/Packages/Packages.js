@@ -34,15 +34,16 @@ export function Packages() {
 
     return (
         <div>
+        {userId &&
             <div className="body-container">
                 <div className="left-nav">
                     <LeftNav />
                 </div>
-                {userId &&
+                {/* {userId && */}
                     <div className="body-content-container">
                         <PhotographerPackages />
-                    </div>}
-            </div>
+                    </div>
+            </div>}
         </div>
     )
 }
