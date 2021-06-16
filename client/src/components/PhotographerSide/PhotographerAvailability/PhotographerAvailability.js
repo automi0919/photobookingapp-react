@@ -45,6 +45,24 @@ export function PhotographerAvailability() {
         }
     }, [])
 
+    // console.log(currentUser);
+
+    function formatTime(time) {
+        let formattedHour;
+        let formattedMinute;
+        let amOrPM = "AM"
+        console.log(time);
+        let timeArray = time.split(':')
+        console.log(timeArray);
+        if (timeArray[0] < 12){
+            return `${time} AM`;
+        } else {
+            formattedHour = timeArray[0] - 12
+            amOrPM = "PM"
+            return `${formattedHour}:${timeArray[1]} PM`;
+        }
+    }
+
     return (
         <div>
             {currentUser &&
@@ -54,7 +72,7 @@ export function PhotographerAvailability() {
                         <div>
                             <h2>What are your standard business hours?</h2>
                             <select onChange={(e) => handleChange("openingTime", e.target.value)} name="openingTime" id="openingTime">
-                                <option value={currentUser.openingTime} selected>{currentUser.openingTime}AM</option>
+                                <option value={currentUser.openingTime} selected>{formatTime(currentUser.openingTime)}</option>
                                 <option value="06:00">6:00AM</option>
                                 <option value="06:30">6:30AM</option>
                                 <option value="07:00">7:00AM</option>
@@ -67,7 +85,7 @@ export function PhotographerAvailability() {
                                 <option value="10:30">10:30AM</option>
                             </select>
                             <select onChange={(e) => handleChange("closingTime", e.target.value)} name="closingTime" id="closingTime">
-                                <option value={currentUser.closingTime} selected>{currentUser.closingTime}PM</option>
+                                <option value={currentUser.closingTime} selected>{formatTime(currentUser.closingTime)}</option>
                                 <option value="16:00">4:00PM</option>
                                 <option value="16:30">4:30PM</option>
                                 <option value="17:00">5:00PM</option>
