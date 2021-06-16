@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { EnterAddress } from "./components/ClientSide/EnterAddress/EnterAddress";
 import { Confirmation } from './components/ClientSide/Confirmation/Confirmation';
 import { SelectTime } from './components/ClientSide/SelectTime/SelectTime';
+import { SelectTime2 } from './components/ClientSide/SelectTime2/SelectTime2';
 import { ClientInfo } from './components/ClientSide/ClientInfo/ClientInfo';
 import { ConfirmPackage } from './components/ClientSide/ConfirmPackage/ConfirmPackage';
 import { Dashboard } from './screens/Dashboard/Dashboard';
@@ -80,7 +81,7 @@ function App() {
             <ConfirmPackage appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
           </Route>
           <Route exact path="/book/select-time/:id">
-            <SelectTime appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
+            <SelectTime2 appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
           </Route>
           <Route exact path="/book/add-info/:id">
             <ClientInfo appointmentData={appointmentData} setAppointmentData={setAppointmentData} />

@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import UserContext from "../../../utils/UserContext";
 import './PhotographerAvail.css';
 import API from '../../../utils/API';
+import helper from '../../../utils/helper';
 
 export function PhotographerAvailability() {
 
@@ -47,17 +48,17 @@ export function PhotographerAvailability() {
 
     // console.log(currentUser);
 
-    function formatTime(time) {
+    // function formatTime(time) {
 
-        let timeArray = time.split(':')
+    //     let timeArray = time.split(':')
 
-        if (timeArray[0] < 12) {
-            return `${time} AM`;
-        } else {
-            timeArray[0] = timeArray[0] - 12
-            return `${timeArray[0]}:${timeArray[1]} PM`;
-        }
-    }
+    //     if (timeArray[0] < 12) {
+    //         return `${time} AM`;
+    //     } else {
+    //         timeArray[0] = timeArray[0] - 12
+    //         return `${timeArray[0]}:${timeArray[1]} PM`;
+    //     }
+    // }
 
     return (
         <div>
@@ -68,7 +69,11 @@ export function PhotographerAvailability() {
                         <div>
                             <h2>What are your standard business hours?</h2>
                             <select onChange={(e) => handleChange("openingTime", e.target.value)} name="openingTime" id="openingTime">
-                                <option value={currentUser.openingTime} selected>{formatTime(currentUser.openingTime)}</option>
+                                <option value={currentUser.openingTime} selected>{helper.formatTime(currentUser.openingTime)}</option>
+                                <option value="4:00">4:00AM</option>
+                                <option value="4:00">4:30AM</option>
+                                <option value="5:00">5:00AM</option>
+                                <option value="5:30">5:30AM</option>
                                 <option value="6:00">6:00AM</option>
                                 <option value="6:30">6:30AM</option>
                                 <option value="7:00">7:00AM</option>
@@ -79,9 +84,13 @@ export function PhotographerAvailability() {
                                 <option value="9:30">9:30AM</option>
                                 <option value="10:00">10:00AM</option>
                                 <option value="10:30">10:30AM</option>
+                                <option value="11:00">11:00AM</option>
+                                <option value="11:30">11:30AM</option>
                             </select>
                             <select onChange={(e) => handleChange("closingTime", e.target.value)} name="closingTime" id="closingTime">
-                                <option value={currentUser.closingTime} selected>{formatTime(currentUser.closingTime)}</option>
+                                <option value={currentUser.closingTime} selected>{helper.formatTime(currentUser.closingTime)}</option>
+                                <option value="15:00">3:00PM</option>
+                                <option value="15:30">3:30PM</option>
                                 <option value="16:00">4:00PM</option>
                                 <option value="16:30">4:30PM</option>
                                 <option value="17:00">5:00PM</option>
@@ -92,6 +101,10 @@ export function PhotographerAvailability() {
                                 <option value="19:30">7:30PM</option>
                                 <option value="20:00">8:00PM</option>
                                 <option value="20:30">8:30PM</option>
+                                <option value="21:00">9:00PM</option>
+                                <option value="21:30">9:30PM</option>
+                                <option value="22:00">10:00PM</option>
+                                <option value="22:30">10:30PM</option>
                             </select>
                         </div>
                         {/* <div>

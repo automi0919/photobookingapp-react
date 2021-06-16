@@ -1,10 +1,10 @@
 
-.e-event-delete, .e-event-save, .e-event-cancel, .e-event-create { 
-    display: none; 
-} 
-  
+.e-event-delete, .e-event-save, .e-event-cancel, .e-event-create {
+    display: none;
+}
+
 .e-quick-popup-wrapper .e-event-popup .e-popup-header .e-header-icon-wrapper .e-delete {
-    display: none; 
+    display: none;
   }
 
 .e-schedule-form {
@@ -29,7 +29,7 @@
     height: 40px;
     padding-left: 40px;
     padding-right: 40px;
-    background: linear-gradient( 
+    background: linear-gradient(
         21deg
          , rgba(2,0,36,1) 0%, rgb(172, 23, 23) 0%, rgb(225, 32, 6) 100%);
     color: #f3f3f3;
@@ -46,6 +46,13 @@
 }
 
 .e-dlg-content {
-    
+
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 

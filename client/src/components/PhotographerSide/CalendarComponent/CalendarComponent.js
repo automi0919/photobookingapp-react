@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import UserContext from '../../../utils/UserContext';
 import API from '../../../utils/API';
 import { Inject, ScheduleComponent, Day, Week, Month } from '@syncfusion/ej2-react-schedule';
-import "./CalendarComponent.css"
+import "./CalendarComponent.css";
+import LoadingAnimation from '../../../assets/loading-icon-animated-gif-6.jpeg';
 
 
 export function CalendarComponent() {
@@ -80,12 +81,17 @@ export function CalendarComponent() {
 
     return (
         <div>
-            {!currentUser ? <h1>Loading...</h1> : <div>
-                <ScheduleComponent allowDragAndDrop={false} width='100%' height='650px' startHour='08:00' endHour='20:00' workHours={{ highlight: true, start: currentUser.openingTime, end: currentUser.closingTime }}
-                    eventSettings={localData} editorTemplate={template}>
-                    <Inject services={[Day, Week, Month]} />
-                </ScheduleComponent>
-            </div>}
+            {!currentUser ?
+                <div className="loading">
+                    <img src={LoadingAnimation} width="100" />
+                </div>
+                :
+                <div>
+                    <ScheduleComponent allowDragAndDrop={false} width='100%' height='650px' startHour='06:00' endHour='24:00' workHours={{ highlight: true, start: currentUser.openingTime, end: currentUser.closingTime }}
+                        eventSettings={localData} editorTemplate={template}>
+                        <Inject services={[Day, Week, Month]} />
+                    </ScheduleComponent>
+                </div>}
         </div>
     )
 }
