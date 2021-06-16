@@ -23,7 +23,7 @@ export function PhotographerPackages() {
         photographerId: userId
     })
 
-    let modalSaveBtn = <button className="book-btn" onClick={handleSubmit}>Save</button>
+    let modalSaveBtn = <button className="book-btn" onClick={handleSubmit}>SAVE</button>
 
     function handleChange(field, value) {
         setNewPackage(prevState => {
@@ -56,7 +56,7 @@ export function PhotographerPackages() {
             if (existingPackages.length === 0) {
                 return <div className="empty-state">
                     <h1>Create Your First Package Today</h1>
-                    <button className="new-appointment" onClick={() => setModalIsOpen(true)}>Create New Package</button>
+                    <button className="new-appointment" onClick={() => setModalIsOpen(true)}>CREATE NEW PACKAGE</button>
                 </div>
             }
         }
@@ -67,7 +67,7 @@ export function PhotographerPackages() {
             <div className="availability-setup-container">
                 <div className="availability-setup-container-header">
                     <h1>Set up your packages</h1>
-                    <button className="new-appointment" onClick={() => setModalIsOpen(true)}>Create New Package</button>
+                    <button className="new-appointment" onClick={() => setModalIsOpen(true)}>CREATE NEW PACKAGE</button>
                 </div>
 
 
@@ -138,7 +138,7 @@ export function PhotographerPackages() {
                             />
                         </form>
                         <div className="modal-btn-container">
-                            <button id="back-button" onClick={() => setModalIsOpen(false)}>Close</button>
+                            <button id="back-button" onClick={() => setModalIsOpen(false)}>CLOSE</button>
                             {modalSaveBtn}
                         </div>
                     </div>

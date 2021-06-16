@@ -27,6 +27,7 @@
     "@syncfusion/ej2-react-schedule": "^19.1.65",
     "axios": "^0.18.1",
     "bcryptjs": "^2.4.3",
+    "dayjs": "^1.10.5",
     "dotenv": "^10.0.0",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
