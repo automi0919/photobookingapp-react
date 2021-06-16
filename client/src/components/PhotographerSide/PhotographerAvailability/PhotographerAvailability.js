@@ -48,18 +48,14 @@ export function PhotographerAvailability() {
     // console.log(currentUser);
 
     function formatTime(time) {
-        let formattedHour;
-        let formattedMinute;
-        let amOrPM = "AM"
-        console.log(time);
+
         let timeArray = time.split(':')
-        console.log(timeArray);
-        if (timeArray[0] < 12){
+
+        if (timeArray[0] < 12) {
             return `${time} AM`;
         } else {
-            formattedHour = timeArray[0] - 12
-            amOrPM = "PM"
-            return `${formattedHour}:${timeArray[1]} PM`;
+            timeArray[0] = timeArray[0] - 12
+            return `${timeArray[0]}:${timeArray[1]} PM`;
         }
     }
 
@@ -73,14 +69,14 @@ export function PhotographerAvailability() {
                             <h2>What are your standard business hours?</h2>
                             <select onChange={(e) => handleChange("openingTime", e.target.value)} name="openingTime" id="openingTime">
                                 <option value={currentUser.openingTime} selected>{formatTime(currentUser.openingTime)}</option>
-                                <option value="06:00">6:00AM</option>
-                                <option value="06:30">6:30AM</option>
-                                <option value="07:00">7:00AM</option>
-                                <option value="07:30">7:30AM</option>
-                                <option value="08:00">8:00AM</option>
-                                <option value="08:30">8:30AM</option>
-                                <option value="09:00">9:00AM</option>
-                                <option value="09:30">9:30AM</option>
+                                <option value="6:00">6:00AM</option>
+                                <option value="6:30">6:30AM</option>
+                                <option value="7:00">7:00AM</option>
+                                <option value="7:30">7:30AM</option>
+                                <option value="8:00">8:00AM</option>
+                                <option value="8:30">8:30AM</option>
+                                <option value="9:00">9:00AM</option>
+                                <option value="9:30">9:30AM</option>
                                 <option value="10:00">10:00AM</option>
                                 <option value="10:30">10:30AM</option>
                             </select>
