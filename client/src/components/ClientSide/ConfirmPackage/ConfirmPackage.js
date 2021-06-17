@@ -63,7 +63,7 @@ export function ConfirmPackage({ appointmentData, setAppointmentData }) {
                         <h1>Confirm Your Package</h1>
                     </div>
                     <div>
-                        {!appointmentData.sq_ft ? <h2>Loading Property Data...</h2> : <h2>That property is {appointmentData.sq_ft} square feet which is {appointmentData.price}.</h2>}
+                        {!appointmentData.sq_ft ? <h2>Loading Property Data...</h2> : <h2>That property is {appointmentData.sq_ft} square feet which is ${appointmentData.price}.</h2>}
                     </div>
                     <div className="button-wrapper">
                         <button id="back-button" onClick={() => history.goBack()}>BACK</button>
