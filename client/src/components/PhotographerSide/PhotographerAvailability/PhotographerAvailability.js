@@ -46,19 +46,7 @@ export function PhotographerAvailability() {
         }
     }, [])
 
-    // console.log(currentUser);
-
-    // function formatTime(time) {
-
-    //     let timeArray = time.split(':')
-
-    //     if (timeArray[0] < 12) {
-    //         return `${time} AM`;
-    //     } else {
-    //         timeArray[0] = timeArray[0] - 12
-    //         return `${timeArray[0]}:${timeArray[1]} PM`;
-    //     }
-    // }
+    console.log(currentUser);
 
     return (
         <div>
@@ -127,6 +115,24 @@ export function PhotographerAvailability() {
                     </div>
                 </div> */}
                         <input className="submit-btn" type="submit" value="SAVE" />
+                    </form>
+                    <form onSubmit={handleSubmit}>
+                        <div>
+                            <h2>What interval would you like clients to be able to book appointments at?</h2>
+                            <h3>Ex: Selecting 15 minutes will give clients the chance to book an appointment at 1:00, 1:15, 1:30, 1:45, ETC</h3>
+                                <select onChange={(e) => handleChange("appointmentInterval", parseInt(e.target.value))} name="appointmentInterval" id="appointmentInterval">
+                                    <option value={currentUser.appointmentInterval} selected>{currentUser.appointmentInterval}</option>
+                                    <option value='15'>15</option>
+                                    <option value="30">30</option>
+                                    <option value="45">45</option>
+                                    <option value="60">60</option>
+                                    <option value="75">75</option>
+                                    <option value="90">90</option>
+                                    <option value="105">105</option>
+                                    <option value="120">120</option>
+                                </select>
+                        </div>
+                            <input className="submit-btn" type="submit" value="SAVE" />
                     </form>
                 </div>
             }

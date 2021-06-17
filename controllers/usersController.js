@@ -87,7 +87,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   updateUser: function (req, res) {
-    db.User.findOneAndUpdate({ _id: req.body.params._id }, { openingTime: req.body.params.update.openingTime, closingTime: req.body.params.update.closingTime })
+    db.User.findOneAndUpdate({ _id: req.body.params._id }, { openingTime: req.body.params.update.openingTime, closingTime: req.body.params.update.closingTime, appointmentInterval: req.body.params.update.appointmentInterval })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

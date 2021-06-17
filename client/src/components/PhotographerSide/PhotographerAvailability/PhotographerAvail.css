@@ -33,6 +33,14 @@ form {
     background-color: transparent;
 }
 
-#openingTime, #closingTime {
+#openingTime, #closingTime, #appointmentInterval {
     font-size: 16px;
+}
+
+h3 {
+    text-align: center;
+}
+
+form {
+    padding-bottom: 40px;
 }
