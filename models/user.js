@@ -36,6 +36,10 @@ const userSchema = new Schema(
     closingTime: {
       type: String,
       default: '18:00'
+    },
+    appointmentInterval: {
+      type: Number,
+      default: 30
     }
   });
 
