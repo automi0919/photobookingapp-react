@@ -51,10 +51,12 @@ export function SelectTime2({ appointmentData, setAppointmentData }) {
 
             let openingTime = dayjs().add(1, 'day').set('hour', openingTimeArray[0]).set('minute', openingTimeArray[1]).set('second', 0).set('millisecond', 0);
             let closingTime = dayjs().add(1, 'day').set('hour', closingTimeArray[0]).set('minute', closingTimeArray[1]).set('second', 0);
+            console.log(openingTime.valueOf());
+            console.log(closingTime.valueOf());
 
-            let appointmentInterval = 60;
+            let appointmentInterval = 30;
 
-            for (let i = 0; i < 4; i++) {
+            for (let i = 0; openingTime.valueOf() < (closingTime.valueOf() - 1000); i++) {
                 tempAvail.push(openingTime)
                 setAvailability(tempAvail);
                 openingTime = openingTime.add(appointmentInterval, 'minute')
