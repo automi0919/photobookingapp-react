@@ -13,39 +13,9 @@ export function SelectTime2({ appointmentData, setAppointmentData }) {
     const [appointments, setAppointments] = useState()
     const [photographerData, setPhotographerData] = useState()
     const [availability, setAvailability] = useState([])
-    // const availability = ['9:00 - 10:30', '11:00 - 12:30', '1:00 - 2:30', '3:00 - 4:30', '5:00 - 6:30'];
 
-    // const availability = [{
-    //     startTimeDisplay: '9:00',
-    //     endTimeDisplay: '10:30',
-    //     startTime: '9:0',
-    //     endTime: '10:30'
-    // },
-    // {
-    //     startTimeDisplay: '11:00',
-    //     endTimeDisplay: '12:30',
-    //     startTime: '11:0',
-    //     endTime: '12:30'
-    // },
-    // {
-    //     startTimeDisplay: '1:00',
-    //     endTimeDisplay: '2:30',
-    //     startTime: '13:0',
-    //     endTime: '14:30'
-    // },
-    // {
-    //     startTimeDisplay: '3:00',
-    //     endTimeDisplay: '4:30',
-    //     startTime: '15:0',
-    //     endTime: '16:30'
-    // },
-    // {
-    //     startTimeDisplay: '5:00',
-    //     endTimeDisplay: '6:30',
-    //     startTime: '17:0',
-    //     endTime: '18:30'
-    // },
-    // ];
+    let tempAvail = []
+
     let history = useHistory();
 
     function handleChange(startTimeValue, endTimeValue) {
@@ -83,19 +53,10 @@ export function SelectTime2({ appointmentData, setAppointmentData }) {
 
             let appointmentInterval = 30;
 
-            for (let i = 0; i < 5; i++) {
-                // setAvailability(prevState => {
-                //     return {
-                //         ...prevState,
-                //         startTime: openingTime.$d
-                //     }
-                // })
-                // availability.push(openingTime.$d);
-                setAvailability(availability => availability.concat(openingTime))
+            for (let i = 0; i < 4; i++) {
+                tempAvail.push(openingTime)
+                setAvailability(tempAvail);
                 openingTime = openingTime.add(appointmentInterval, 'minute')
-                // setAvailability({
-                //     availability: [...availability, openingTime]
-                // })
             }
         }
     }
@@ -109,38 +70,6 @@ export function SelectTime2({ appointmentData, setAppointmentData }) {
             .then((res) => setAppointments(res.data))
             .catch(err => console.log(err))
     };
-
-    // function chooseSlot() {
-    //     if (availability) {
-    //         return availability.map((slot) => <li>Test</li>);
-    //     }
-    //     // {!availability ? <div><h2>Loading</h2></div> : availability.map((slot) => (
-    //     //     return <div className="inputs">
-    //     //         <input
-    //     //             className="slot-inputs"
-    //     //             type="radio"
-    //     //             id={slot.$d}
-    //     //             startTime={slot.$d}
-    //     //             // endTime={slot.endTime}
-    //     //             value={slot.$d}
-    //     //             // key={slot}
-    //     //             name="appointmentSelection"
-    //     //             // onChange={(e) => handleChange(e.target.attributes.startTime.value, e.target.attributes.endTime.value)}
-    //     //             hidden={appointments.some(appt => appt.startTime === slot.startTime)}
-    //     //         // checked={appointmentData.startTime === slot.startTime}
-    //     //         />
-    //     //         <label
-    //     //             for={slot.$d}
-    //     //             className="slot-labels"
-    //     //         // className={appointments.some(appt => appt.startTime === slot.startTime)}>
-    //     //         // hidden={appointments.some(appt => appt.startTime === slot.startTime)}
-    //     //         >
-    //     //             {slot.$d}
-    //     //         </label>
-    //     //     </div>
-    //     // ))}
-
-    // }
 
     useEffect(() => {
         // if (!appointmentData.date) {
@@ -164,12 +93,6 @@ export function SelectTime2({ appointmentData, setAppointmentData }) {
         generateTimeSlots();
     }, [photographerData])
 
-    // useEffect(() => {
-    //     if (availability) {
-    //         console.log(availability[0].format('m/d h:mm A'));
-    //     }
-    // })
-
     console.log(availability);
 
 
@@ -192,33 +115,33 @@ export function SelectTime2({ appointmentData, setAppointmentData }) {
                         </div>
                     </div>
                     <div className="choose-time-button-container">
-                            {availability ? availability.map((slot) => (
-                                <div className="inputs">
-                                    <input
-                                        className="slot-inputs"
-                                        type="radio"
-                                        id={slot}
-                                        startTime={slot}
-                                        endTime={slot}
-                                        value={slot}
-                                        key={slot}
-                                        name="appointmentSelection"
-                                        // onChange={(e) => handleChange(e.target.attributes.startTime.value, e.target.attributes.endTime.value)}
-                                        // hidden={appointments.some(appt => appt.startTime === slot.startTime)}
-                                        // checked={appointmentData.startTime === slot.startTime}
-                                    />
-                                    <label
-                                        for={slot}
-                                        className="slot-labels"
-                                        // className={appointments.some(appt => appt.startTime === slot.startTime)}>
-                                        // hidden={appointments.some(appt => appt.startTime === slot.startTime)}
-                                        >
-                                        {slot.format('h:mm A')}
-                                    </label>
-                                    {/* <span>{slot.startTimeDisplay} - {slot.endTimeDisplay}</span> */}
-                                </div>
-                            )) : <div className="table-loading">Loading</div>}
-                        </div>
+                        {availability ? availability.map((slot) => (
+                            <div className="inputs">
+                                <input
+                                    className="slot-inputs"
+                                    type="radio"
+                                    id={slot}
+                                    startTime={slot}
+                                    endTime={slot}
+                                    value={slot}
+                                    key={slot}
+                                    name="appointmentSelection"
+                                // onChange={(e) => handleChange(e.target.attributes.startTime.value, e.target.attributes.endTime.value)}
+                                // hidden={appointments.some(appt => appt.startTime === slot.startTime)}
+                                // checked={appointmentData.startTime === slot.startTime}
+                                />
+                                <label
+                                    for={slot}
+                                    className="slot-labels"
+                                // className={appointments.some(appt => appt.startTime === slot.startTime)}>
+                                // hidden={appointments.some(appt => appt.startTime === slot.startTime)}
+                                >
+                                    {slot.format('h:mm A')}
+                                </label>
+                                {/* <span>{slot.startTimeDisplay} - {slot.endTimeDisplay}</span> */}
+                            </div>
+                        )) : <div className="table-loading">Loading</div>}
+                    </div>
                     <div className="button-wrapper">
                         <button id="back-button" onClick={() => history.goBack()}>BACK</button>
                         <button className="book-btn" onClick={handleSubmit}>NEXT STEP</button>
