@@ -40,7 +40,7 @@ export function PhotographerPackages() {
         setModalIsOpen(false);
         // setExistingPackages(prevState => setExistingPackages(newPackage))
         API.createNewPackage(userId, newPackage)
-            .then(res => history.push('/packages'))
+            .then(res => history.redirect('/packages'))
             .catch(err => console.log(err))
     }
 
@@ -50,7 +50,7 @@ export function PhotographerPackages() {
                 .then(res => setExistingPackages(res.data))
                 .catch(err => console.log(err))
         }
-    }, [])
+    }, [modalIsOpen])
 
     const emptyState = () => {
         if (existingPackages) {
