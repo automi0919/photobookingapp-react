@@ -122,7 +122,7 @@ export function SelectTime2({ appointmentData, setAppointmentData }) {
                                     type="radio"
                                     id={slot}
                                     startTime={slot.format()}
-                                    endTime={dayjs(slot).add(1, 'hour').format()}
+                                    endTime={dayjs(slot).add(appointmentData.duration, 'minute').format()}
                                     value={slot}
                                     key={slot}
                                     name="appointmentSelection"

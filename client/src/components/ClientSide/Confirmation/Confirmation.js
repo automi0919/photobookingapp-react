@@ -3,6 +3,8 @@ import { CurrentStep } from '../CurrentStep/CurrentStep';
 
 export function Confirmation({ appointmentData }) {
 
+    var dayjs = require('dayjs')
+
     return (
         <div className="page-wrapper">
             <div className="book-wrapper">
@@ -20,7 +22,7 @@ export function Confirmation({ appointmentData }) {
                         <h1>Appointment Confirmed</h1>
                         <h2>You're all set. The details of your appointment are below.</h2>
                         <hr></hr>
-                        <p><b>Appointment Date/Time:</b> {appointmentData.date}</p>
+                        <p><b>Appointment Date/Time:</b> {dayjs(appointmentData.startTime).format('MMMM D, YYYY h:mm A')}</p>
                         <p><b>Address:</b> {appointmentData.street} {appointmentData.city} {appointmentData.state} {appointmentData.zip}</p>
                     </div>
                     {/* <div>
