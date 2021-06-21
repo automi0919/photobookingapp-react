@@ -20,6 +20,7 @@ export function PhotographerPackages() {
         sq_ft_min: null,
         sq_ft_max: null,
         price: null,
+        duration: null,
         photographerId: userId
     })
 
@@ -49,7 +50,7 @@ export function PhotographerPackages() {
                 .then(res => setExistingPackages(res.data))
                 .catch(err => console.log(err))
         }
-    }, [modalSaveBtn])
+    }, [])
 
     const emptyState = () => {
         if (existingPackages) {
@@ -61,6 +62,8 @@ export function PhotographerPackages() {
             }
         }
     }
+
+    console.log(newPackage);
 
     return (
         <div>
@@ -135,6 +138,18 @@ export function PhotographerPackages() {
                                 max="10000.00"
                                 step="0.01"
                                 onChange={(e) => handleChange("price", e.target.value)}
+                            />
+                            <label
+                                className="package-form-label"
+                                for="duration">
+                                What is the duration of this shoot? (In minutes)</label>
+                            <input
+                                type="number"
+                                id="duration"
+                                min="1"
+                                max="10000"
+                                step="1"
+                                onChange={(e) => handleChange("duration", e.target.value)}
                             />
                         </form>
                         <div className="modal-btn-container">

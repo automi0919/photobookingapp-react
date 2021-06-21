@@ -82,7 +82,7 @@ function App() {
             <ConfirmPackage appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
           </Route>
           <Route exact path="/book/select-time/:id">
-            <SelectTime appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
+            <SelectTime2 appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
           </Route>
           <Route exact path="/book/add-info/:id">
             <ClientInfo appointmentData={appointmentData} setAppointmentData={setAppointmentData} />
