@@ -22,7 +22,8 @@ export function ConfirmPackage({ appointmentData, setAppointmentData }) {
                         return {
                             ...prevState,
                             package: photoPackage.package,
-                            price: photoPackage.price
+                            price: photoPackage.price,
+                            duration: photoPackage.duration,
                         }
                     })
                 }
@@ -45,6 +46,7 @@ export function ConfirmPackage({ appointmentData, setAppointmentData }) {
     }, [])
 
     console.log(existingPackages)
+    console.log(appointmentData);
 
     return (
         <div className='page-wrapper'>
