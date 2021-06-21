@@ -54,8 +54,6 @@ export function SelectTime2({ appointmentData, setAppointmentData }) {
             console.log(openingTime.valueOf());
             console.log(closingTime.valueOf());
 
-            // let appointmentInterval = 30;
-
             for (let i = 0; openingTime.valueOf() < (closingTime.valueOf()); i++) {
                 tempAvail.push(openingTime)
                 setAvailability(tempAvail);
@@ -96,8 +94,7 @@ export function SelectTime2({ appointmentData, setAppointmentData }) {
         generateTimeSlots();
     }, [photographerData])
 
-    console.log(availability);
-
+    console.log(appointmentData);
 
     return (
         <div className="page-wrapper">
@@ -124,14 +121,14 @@ export function SelectTime2({ appointmentData, setAppointmentData }) {
                                     className="slot-inputs"
                                     type="radio"
                                     id={slot}
-                                    startTime={slot}
-                                    endTime={slot}
+                                    startTime={slot.format()}
+                                    endTime={dayjs(slot).add(1, 'hour').format()}
                                     value={slot}
                                     key={slot}
                                     name="appointmentSelection"
-                                // onChange={(e) => handleChange(e.target.attributes.startTime.value, e.target.attributes.endTime.value)}
-                                // hidden={appointments.some(appt => appt.startTime === slot.startTime)}
-                                // checked={appointmentData.startTime === slot.startTime}
+                                    onChange={(e) => handleChange(e.target.attributes.startTime.value, e.target.attributes.endTime.value)}
+                                    // hidden={appointments.some(appt => appt.startTime === slot.format())}
+                                    checked={appointmentData.startTime === slot.format()}
                                 />
                                 <label
                                     for={slot}
@@ -140,6 +137,7 @@ export function SelectTime2({ appointmentData, setAppointmentData }) {
                                 // hidden={appointments.some(appt => appt.startTime === slot.startTime)}
                                 >
                                     {slot.format('h:mm A')}
+                                    {/* {slot.format()} */}
                                 </label>
                                 {/* <span>{slot.startTimeDisplay} - {slot.endTimeDisplay}</span> */}
                             </div>

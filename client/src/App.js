@@ -47,6 +47,7 @@ function App() {
     photographerId: '',
     startTime: null,
     endTime: null,
+    duration: null,
     status: 'active',
   });
 

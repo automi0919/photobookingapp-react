@@ -39,7 +39,7 @@ export default {
     })
   },
   getPackageData: function (userId) {
-    console.log(userId)
+    // console.log(userId)
     return axios.get('/api/packages/', {
       params: {
         _id: userId
