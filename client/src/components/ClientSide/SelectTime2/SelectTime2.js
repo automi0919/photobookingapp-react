@@ -128,14 +128,22 @@ export function SelectTime2({ appointmentData, setAppointmentData }) {
                                     key={slot}
                                     name="appointmentSelection"
                                     onChange={(e) => handleChange(e.target.attributes.startTime.value, e.target.attributes.endTime.value)}
-                                    hidden={appointments.some(appt => appt.startTime === slot.format())}
+                                    hidden={appointments.some(appt =>
+                                    (((appt.startTime >= slot.format()) && (appt.startTime <= dayjs(slot).add(appointmentData.duration, 'minute').format()))
+                                        ||
+                                        ((appt.endTime >= slot.format()) && (appt.endTime <= dayjs(slot).add(appointmentData.duration, 'minute').format())))
+                                    )}
                                     checked={appointmentData.startTime === slot.format()}
                                 />
                                 <label
                                     for={slot}
                                     className="slot-labels"
-                                // className={appointments.some(appt => appt.startTime === slot.startTime)}>
-                                hidden={appointments.some(appt => appt.startTime === slot.format())}
+                                    // className={appointments.some(appt => appt.startTime === slot.startTime)}>
+                                    hidden={appointments.some(appt =>
+                                    (((appt.startTime >= slot.format()) && (appt.startTime <= dayjs(slot).add(appointmentData.duration, 'minute').format()))
+                                        ||
+                                        ((appt.endTime >= slot.format()) && (appt.endTime <= dayjs(slot).add(appointmentData.duration, 'minute').format())))
+                                    )}
                                 >
                                     {slot.format('h:mm A')}
                                     {/* {slot.format()} */}
