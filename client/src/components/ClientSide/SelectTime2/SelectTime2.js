@@ -95,6 +95,7 @@ export function SelectTime2({ appointmentData, setAppointmentData }) {
     }, [photographerData])
 
     console.log(appointmentData);
+    console.log(appointments);
 
     return (
         <div className="page-wrapper">
@@ -115,7 +116,7 @@ export function SelectTime2({ appointmentData, setAppointmentData }) {
                         </div>
                     </div>
                     <div className="choose-time-button-container">
-                        {availability ? availability.map((slot) => (
+                        {appointments ? availability.map((slot) => (
                             <div className="inputs">
                                 <input
                                     className="slot-inputs"
@@ -127,14 +128,14 @@ export function SelectTime2({ appointmentData, setAppointmentData }) {
                                     key={slot}
                                     name="appointmentSelection"
                                     onChange={(e) => handleChange(e.target.attributes.startTime.value, e.target.attributes.endTime.value)}
-                                    // hidden={appointments.some(appt => appt.startTime === slot.format())}
+                                    hidden={appointments.some(appt => appt.startTime === slot.format())}
                                     checked={appointmentData.startTime === slot.format()}
                                 />
                                 <label
                                     for={slot}
                                     className="slot-labels"
                                 // className={appointments.some(appt => appt.startTime === slot.startTime)}>
-                                // hidden={appointments.some(appt => appt.startTime === slot.startTime)}
+                                hidden={appointments.some(appt => appt.startTime === slot.format())}
                                 >
                                     {slot.format('h:mm A')}
                                     {/* {slot.format()} */}
